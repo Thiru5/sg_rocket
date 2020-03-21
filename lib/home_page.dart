@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.center,
             child: Container(
-              child: Text("${GetCurrentPosition}",
+              child: Text('Normal',
                   style: TextStyle(color: Colors.green)),
             ),
           ),
