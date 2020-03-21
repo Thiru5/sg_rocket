@@ -1,30 +1,27 @@
+import 'dart:async';
+import 'package:google_maps_webservice/places.dart';
+import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sg_rocket/models/user_location.dart';
-import 'package:sg_rocket/services/location_service.dart';
-import 'package:sg_rocket/views/home_view.dart';
+import 'package:sg_rocket/location.dart';
 
-/*class HomePage extends StatefulWidget {
+const kGoogleApiKey = "AIzaSyAHcoA9CSP9rcioIVhwuKMssTA8A0ywIJg";
+
+// to get places detail (lat/lng)
+GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: kGoogleApiKey);
+
+final homeScaffoldKey = GlobalKey<ScaffoldState>();
+final searchScaffoldKey = GlobalKey<ScaffoldState>();
+
+class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  var _position;
-  void initState() {
-    super.initState();
-    Geolocator().getCurrentPosition().then((currloc) {
-      setState(() {
-        _position = currloc;
-      });
-    });
-  }
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: <Widget>[
           Align(
             alignment: Alignment.center,
@@ -42,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Image.asset('assets/location.png',
-              alignment: Alignment.center, width: 115.5, height: 145),
+              alignment: Alignment.center, width: 50.0, height: 100),
           Align(
               alignment: Alignment.center,
               child: Container(
@@ -51,40 +48,92 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 30.0,
                         color: Colors.grey,
                       )))),
-          
-          FlatButton(
-            onPressed: () {},
-            child: Text(
-              'Change',
-              style: TextStyle(
-                color: Colors.black,
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+              child: Text("${GetCurrentPosition}",
+                  style: TextStyle(color: Colors.green)),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 160.0),
+            child: FlatButton(
+              onPressed: _handlePressButton,
+              child: Text(
+                'Change',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+              color: Colors.amber[300],
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            child: TextFormField(
+              decoration: new InputDecoration(
+                fillColor: Colors.amber[100],
+                filled: true,
+                hintText: "Enter Destination",
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.orange[200], width: 3.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.orange[200], width: 3.0),
+                ),
               ),
             ),
-            color: Colors.yellow,
-          )
-
+            padding: EdgeInsets.only(
+                left: 30.0, right: 30.0, top: 20.0, bottom: 140.0),
+          ),
+          Container(
+              width: 70,
+              height: 70,
+              child: FlatButton(
+                onPressed: () {},
+                child: Text("Confirm"),
+                color: Colors.amber[300],
+                shape: CircleBorder(
+                    side: BorderSide(
+                        width: 2,
+                        color: Colors.amber[300],
+                        style: BorderStyle.solid)),
+              ))
         ],
       ),
     );
   }
-} 
 
-getPlace(Position _position) async {
-  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
-  List<Placemark> newPlace = await geolocator.placemarkFromCoordinates(
-      _position.latitude, _position.longitude);
-  Placemark placeMark = newPlace[0];
-  print(placeMark.name);
-  /*location.name = placeMark.name;
-  location.postalCode = placeMark.postalCode;
-  location.country = placeMark.country;*/
-} */
+  void onError(PlacesAutocompleteResponse response) {
+    homeScaffoldKey.currentState.showSnackBar(
+      SnackBar(content: Text(response.errorMessage)),
+    );
+  }
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return StreamProvider<UserLocation>(
-      builder: (context) => LocationService().locationStream,
-      child: MaterialApp(home: HomeView()));
+  Future<void> _handlePressButton() async {
+    // show input autocomplete with selected mode
+    // then get the Prediction selected
+    Prediction p = await PlacesAutocomplete.show(
+      context: context,
+      apiKey: kGoogleApiKey,
+      onError: onError,
+      language: "en",
+      components: [Component(Component.country, "sg")],
+    );
+
+    displayPrediction(p, homeScaffoldKey.currentState);
+  }
+}
+
+Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
+  if (p != null) {
+    // get detail (lat/lng)
+    PlacesDetailsResponse detail = await _places.getDetailsByPlaceId(p.placeId);
+    final lat = detail.result.geometry.location.lat;
+    final lng = detail.result.geometry.location.lng;
+
+    scaffold.showSnackBar(
+      SnackBar(content: Text("${p.description} - $lat/$lng")),
+    );
   }
 }
