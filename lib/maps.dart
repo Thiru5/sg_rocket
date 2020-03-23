@@ -28,34 +28,27 @@ class _MapsRouteState extends State<MapsRoute> {
   static const LatLng _center = const LatLng(1.290270, 103.851959);
   LatLng _lastMapPosition = _center;
   final Set<Marker> _markers = {};
-  Set<Polyline> _polylines = {};
+  final Set<Polyline> _polyLines = {};
   GoogleMapsServices _googleMapsServices = GoogleMapsServices();
-  Set<Polyline> get polyLines => _polylines;
-  static LatLng latLng;
   loc.LocationData currentLocation;
-
-  void _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
-  }
-
-  void initState() {
-    getLocation();
-    loading = true;
-    super.initState();
-  }
+  static LatLng latLng;
 
   getLocation() async {
     var location = new loc.Location();
-    location.onLocationChanged().listen((currentLocation) {
+    location.onLocationChanged().listen((currentLocation){
       print(currentLocation.latitude);
       print(currentLocation.longitude);
       setState(() {
-        latLng = LatLng(currentLocation.latitude, currentLocation.longitude);
+        latLng = LatLng(currentLocation.latitude,
+        currentLocation.longitude);
       });
       print("getLocation:$latLng");
-      _onAddMarkerButtonPressed();
       loading = false;
     });
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
   }
 
   void _onAddMarkerButtonPressed() {
@@ -74,8 +67,9 @@ class _MapsRouteState extends State<MapsRoute> {
   }
 
   void _onCameraMove(CameraPosition position) {
-    _lastMapPosition = position.target;
+    latLng = position.target;
   }
+
 
   List<LatLng> _convertToLatLng(List points) {
     List<LatLng> result = <LatLng>[];
@@ -87,28 +81,27 @@ class _MapsRouteState extends State<MapsRoute> {
     return result;
   }
 
-  void sendRequest() async {
-    LatLng destination = LatLng(20.008751, 73.780037);
-    String route =
-    await _googleMapsServices.getRouteCoordinates(latLng, destination);
-    createRoute(route);
-    _addMarker(destination, "KTHM Collage");
-  }
 
+  void sendRequest() async {
+    Future<String> route = _googleMapsServices.getRouteCoordinates(
+        latLng, DEST_LOCATION);
+    String routed = await route;
+    createRoute(routed);
+    _addMarker(DEST_LOCATION,"Destination");
+  }
+  void createRoute(String encondedPoly) {
+    _polyLines.add(Polyline(
+        polylineId: PolylineId(latLng.toString()),
+        width: 4,
+        points: _convertToLatLng(_decodePoly(encondedPoly)),
+        color: Colors.red));
+  }
   void _addMarker(LatLng location, String address) {
     _markers.add(Marker(
         markerId: MarkerId("112"),
         position: location,
         infoWindow: InfoWindow(title: address, snippet: "go here"),
         icon: BitmapDescriptor.defaultMarker));
-  }
-
-  void createRoute(String encondedPoly) {
-    _polylines.add(Polyline(
-        polylineId: PolylineId(latLng.toString()),
-        width: 4,
-        points: _convertToLatLng(_decodePoly(encondedPoly)),
-        color: Colors.red));
   }
 
   List _decodePoly(String poly) {
@@ -141,6 +134,10 @@ class _MapsRouteState extends State<MapsRoute> {
     return lList;
   }
 
+
+
+
+
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -156,7 +153,6 @@ class _MapsRouteState extends State<MapsRoute> {
             compassEnabled: true,
             myLocationEnabled: true,
             tiltGesturesEnabled: false,
-            polylines: _polylines,
             onCameraMove: _onCameraMove,
           ),
           Align(
@@ -192,12 +188,18 @@ class _MapsRouteState extends State<MapsRoute> {
             alignment: Alignment.topLeft,
             child: Container(
               padding: EdgeInsets.only(top: 40, bottom: 20, right: 20),
-              child: FloatingActionButton.extended(
-                onPressed: () {
-                  sendRequest();
-                },
-                label: Text('Destination'),
-                icon: Icon(Icons.directions_boat),
+              child: RaisedButton(
+               onPressed: () {
+                 getLocation();
+                 loading = true;
+                 sendRequest();
+               },
+                child: Text(
+                  'Request',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ),
           )
