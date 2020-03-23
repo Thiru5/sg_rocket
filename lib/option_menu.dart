@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class OptionMenu extends StatefulWidget {
   @override
   _OptionMenuState createState() => _OptionMenuState();
@@ -19,24 +17,28 @@ class _OptionMenuState extends State<OptionMenu> {
 //          mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Align(
-                alignment: Alignment.center,
-//                child: Container(
-//                  padding: EdgeInsets.only(top: 100),
-                child: Buttons(),
-//                )
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    padding: EdgeInsets.only(top: 100),
+                    child: Buttons(),
+                  )
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: RawMaterialButton(
-                  onPressed: () {},
-                  child: const Text('Confirm', style: TextStyle(fontSize: 20)),
-                  fillColor: Colors.amber[300],
-                  shape: CircleBorder(
-                      side: BorderSide(
-                          width: 2,
-                          color: Colors.amber[300],
-                          style: BorderStyle.solid)),
-                  padding: EdgeInsets.all(25),
+              Container(
+                padding: EdgeInsets.only(top: 200),
+                child:
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: RawMaterialButton(
+                    onPressed: () {},
+                    child: const Text('Confirm', style: TextStyle(fontSize: 20)),
+                    fillColor: Colors.amber[300],
+                    shape: CircleBorder(
+                        side: BorderSide(
+                            width: 2,
+                            color: Colors.amber[300],
+                            style: BorderStyle.solid)),
+                    padding: EdgeInsets.all(25),
+                  ),
                 ),
               ),
             ],
