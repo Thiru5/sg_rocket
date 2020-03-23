@@ -7,7 +7,7 @@ import 'package:sg_rocket/map_req.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart' as poly;
 
 const LatLng SOURCE_LOCATION = LatLng(1.385110, 103.745003);
-const LatLng DEST_LOCATION = LatLng(1.338231, 103.984072);
+const LatLng DEST_LOCATION = LatLng(1.2966, 103.7764);
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
@@ -30,6 +30,13 @@ class _MapsRouteState extends State<MapsRoute> {
   loc.LocationData currentLocation;
   static LatLng latLng;
 
+  @override
+  void initState(){
+    getLocation();
+    loading = true;
+    super.initState();
+  }
+
   getLocation() async {
     var location = new loc.Location();
     location.onLocationChanged().listen((currentLocation){
@@ -40,6 +47,7 @@ class _MapsRouteState extends State<MapsRoute> {
         currentLocation.longitude);
       });
       print("getLocation:$latLng");
+      _onAddMarkerButtonPressed();
       loading = false;
     });
   }
@@ -80,18 +88,20 @@ class _MapsRouteState extends State<MapsRoute> {
 
 
   void sendRequest() async {
-    Future<String> route = _googleMapsServices.getRouteCoordinates(
+    String route = await _googleMapsServices.getRouteCoordinates(
         latLng, DEST_LOCATION);
-    String routed = await route;
-    createRoute(routed);
+    createRoute(route);
     _addMarker(DEST_LOCATION,"Destination");
   }
-  void createRoute(String encondedPoly) {
+
+  void createRoute(String encodedPoly) {
     _polyLines.add(Polyline(
         polylineId: PolylineId(latLng.toString()),
         width: 4,
-        points: _convertToLatLng(_decodePoly(encondedPoly)),
+        points: _convertToLatLng(_decodePoly(encodedPoly)),
         color: Colors.red));
+
+    print(_convertToLatLng(_decodePoly(encodedPoly)));
   }
   void _addMarker(LatLng location, String address) {
     _markers.add(Marker(
@@ -188,7 +198,6 @@ class _MapsRouteState extends State<MapsRoute> {
               child: RaisedButton(
                onPressed: () {
                  getLocation();
-                 loading = true;
                  sendRequest();
                },
                 child: Text(
