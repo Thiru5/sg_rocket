@@ -88,8 +88,9 @@ class _MapsRouteState extends State<MapsRoute> {
 
 
   void sendRequest() async {
+    getLocation();
     String route = await _googleMapsServices.getRouteCoordinates(
-        latLng, DEST_LOCATION);
+       latLng , DEST_LOCATION);
     createRoute(route);
     _addMarker(DEST_LOCATION,"Destination");
   }
@@ -99,7 +100,7 @@ class _MapsRouteState extends State<MapsRoute> {
         polylineId: PolylineId(latLng.toString()),
         width: 4,
         points: _convertToLatLng(_decodePoly(encodedPoly)),
-        color: Colors.red));
+        color: Colors.yellowAccent));
 
     print(_convertToLatLng(_decodePoly(encodedPoly)));
   }
@@ -108,7 +109,10 @@ class _MapsRouteState extends State<MapsRoute> {
         markerId: MarkerId("112"),
         position: location,
         infoWindow: InfoWindow(title: address, snippet: "go here"),
-        icon: BitmapDescriptor.defaultMarker));
+    icon: BitmapDescriptor.defaultMarkerWithHue(
+        BitmapDescriptor.hueYellow),
+    ),
+    );
   }
 
   List _decodePoly(String poly) {
@@ -152,6 +156,7 @@ class _MapsRouteState extends State<MapsRoute> {
             children: <Widget>[
           GoogleMap(
             onMapCreated: _onMapCreated,
+            polylines: _polyLines,
             initialCameraPosition: CameraPosition(
               target: _center,
               zoom: 11.0,

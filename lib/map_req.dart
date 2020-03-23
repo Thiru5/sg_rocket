@@ -5,7 +5,7 @@ import 'dart:convert';
 const apiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
 class GoogleMapsServices{
-  Future<String> getRouteCoordinates(LatLng l1, LatLng l2)async{
+  Future<String> getRouteCoordinates(LatLng l1, LatLng l2) async{
     String url = "https://maps.googleapis.com/maps/api/directions/json?origin=${l1.latitude},${l1.longitude}&destination=${l2.latitude},${l2.longitude}&key=$apiKey";
     http.Response response = await http.get(url);
     Map values = jsonDecode(response.body);
