@@ -11,18 +11,26 @@ const LatLng DEST_LOCATION = LatLng(1.2966, 103.7764);
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
-void main() => runApp(MapsRoute());
 
 class MapsRoute extends StatefulWidget {
-  final String exText;
+  Future<LatLng> destination;
 
-  const MapsRoute({Key key, @required this.exText}) : super(key: key);
+  MapsRoute({Key key, @required this.destination}) : super(key: key);
+
   @override
-  _MapsRouteState createState() => _MapsRouteState();
+  _MapsRouteState createState() => _MapsRouteState(destination);
 
 }
 
 class _MapsRouteState extends State<MapsRoute> {
+  Future<LatLng> destination;
+  _MapsRouteState(this.destination);
+
+   convertToLl() async {
+    final LatLng dest = await destination;
+    return dest;
+  }
+
 
 
   Completer<GoogleMapController> _controller = Completer();
@@ -48,14 +56,12 @@ class _MapsRouteState extends State<MapsRoute> {
     location.onLocationChanged().listen((currentLocation){
       print(currentLocation.latitude);
       print(currentLocation.longitude);
-      print(MapsRoute().exText);
       setState(() {
         latLng = LatLng(currentLocation.latitude,
         currentLocation.longitude);
       });
       print("getLocation:$latLng");
       print("B");
-      print(MapsRoute().exText);
       _onAddMarkerButtonPressed();
       loading = false;
     });
@@ -101,9 +107,9 @@ class _MapsRouteState extends State<MapsRoute> {
   void sendRequest() async {
     getLocation();
     String route = await _googleMapsServices.getRouteCoordinates(
-       latLng , DEST_LOCATION);
+       latLng , convertToLl());
     createRoute(route);
-    _addMarker(DEST_LOCATION,"Destination");
+    _addMarker(convertToLl(),"Destination");
   }
 
   void createRoute(String encodedPoly) {
@@ -210,9 +216,6 @@ class _MapsRouteState extends State<MapsRoute> {
                onPressed: () {
                  getLocation();
                  sendRequest();
-                 print("C");
-                 print(MapsRoute().exText);
-
                },
                 child: Text(
                   'Request',

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:sg_rocket/maps.dart';
 import 'package:sg_rocket/location.dart';
 import 'package:geocoder/geocoder.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
@@ -17,16 +18,21 @@ final searchScaffoldKey = GlobalKey<ScaffoldState>();
 void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: new HomePage(),
+    home: new HomePage(newDest: null,),
   ));
 }
 
 class HomePage extends StatefulWidget {
+  Future<LatLng> newDest;
+  HomePage({Key key, @required this.newDest}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState(newDest);
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<LatLng> newDest;
+  _HomePageState(this.newDest);
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -84,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                 Prediction p = await PlacesAutocomplete.show(context: context, apiKey: kGoogleApiKey, language: "en", components:[
                   Component(Component.country, "sg")
                 ]);
-                displayPrediction(p, homeScaffoldKey.currentState);
+                newDest = displayPrediction(p, homeScaffoldKey.currentState);
               },
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
@@ -122,7 +128,9 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MapsRoute())
+                  MaterialPageRoute(builder: (context) => MapsRoute(
+                    destination: newDest,
+                  ))
                 );
               },
               child: Text(
@@ -160,17 +168,19 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
+ Future<LatLng> displayPrediction(Prediction p, ScaffoldState scaffold) async {
   if (p != null) {
     // get detail (lat/lng)
     PlacesDetailsResponse detail = await _places.getDetailsByPlaceId(p.placeId);
-    final lat = detail.result.geometry.location.lat;
-    final lng = detail.result.geometry.location.lng;
+    var lat = detail.result.geometry.location.lat;
+    var lng = detail.result.geometry.location.lng;
 
     var address = await Geocoder.local.findAddressesFromQuery(p.description);
+    var first = address.first;
+    LatLng finalDestination = LatLng(
+        first.coordinates.latitude,
+        first.coordinates.longitude);
 
-    print(lat);
-    print(lng);
   }
 }
 
