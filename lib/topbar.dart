@@ -13,7 +13,7 @@ class TopBar extends StatelessWidget {
       },
       child: Container(
         alignment: Alignment.topCenter,
-        color: Colors.red,
+        color: Colors.white,
         child: Column(
           children: <Widget>[
             SizedBox(height: 25),
@@ -32,7 +32,7 @@ class TopBar extends StatelessWidget {
                 Text(
                   'Destination',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.green,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1.0,
@@ -56,7 +56,7 @@ class TopBar extends StatelessWidget {
                 Text(
                   ' Destination',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.red,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1.0,
