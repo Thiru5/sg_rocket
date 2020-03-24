@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:http/http.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:sg_rocket/home_page.dart';
+import 'package:sg_rocket/location.dart';
 
 class PlacesAutocompleteWidget extends StatefulWidget {
   final String apiKey;
@@ -72,8 +74,10 @@ class PlacesAutocompleteWidget extends StatefulWidget {
 class _PlacesAutocompleteScaffoldState extends PlacesAutocompleteState {
   @override
   Widget build(BuildContext context) {
-    final appBar = AppBar(title: AppBarPlacesAutoCompleteTextField(),
-    backgroundColor: Colors.amber[300],);
+    final appBar = AppBar(
+      title: AppBarPlacesAutoCompleteTextField(),
+      backgroundColor: Colors.amber[300],
+    );
     final body = PlacesAutocompleteResult(
       onTap: Navigator.of(context).pop,
       logo: widget.logo,
@@ -138,7 +142,6 @@ class _AppBarPlacesAutoCompleteTextFieldState
     return Container(
         alignment: Alignment.topLeft,
         child: TextField(
-
           controller: state._queryTextController,
           autofocus: true,
           style: TextStyle(
@@ -187,7 +190,11 @@ class PredictionTile extends StatelessWidget {
       title: Text(prediction.description),
       onTap: () {
         if (onTap != null) {
-          onTap(prediction);
+          //onTap(newLoc.onLocationSelect(prediction));
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
         }
       },
     );
@@ -328,7 +335,9 @@ class PlacesAutocomplete {
           httpClient: httpClient,
           startText: startText,
         );
-
-    return Navigator.push(context, MaterialPageRoute(builder: builder));
+    return Navigator.push(
+      context,
+      MaterialPageRoute(builder: builder),
+    );
   }
 }

@@ -1,8 +1,9 @@
 import 'dart:async';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice/places.dart';
+import 'package:sg_rocket/location.dart';
 import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
-import 'package:sg_rocket/location.dart';
 
 const kGoogleApiKey = "AIzaSyAHcoA9CSP9rcioIVhwuKMssTA8A0ywIJg";
 
@@ -13,11 +14,13 @@ final homeScaffoldKey = GlobalKey<ScaffoldState>();
 final searchScaffoldKey = GlobalKey<ScaffoldState>();
 
 class HomePage extends StatefulWidget {
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,13 +51,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 30.0,
                         color: Colors.grey,
                       )))),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              child: Text("${GetCurrentPosition}",
-                  style: TextStyle(color: Colors.green)),
-            ),
-          ),
+          CurrentLocationWidget(androidFusedLocation: true,),       
           Container(
             padding: EdgeInsets.symmetric(horizontal: 160.0),
             child: FlatButton(
@@ -102,6 +99,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  
   }
 
   void onError(PlacesAutocompleteResponse response) {
@@ -122,6 +120,14 @@ class _HomePageState extends State<HomePage> {
     );
 
     displayPrediction(p, homeScaffoldKey.currentState);
+  }
+
+  Future<String> getcurrentPosition() async {
+    Position curPos = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    String latlong = curPos.toString();
+    print(latlong);
+    return latlong;
   }
 }
 
