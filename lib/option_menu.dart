@@ -93,7 +93,7 @@ class _ButtonsState extends State<Buttons> {
               child: RaisedButton(
 
                 child: const Text('CHEAPEST', style: TextStyle(fontSize: 20)),
-                color: buttonIndex[0] == 1 ? Colors.amber[300] : Colors.white,
+                color: buttonIndex[1] == 1 ? Colors.amber[300] : Colors.white,
                 onPressed: () {
                   buttonPressed = 1;
                   for (int i = 0; i < 4; i++) {
@@ -115,7 +115,7 @@ class _ButtonsState extends State<Buttons> {
               child: RaisedButton(
                 child: const Text(
                     'MODE OF TRASNPORT', style: TextStyle(fontSize: 20)),
-                color: buttonIndex[0] == 1 ? Colors.amber[300] : Colors.white,
+                color: buttonIndex[2] == 1 ? Colors.amber[300] : Colors.white,
                 onPressed: () {
                   buttonPressed = 2;
                   for (int i = 0; i < 4; i++) {
@@ -138,7 +138,7 @@ class _ButtonsState extends State<Buttons> {
 
                 child: const Text(
                     'I HATE PEOPLE', style: TextStyle(fontSize: 20)),
-                color: buttonIndex[0] == 1 ? Colors.amber[300] : Colors.white,
+                color: buttonIndex[3] == 1 ? Colors.amber[300] : Colors.white,
                 onPressed: () {
                   buttonPressed = 3;
                   for (int i = 0; i < 4; i++) {
