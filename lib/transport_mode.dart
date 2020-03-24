@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/topbar.dart';
 
 
@@ -37,7 +38,12 @@ class _TransportMenuState extends State<TransportMenu> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: RawMaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MapNavMenu()),
+                          );
+                        },
                       child: const Text('Confirm', style: TextStyle(fontSize: 20)),
                       fillColor: Colors.amber[300],
                       shape: CircleBorder(
