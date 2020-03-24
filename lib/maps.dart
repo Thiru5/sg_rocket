@@ -14,11 +14,17 @@ const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 void main() => runApp(MapsRoute());
 
 class MapsRoute extends StatefulWidget {
+  final String exText;
+
+  const MapsRoute({Key key, @required this.exText}) : super(key: key);
   @override
   _MapsRouteState createState() => _MapsRouteState();
+
 }
 
 class _MapsRouteState extends State<MapsRoute> {
+
+
   Completer<GoogleMapController> _controller = Completer();
 
   bool loading = true;
@@ -42,15 +48,20 @@ class _MapsRouteState extends State<MapsRoute> {
     location.onLocationChanged().listen((currentLocation){
       print(currentLocation.latitude);
       print(currentLocation.longitude);
+      print(MapsRoute().exText);
       setState(() {
         latLng = LatLng(currentLocation.latitude,
         currentLocation.longitude);
       });
       print("getLocation:$latLng");
+      print("B");
+      print(MapsRoute().exText);
       _onAddMarkerButtonPressed();
       loading = false;
     });
   }
+
+
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
@@ -98,7 +109,7 @@ class _MapsRouteState extends State<MapsRoute> {
   void createRoute(String encodedPoly) {
     _polyLines.add(Polyline(
         polylineId: PolylineId(latLng.toString()),
-        width: 4,
+        width: 8,
         points: _convertToLatLng(_decodePoly(encodedPoly)),
         color: Colors.yellowAccent));
 
@@ -144,11 +155,6 @@ class _MapsRouteState extends State<MapsRoute> {
 
     return lList;
   }
-
-
-
-
-
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -204,6 +210,9 @@ class _MapsRouteState extends State<MapsRoute> {
                onPressed: () {
                  getLocation();
                  sendRequest();
+                 print("C");
+                 print(MapsRoute().exText);
+
                },
                 child: Text(
                   'Request',
@@ -218,4 +227,14 @@ class _MapsRouteState extends State<MapsRoute> {
       ),
     );
   }
-}
+
+  @override
+  void dispose() {
+    super.dispose();
+    getLocation();
+    _onAddMarkerButtonPressed();
+  }
+
+
+
+  }
