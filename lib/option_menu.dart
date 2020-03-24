@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sg_rocket/topbar.dart';
 
 class OptionMenu extends StatefulWidget {
   @override
@@ -11,34 +12,31 @@ class _OptionMenuState extends State<OptionMenu> {
     return MaterialApp(
         title: 'Option Menu',
         home: Scaffold(
-          body: Column(
-            children: <Widget>[
-              Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    padding: EdgeInsets.only(top: 100),
-                    child: Buttons(),
-                  )
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 200),
-                child:
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: RawMaterialButton(
-                    onPressed: () {},
-                    child: const Text('Confirm', style: TextStyle(fontSize: 20)),
-                    fillColor: Colors.amber[300],
-                    shape: CircleBorder(
-                        side: BorderSide(
-                            width: 2,
-                            color: Colors.amber[300],
-                            style: BorderStyle.solid)),
-                    padding: EdgeInsets.all(25),
+          body: Container(
+            child: Column(
+              children: <Widget>[
+                TopBar(),
+                Buttons(),
+                Container(
+                  padding: EdgeInsets.only(top: 200),
+                  child:
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: RawMaterialButton(
+                      onPressed: () {},
+                      child: const Text('Confirm', style: TextStyle(fontSize: 20)),
+                      fillColor: Colors.amber[300],
+                      shape: CircleBorder(
+                          side: BorderSide(
+                              width: 2,
+                              color: Colors.amber[300],
+                              style: BorderStyle.solid)),
+                      padding: EdgeInsets.all(25),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         )
     );
