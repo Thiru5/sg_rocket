@@ -26,6 +26,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final myController = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +89,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             alignment: Alignment.center,
             child: TextFormField(
+              controller: myController,
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
                 filled: true,
@@ -111,10 +122,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.symmetric(horizontal: 160.0),
             child: FlatButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MapsRoute())
-                );
+                _sendDataToSecondScreen(context);
               },
               child: Text(
                 'Maps',
@@ -127,6 +135,19 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+    );
+  }
+
+
+  void _sendDataToSecondScreen(BuildContext context) {
+    String inputted = myController.text;
+    print("A");
+    print(inputted);
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MapsRoute(
+          exText: inputted,
+        ))
     );
   }
 
