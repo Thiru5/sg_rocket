@@ -53,6 +53,11 @@ flutter:
   assets:
    - assets/load_up.png
    - assets/location.png
+   - assets/drive_button.png
+   - assets/walk_button.png
+   - assets/elec_button.png
+   - assets/private_button.png
+   - assets/pub_trans_button.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

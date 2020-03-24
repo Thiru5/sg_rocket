@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sg_rocket/topbar.dart';
+import 'package:sg_rocket/transport_mode.dart';
+
+int buttonPressed;
 
 class OptionMenu extends StatefulWidget {
   @override
@@ -23,7 +26,18 @@ class _OptionMenuState extends State<OptionMenu> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: RawMaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (buttonPressed == 0){
+
+                        }else if(buttonPressed == 1){
+
+                        }else if(buttonPressed == 2){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => TransportMenu()),
+                          );
+                        }else if (buttonPressed == 3){}
+                      },
                       child: const Text('Confirm', style: TextStyle(fontSize: 20)),
                       fillColor: Colors.amber[300],
                       shape: CircleBorder(
@@ -50,7 +64,7 @@ class Buttons extends StatefulWidget {
 
 class _ButtonsState extends State<Buttons> {
   List <int> buttonIndex = [0, 0, 0, 0];
-  int buttonPressed;
+
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +128,7 @@ class _ButtonsState extends State<Buttons> {
               height: 35,
               child: RaisedButton(
                 child: const Text(
-                    'MODE OF TRASNPORT', style: TextStyle(fontSize: 20)),
+                    'MODE OF TRANSPORT', style: TextStyle(fontSize: 20)),
                 color: buttonIndex[2] == 1 ? Colors.amber[300] : Colors.white,
                 onPressed: () {
                   buttonPressed = 2;
