@@ -78,7 +78,13 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             alignment: Alignment.center,
-            child: TextFormField(
+            child: TextField(
+              onTap: ()async{
+                Prediction p = await PlacesAutocomplete.show(context: context, apiKey: kGoogleApiKey, language: "en", components:[
+                  Component(Component.country, "sg")
+                ]);
+                displayPrediction(p, homeScaffoldKey.currentState);
+              },
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
                 filled: true,
@@ -163,6 +169,7 @@ Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
     );
   }
 }
+
 
 
 class LoadUpImageAsset extends StatelessWidget {
