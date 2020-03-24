@@ -4,6 +4,7 @@ import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
 import 'package:sg_rocket/maps.dart';
 import 'package:sg_rocket/location.dart';
+import 'package:geocoder/geocoder.dart';
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
@@ -28,7 +29,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
       body: ListView(
         children: <Widget>[
           Align(
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             alignment: Alignment.center,
-            child: TextField(
+            child: TextFormField(
               onTap: ()async{
                 Prediction p = await PlacesAutocomplete.show(context: context, apiKey: kGoogleApiKey, language: "en", components:[
                   Component(Component.country, "sg")
@@ -99,6 +100,8 @@ class _HomePageState extends State<HomePage> {
             ),
             padding: EdgeInsets.only(
                 left: 30.0, right: 30.0, top: 20.0, bottom: 140.0),
+
+
           ),
           Container(
               width: 70,
@@ -164,9 +167,10 @@ Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
     final lat = detail.result.geometry.location.lat;
     final lng = detail.result.geometry.location.lng;
 
-    scaffold.showSnackBar(
-      SnackBar(content: Text("${p.description} - $lat/$lng")),
-    );
+    var address = await Geocoder.local.findAddressesFromQuery(p.description);
+
+    print(lat);
+    print(lng);
   }
 }
 
