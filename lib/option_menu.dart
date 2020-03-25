@@ -3,6 +3,7 @@ import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/transport_mode.dart';
 import 'package:sg_rocket/topbar.dart';
 
+
 int buttonPressed;
 
 class OptionMenu extends StatefulWidget {
@@ -36,7 +37,7 @@ class _OptionMenuState extends State<OptionMenu> {
                         }else if(buttonPressed == 1){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MapNavMenu()),
+                            MaterialPageRoute(builder: (context) => MapNavMenu(buttonpressed: buttonPressed)),
                           );
                         }else if(buttonPressed == 2){
                           Navigator.push(

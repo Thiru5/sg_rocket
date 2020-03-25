@@ -3,11 +3,16 @@ import 'package:sg_rocket/topbar.dart';
 import 'package:sg_rocket/lower_top_bar.dart';
 
 class MapNavMenu extends StatefulWidget {
+  final int buttonpressed;
+  MapNavMenu({this.buttonpressed});
   @override
-  _MapNavMenuState createState() => _MapNavMenuState();
+  _MapNavMenuState createState() => _MapNavMenuState(buttonpressed: buttonpressed);
 }
 
 class _MapNavMenuState extends State<MapNavMenu> {
+  final int buttonpressed;
+  _MapNavMenuState({this.buttonpressed});
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +25,7 @@ class _MapNavMenuState extends State<MapNavMenu> {
                 Column(
                   children: <Widget>[
                     TopBar(),
-                    LowerTopBar(),
+                    LowerTopBar(buttonpressed: buttonpressed),
                   ],
                 ),
                 Container(
