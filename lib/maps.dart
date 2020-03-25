@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:location/location.dart' as loc;
 import 'package:sg_rocket/map_req.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart' as poly;
+
 
 const LatLng SOURCE_LOCATION = LatLng(1.385110, 103.745003);
 const LatLng DEST_LOCATION = LatLng(1.2966, 103.7764);
