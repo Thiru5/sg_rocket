@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/topbar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-
+int buttonPressed;
 class TransportMenu extends StatefulWidget {
   @override
   _TransportMenuState createState() => _TransportMenuState();
+}
+blueURL() async{
+  String url = 'https://play.google.com/store/apps/details?id=com.bluesg.androidapp&hl=fr';
+  if (await canLaunch(url)){
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+grabURL() async{
+  String url = 'https://app.appsflyer.com/com.grabtaxi.passenger?pid=MY-Website-ADR-Install_Button&c=Website_Download';
+  if (await canLaunch(url)){
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }
 
 class _TransportMenuState extends State<TransportMenu> {
@@ -14,36 +31,51 @@ class _TransportMenuState extends State<TransportMenu> {
     return MaterialApp(
         title: 'Transport Menu',
         home: Scaffold(
-            body: Column(
+            body: Stack(
               children: <Widget>[
-                TopBar(),
-                Text(
-                    'Choose...',
-                    style: TextStyle(
-                      fontSize: 50.0,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "xx",
+
+               Column(
+                children: <Widget>[
+                  TopBar(),
+                  Text(
+                      'Choose...',
+                      style: TextStyle(
+                        fontSize: 50.0,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "xx",
+                      ),
                     ),
+                  SizedBox(
+                    height: 450, // constrain height
+
+                    child: Icons(),
+
                   ),
-                SizedBox(
-                  height: 450, // constrain height
-
-                  child: Icons(),
-
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 10),
+                ],
+              ),
+              Container(
+                  padding: EdgeInsets.only(bottom: 8),
                   child:
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: RawMaterialButton(
-                      onPressed: () {
+                      onPressed: (){
+                        if (buttonPressed == 0) {
+                          blueURL();
+                        } else if (buttonPressed == 1) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MapNavMenu()),
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MapNavMenu(buttonpressed: buttonPressed)),
                           );
-                        },
+                        } else if (buttonPressed == 2) {
+                          grabURL();
+                          
+                        } else if (buttonPressed == 3) {}
+                        else if (buttonPressed == 4) {}
+                      },
                       child: const Text('Confirm', style: TextStyle(fontSize: 20)),
                       fillColor: Colors.amber[300],
                       shape: CircleBorder(
@@ -56,8 +88,8 @@ class _TransportMenuState extends State<TransportMenu> {
                   ),
                 ),
               ],
-            )
-        )
+            ),
+        ),
     );
   }
 }
@@ -69,7 +101,6 @@ class Icons extends StatefulWidget {
 
 class _IconsState extends State<Icons> {
   List <int> buttonIndex = [0,0,0,0,0,0];
-  int buttonPressed;
   @override
   Widget build(BuildContext context) {
     return

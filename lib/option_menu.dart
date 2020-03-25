@@ -3,7 +3,6 @@ import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/transport_mode.dart';
 import 'package:sg_rocket/topbar.dart';
 
-
 int buttonPressed;
 
 class OptionMenu extends StatefulWidget {
@@ -27,24 +26,27 @@ class _OptionMenuState extends State<OptionMenu> {
                   ],
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 8 ),
+                  padding: EdgeInsets.symmetric(vertical: 8),
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: RawMaterialButton(
                       onPressed: () {
-                        if (buttonPressed == 0){
-
-                        }else if(buttonPressed == 1){
+                        if (buttonPressed == 0) {
+                          
+                        } else if (buttonPressed == 1) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MapNavMenu(buttonpressed: buttonPressed)),
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MapNavMenu(buttonpressed: buttonPressed)),
                           );
-                        }else if(buttonPressed == 2){
+                        } else if (buttonPressed == 2) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => TransportMenu()),
+                            MaterialPageRoute(
+                                builder: (context) => TransportMenu()),
                           );
-                        }else if (buttonPressed == 3){}
+                        } else if (buttonPressed == 3) {}
                       },
                       child:
                           const Text('Confirm', style: TextStyle(fontSize: 20)),
