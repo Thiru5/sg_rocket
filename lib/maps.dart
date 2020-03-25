@@ -25,7 +25,6 @@ class _MapsRouteState extends State<MapsRoute> {
   LatLng destination;
   _MapsRouteState(this.destination);
 
-
   Completer<GoogleMapController> _controller = Completer();
 
   bool loading = true;
@@ -55,6 +54,7 @@ class _MapsRouteState extends State<MapsRoute> {
       });
       print("getLocation:$latLng");
       print("B");
+      print(destination);
       _onAddMarkerButtonPressed();
       loading = false;
     });

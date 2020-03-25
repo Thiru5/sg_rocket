@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:google_maps_webservice/places.dart';
 import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:geocoder/geocoder.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:dio/dio.dart';
 import 'package:search_map_place/search_map_place.dart';
+
 
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
@@ -21,26 +23,19 @@ final searchScaffoldKey = GlobalKey<ScaffoldState>();
 void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: new HomePage(newDest: null,),
+    home: new HomePage(),
   ));
 }
 
 class HomePage extends StatefulWidget {
-  Future<LatLng> newDest;
-  HomePage({Key key, @required this.newDest}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState(newDest);
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  List _placesList = [];
-  Future<LatLng> newDest;
-  _HomePageState(this.newDest);
 
-  convertLl() async {
-    final LatLng dest = await newDest;
-    return dest;
-  }
+  Prediction predict;
+
   @override
   void initState(){
     super.initState();
@@ -49,6 +44,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    LatLng finalDest;
+
     return new Scaffold(
       body: ListView(
         children: <Widget>[
@@ -100,15 +97,22 @@ class _HomePageState extends State<HomePage> {
           Container(
             alignment: Alignment.center,
             child: TextFormField(
-//              onTap: ()async{
-//                Prediction p = await PlacesAutocomplete.show(context: context, apiKey: kGoogleApiKey, language: "en", components:[
-//                  Component(Component.country, "sg")
-//                ]);
-//                newDest = displayPrediction(p, homeScaffoldKey.currentState);
-//              },
-            onChanged: (text){
-              getLocationResults(text);
-            },
+              onTap: ()async{
+                Prediction p = await PlacesAutocomplete.show(context: context, apiKey: kGoogleApiKey, language: "en", components:[
+                  Component(Component.country, "sg")
+                ]);
+                PlacesDetailsResponse response = await _places.getDetailsByPlaceId(p.placeId);
+                var location = response.result.geometry.location;
+                var latLng = LatLng(location.lat, location.lng);
+                finalDest = latLng;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MapsRoute(
+                      destination: finalDest,
+                    ))
+                );
+
+              },
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
                 filled: true,
@@ -143,11 +147,11 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.symmetric(horizontal: 160.0),
             child: FlatButton(
               onPressed: () {
-                LatLng destination = convertLl();
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MapsRoute(
-                    destination: destination,
+                    destination: finalDest,
                   ))
                 );
               },
@@ -186,7 +190,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
- Future<LatLng> displayPrediction(Prediction p, ScaffoldState scaffold) async {
+ displayPrediction(Prediction p, ScaffoldState scaffold) async {
   if (p != null) {
     // get detail (lat/lng)
     PlacesDetailsResponse detail = await _places.getDetailsByPlaceId(p.placeId);
@@ -195,28 +199,8 @@ class _HomePageState extends State<HomePage> {
 
     var address = await Geocoder.local.findAddressesFromQuery(p.description);
     var first = address.first;
-    LatLng finalDestination = LatLng(
-        first.coordinates.latitude,
-        first.coordinates.longitude);
-
-    return finalDestination;
   }
 }
-
-
-getLocationResults(String input) async{
-  String baseURL = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
-  String type = '(regions)';
-  String country = 'Singapore';
-  String request = '$baseURL?input=$input&key=$kGoogleApiKey&type=$type';
-  Response response = await Dio().get(request);
-  final predictions = response.data['predictions'];
-
-  print(response);
-
-
-}
-
 
 
 
