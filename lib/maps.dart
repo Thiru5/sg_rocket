@@ -13,17 +13,18 @@ const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
 
 class MapsRoute extends StatefulWidget {
+  LatLng location;
   LatLng destination;
-  MapsRoute({Key key, @required this.destination}) : super(key: key);
-
+  MapsRoute({Key key, @required this.destination,this.location}) : super(key: key);
   @override
-  _MapsRouteState createState() => _MapsRouteState(destination);
+  _MapsRouteState createState() => _MapsRouteState(destination,location);
 
 }
 
 class _MapsRouteState extends State<MapsRoute> {
   LatLng destination;
-  _MapsRouteState(this.destination);
+  LatLng location;
+  _MapsRouteState(this.destination,this.location);
 
   Completer<GoogleMapController> _controller = Completer();
 

@@ -124,13 +124,7 @@ class _HomePageState extends State<HomePage> {
                 var location = response.result.geometry.location;
                 var latLng = LatLng(location.lat, location.lng);
                 finalDest = latLng;
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>
-                        MapsRoute(
-                          destination: finalDest,
-                        ))
-                );
+
               },
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
@@ -153,7 +147,16 @@ class _HomePageState extends State<HomePage> {
               width: 70,
               height: 70,
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>
+                          MapsRoute(
+                            destination: finalDest,
+                          ))
+                  );
+
+                },
                 child: Text("Confirm"),
                 color: Colors.amber[300],
                 shape: CircleBorder(
