@@ -13,8 +13,7 @@ const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
 
 class MapsRoute extends StatefulWidget {
-  Future<LatLng> destination;
-
+  LatLng destination;
   MapsRoute({Key key, @required this.destination}) : super(key: key);
 
   @override
@@ -23,14 +22,8 @@ class MapsRoute extends StatefulWidget {
 }
 
 class _MapsRouteState extends State<MapsRoute> {
-  Future<LatLng> destination;
+  LatLng destination;
   _MapsRouteState(this.destination);
-
-   convertToLl() async {
-    final LatLng dest = await destination;
-    return dest;
-  }
-
 
 
   Completer<GoogleMapController> _controller = Completer();
@@ -107,9 +100,9 @@ class _MapsRouteState extends State<MapsRoute> {
   void sendRequest() async {
     getLocation();
     String route = await _googleMapsServices.getRouteCoordinates(
-       latLng , convertToLl());
+       latLng , destination);
     createRoute(route);
-    _addMarker(convertToLl(),"Destination");
+    _addMarker(destination,"Destination");
   }
 
   void createRoute(String encodedPoly) {
