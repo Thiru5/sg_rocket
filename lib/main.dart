@@ -4,6 +4,8 @@ import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
 import 'package:sg_rocket/maps.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sg_rocket/location.dart';
+import 'package:sg_rocket/option_menu.dart';
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
@@ -138,6 +140,40 @@ class _HomePageState extends State<HomePage> {
           Container(
             alignment: Alignment.center,
             child: Text(destStr, style: TextStyle(color: Colors.green)),
+              width: 70,
+              height: 70,
+              child: FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OptionMenu()),
+                  );
+                },
+                child: Text("Confirm"),
+                color: Colors.amber[300],
+                shape: CircleBorder(
+                    side: BorderSide(
+                        width: 2,
+                        color: Colors.amber[300],
+                        style: BorderStyle.solid)),
+              )),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 160.0),
+            child: FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapsRoute())
+                );
+              },
+              child: Text(
+                'Maps',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+              color: Colors.amber[300],
+            ),
           ),
         ],
       ),
