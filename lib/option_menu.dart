@@ -2,17 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/transport_mode.dart';
 import 'package:sg_rocket/topbar.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 int buttonPressed;
 
 class OptionMenu extends StatefulWidget {
+  LatLng startLocation;
+  LatLng destination;
+  String startLocationName;
+  String destinationName;
+  OptionMenu({Key key, @required this.destination,this.startLocation,this.startLocationName,this.destinationName}) : super(key: key);
   @override
-  _OptionMenuState createState() => _OptionMenuState();
+  @override
+  _OptionMenuState createState() => _OptionMenuState(startLocation,destination,startLocationName,destinationName);
 }
 
 class _OptionMenuState extends State<OptionMenu> {
+  LatLng destination;
+  LatLng startLocation;
+  String startLocationName;
+  String destinationName;
+  _OptionMenuState(this.destination,this.startLocation,this.startLocationName,this.destinationName);
+
   @override
   Widget build(BuildContext context) {
+
+
+    if(startLocationName == null)
+      {
+        startLocationName = 'Proceed Back to Select';
+      }
+
+    if(destinationName == null)
+    {
+      destinationName = 'Proceed Back to Select';
+    }
+
+
     return MaterialApp(
         title: 'Option Menu',
         home: Scaffold(

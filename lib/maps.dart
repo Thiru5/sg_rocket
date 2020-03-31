@@ -5,10 +5,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as loc;
 import 'package:sg_rocket/map_req.dart';
 
-
-const LatLng SOURCE_LOCATION = LatLng(1.385110, 103.745003);
-const LatLng DEST_LOCATION = LatLng(1.2966, 103.7764);
-
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
 

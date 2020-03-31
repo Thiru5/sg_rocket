@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:google_maps_webservice/places.dart';
+import 'package:location/location.dart' as loc;
 import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
-import 'package:sg_rocket/maps.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:sg_rocket/location.dart';
 import 'package:sg_rocket/option_menu.dart';
+import 'package:sg_rocket/topbar.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:geocoder/geocoder.dart';
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
@@ -23,24 +25,93 @@ void main() {
 }
 
 class HomePage extends StatefulWidget {
+  LatLng location;
+  LatLng destination;
+  HomePage({Key key, @required this.destination, this.location})
+      : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState(destination,location);
 }
 
 class _HomePageState extends State<HomePage> {
   Prediction predict;
+  LatLng destination;
+  LatLng location;
+  _HomePageState(this.destination,this.location);
+
+  bool loading = true;
+  loc.LocationData nowLocation;
+  static LatLng latLng;
+  static LatLng desLng;
+
+  static String destName;
+  static String startName;
+
 
   @override
   void initState() {
+    getLocation();
     super.initState();
+  }
+
+  getLocation() async {
+    Position position = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+    print(position);
+
+    setState(() {
+      latLng = LatLng(position.latitude, position.longitude);
+      if(location!=latLng && location!=null)
+        {
+          latLng = location;
+        }
+      if(destination != null){
+        desLng = LatLng(destination.latitude,destination.longitude);
+      }
+      else{
+        desLng = LatLng(0.00,0.00);
+      }
+      convertCoordinateToPlace();
+    });
+  }
+
+  convertCoordinateToPlace() async {
+    List<Address> placeName = await Geocoder.local.findAddressesFromCoordinates(Coordinates(latLng.latitude,latLng.longitude));
+    var startReply = placeName.first;
+
+    List<Address> endName = await Geocoder.local.findAddressesFromCoordinates(Coordinates(desLng.latitude,desLng.longitude));
+    var destReply = endName.first;
+
+    setState(() {
+      startName = "${startReply.addressLine}"; //startReply.name +' '+ startReply.subLocality +' '+ startReply.locality +' '+ startReply.administrativeArea +' '+ startReply.postalCode +' '+ startReply.country;
+      destName = "${destReply.addressLine}";//destReply.name  +' '+ destReply.subLocality +' '+ destReply.locality+' '+ destReply.administrativeArea +' '+ destReply.postalCode +' '+ destReply.country;
+    });
+
   }
 
   @override
   Widget build(BuildContext context) {
-    LatLng finalDest;
-    LatLng startLoc;
-    String startStr = 'Normal';
-    String destStr = 'Normal';
+
+    String checkForStartNameNull() {
+      if(startName != null){
+        return startName;
+      }
+      else{
+        return 'Your Location';
+      }
+    }
+
+    String checkForDestNameNull() {
+      if(destName != null){
+        return destName;
+      }
+      else{
+        return 'Requires Destination Input';
+      }
+    }
+
+    String startStr = checkForStartNameNull();
+    String destStr = checkForDestNameNull();
 
     return new Scaffold(
       body: ListView(
@@ -73,7 +144,10 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.center,
             child: Container(
-              child: Text(startStr, style: TextStyle(color: Colors.green)),
+              padding: EdgeInsets.fromLTRB(20, 20, 30, 30),
+              child: Text(startStr,
+                  style: TextStyle(color: Colors.green),
+              textAlign: TextAlign.center,),
             ),
           ),
           Container(
@@ -88,8 +162,13 @@ class _HomePageState extends State<HomePage> {
                 PlacesDetailsResponse response =
                     await _places.getDetailsByPlaceId(p.placeId);
                 var location = response.result.geometry.location;
-                var latLng = LatLng(location.lat, location.lng);
-                startLoc = latLng;
+                Navigator.push(context,
+                MaterialPageRoute(
+                  builder:(context) => HomePage(
+                    location: LatLng(location.lat, location.lng),
+                    destination: desLng,
+                  )
+                ));
               },
               child: Text(
                 'Change',
@@ -112,15 +191,13 @@ class _HomePageState extends State<HomePage> {
                 PlacesDetailsResponse response =
                     await _places.getDetailsByPlaceId(p.placeId);
                 var location = response.result.geometry.location;
-                var latLng = LatLng(location.lat, location.lng);
-                finalDest = latLng;
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MapsRoute(
-                          destination: finalDest,
-                          location: startLoc,
-                        )));
+                        builder: (context) => HomePage(
+                              destination: LatLng(location.lat, location.lng),
+                              location: latLng,
+                            )));
               },
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
@@ -135,62 +212,73 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             padding: EdgeInsets.only(
-                left: 30.0, right: 30.0, top: 20.0, bottom: 140.0),
+                left: 30.0, right: 30.0, top: 20.0, bottom: 30.0),
           ),
-          Container(
+          Align(
             alignment: Alignment.center,
-            child: Text(destStr, style: TextStyle(color: Colors.green)),
-              width: 70,
-              height: 70,
-              child: FlatButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => OptionMenu()),
-                  );
-                },
-                child: Text("Confirm"),
-                color: Colors.amber[300],
-                shape: CircleBorder(
-                    side: BorderSide(
-                        width: 2,
-                        color: Colors.amber[300],
-                        style: BorderStyle.solid)),
-              )),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 160.0),
-            child: FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MapsRoute())
-                );
-              },
-              child: Text(
-                'Maps',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-              color: Colors.amber[300],
+            child: Container(
+              child: Text(destStr, style: TextStyle(color: Colors.green),
+                textAlign: TextAlign.center,),
             ),
           ),
         ],
       ),
-      floatingActionButton: Container(
+    floatingActionButton: Container(
         height: 80.0,
         width: 80.0,
         child: FittedBox(
           child: FloatingActionButton(
-            child: Icon(Icons.navigation),
+            child: Text("Confirm",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 9.0,
+            )),
             backgroundColor: Colors.amber[300],
             onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OptionMenu(
+                  startLocation: latLng,
+                  destination: desLng,
+                  startLocationName: startStr,
+                  destinationName: destStr,
+                )),
 
+              );
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TopBar(
+                startLocation: latLng,
+                destination: desLng,
+                startLocationName: startStr,
+                destinationName: destStr,
+              )),
+              );
             },
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+//      floatingActionButton: Container(
+//        height: 80.0,
+//        width: 80.0,
+//        child: FittedBox(
+//          child: FloatingActionButton(
+//            child: Icon(Icons.navigation),
+//            backgroundColor: Colors.amber[300],
+//            onPressed: () {
+//              Navigator.push(
+//                  context,
+//                  MaterialPageRoute(
+//                      builder: (context) => MapsRoute(
+//                            destination: finalDest,
+//                            location: latLng,
+//                          )));
+//            },
+//          ),
+//        ),
+//      ),
+//      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
