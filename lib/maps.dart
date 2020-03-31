@@ -40,6 +40,7 @@ class _MapsRouteState extends State<MapsRoute> {
   @override
   void initState(){
     getLocation();
+    sendRequest();
     loading = true;
     super.initState();
   }
@@ -208,7 +209,6 @@ class _MapsRouteState extends State<MapsRoute> {
               padding: EdgeInsets.only(top: 40, bottom: 20, right: 20),
               child: RaisedButton(
                onPressed: () {
-                 getLocation();
                  sendRequest();
                },
                 child: Text(
@@ -229,6 +229,7 @@ class _MapsRouteState extends State<MapsRoute> {
   void dispose() {
     super.dispose();
     getLocation();
+    sendRequest();
     _onAddMarkerButtonPressed();
   }
 

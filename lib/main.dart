@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:sg_rocket/maps.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
-
-
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
 // to get places detail (lat/lng)
@@ -29,7 +26,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   Prediction predict;
 
   @override
@@ -37,10 +33,12 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     LatLng finalDest;
+    LatLng startLoc;
+    String startStr = 'Normal';
+    String destStr = 'Normal';
 
     return new Scaffold(
       body: ListView(
@@ -73,32 +71,23 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.center,
             child: Container(
-              child: Text('Normal',
-                  style: TextStyle(color: Colors.green)),
+              child: Text(startStr, style: TextStyle(color: Colors.green)),
             ),
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 160.0),
             child: FlatButton(
               onPressed: () async {
-                Prediction p = await PlacesAutocomplete.show(context: context,
+                Prediction p = await PlacesAutocomplete.show(
+                    context: context,
                     apiKey: kGoogleApiKey,
                     language: "en",
-                    components: [
-                      Component(Component.country, "sg")
-                    ]);
-                PlacesDetailsResponse response = await _places
-                    .getDetailsByPlaceId(p.placeId);
+                    components: [Component(Component.country, "sg")]);
+                PlacesDetailsResponse response =
+                    await _places.getDetailsByPlaceId(p.placeId);
                 var location = response.result.geometry.location;
                 var latLng = LatLng(location.lat, location.lng);
-                finalDest = latLng;
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>
-                        MapsRoute(
-                          destination: finalDest,
-                        ))
-                );
+                startLoc = latLng;
               },
               child: Text(
                 'Change',
@@ -113,18 +102,23 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.center,
             child: TextFormField(
               onTap: () async {
-                Prediction p = await PlacesAutocomplete.show(context: context,
+                Prediction p = await PlacesAutocomplete.show(
+                    context: context,
                     apiKey: kGoogleApiKey,
                     language: "en",
-                    components: [
-                      Component(Component.country, "sg")
-                    ]);
-                PlacesDetailsResponse response = await _places
-                    .getDetailsByPlaceId(p.placeId);
+                    components: [Component(Component.country, "sg")]);
+                PlacesDetailsResponse response =
+                    await _places.getDetailsByPlaceId(p.placeId);
                 var location = response.result.geometry.location;
                 var latLng = LatLng(location.lat, location.lng);
                 finalDest = latLng;
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MapsRoute(
+                          destination: finalDest,
+                          location: startLoc,
+                        )));
               },
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
@@ -140,54 +134,27 @@ class _HomePageState extends State<HomePage> {
             ),
             padding: EdgeInsets.only(
                 left: 30.0, right: 30.0, top: 20.0, bottom: 140.0),
-
-
           ),
           Container(
-              width: 70,
-              height: 70,
-              child: FlatButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>
-                          MapsRoute(
-                            destination: finalDest,
-                          ))
-                  );
-
-                },
-                child: Text("Confirm"),
-                color: Colors.amber[300],
-                shape: CircleBorder(
-                    side: BorderSide(
-                        width: 2,
-                        color: Colors.amber[300],
-                        style: BorderStyle.solid)),
-              )),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 160.0),
-            child: FlatButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>
-                        MapsRoute(
-                          destination: finalDest,
-                        ))
-                );
-              },
-              child: Text(
-                'Maps',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-              color: Colors.amber[300],
-            ),
+            alignment: Alignment.center,
+            child: Text(destStr, style: TextStyle(color: Colors.green)),
           ),
         ],
       ),
+      floatingActionButton: Container(
+        height: 80.0,
+        width: 80.0,
+        child: FittedBox(
+          child: FloatingActionButton(
+            child: Icon(Icons.navigation),
+            backgroundColor: Colors.amber[300],
+            onPressed: () {
+
+            },
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
