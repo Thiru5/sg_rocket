@@ -1,24 +1,31 @@
-import 'dart:async';
+  import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:location/location.dart' as loc;
 import 'package:sg_rocket/map_req.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart' as poly;
+
 
 const LatLng SOURCE_LOCATION = LatLng(1.385110, 103.745003);
 const LatLng DEST_LOCATION = LatLng(1.2966, 103.7764);
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
-void main() => runApp(MapsRoute());
 
 class MapsRoute extends StatefulWidget {
+  LatLng location;
+  LatLng destination;
+  MapsRoute({Key key, @required this.destination,this.location}) : super(key: key);
   @override
-  _MapsRouteState createState() => _MapsRouteState();
+  _MapsRouteState createState() => _MapsRouteState(destination,location);
+
 }
 
 class _MapsRouteState extends State<MapsRoute> {
+  LatLng destination;
+  LatLng location;
+  _MapsRouteState(this.destination,this.location);
+
   Completer<GoogleMapController> _controller = Completer();
 
   bool loading = true;
@@ -33,6 +40,7 @@ class _MapsRouteState extends State<MapsRoute> {
   @override
   void initState(){
     getLocation();
+    sendRequest();
     loading = true;
     super.initState();
   }
@@ -47,10 +55,14 @@ class _MapsRouteState extends State<MapsRoute> {
         currentLocation.longitude);
       });
       print("getLocation:$latLng");
+      print("B");
+      print(destination);
       _onAddMarkerButtonPressed();
       loading = false;
     });
   }
+
+
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
@@ -90,15 +102,15 @@ class _MapsRouteState extends State<MapsRoute> {
   void sendRequest() async {
     getLocation();
     String route = await _googleMapsServices.getRouteCoordinates(
-       latLng , DEST_LOCATION);
+       latLng , destination);
     createRoute(route);
-    _addMarker(DEST_LOCATION,"Destination");
+    _addMarker(destination,"Destination");
   }
 
   void createRoute(String encodedPoly) {
     _polyLines.add(Polyline(
         polylineId: PolylineId(latLng.toString()),
-        width: 4,
+        width: 8,
         points: _convertToLatLng(_decodePoly(encodedPoly)),
         color: Colors.yellowAccent));
 
@@ -144,11 +156,6 @@ class _MapsRouteState extends State<MapsRoute> {
 
     return lList;
   }
-
-
-
-
-
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -202,7 +209,6 @@ class _MapsRouteState extends State<MapsRoute> {
               padding: EdgeInsets.only(top: 40, bottom: 20, right: 20),
               child: RaisedButton(
                onPressed: () {
-                 getLocation();
                  sendRequest();
                },
                 child: Text(
@@ -218,4 +224,15 @@ class _MapsRouteState extends State<MapsRoute> {
       ),
     );
   }
-}
+
+  @override
+  void dispose() {
+    super.dispose();
+    getLocation();
+    sendRequest();
+    _onAddMarkerButtonPressed();
+  }
+
+
+
+  }

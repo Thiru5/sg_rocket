@@ -3,6 +3,7 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
 import 'package:sg_rocket/maps.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sg_rocket/location.dart';
 import 'package:sg_rocket/option_menu.dart';
 
@@ -27,9 +28,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Prediction predict;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    LatLng finalDest;
+    LatLng startLoc;
+    String startStr = 'Normal';
+    String destStr = 'Normal';
+
+    return new Scaffold(
       body: ListView(
         children: <Widget>[
           Align(
@@ -60,14 +73,24 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.center,
             child: Container(
-              child: Text('Normal',
-                  style: TextStyle(color: Colors.green)),
+              child: Text(startStr, style: TextStyle(color: Colors.green)),
             ),
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 160.0),
             child: FlatButton(
-              onPressed: _handlePressButton,
+              onPressed: () async {
+                Prediction p = await PlacesAutocomplete.show(
+                    context: context,
+                    apiKey: kGoogleApiKey,
+                    language: "en",
+                    components: [Component(Component.country, "sg")]);
+                PlacesDetailsResponse response =
+                    await _places.getDetailsByPlaceId(p.placeId);
+                var location = response.result.geometry.location;
+                var latLng = LatLng(location.lat, location.lng);
+                startLoc = latLng;
+              },
               child: Text(
                 'Change',
                 style: TextStyle(
@@ -80,6 +103,25 @@ class _HomePageState extends State<HomePage> {
           Container(
             alignment: Alignment.center,
             child: TextFormField(
+              onTap: () async {
+                Prediction p = await PlacesAutocomplete.show(
+                    context: context,
+                    apiKey: kGoogleApiKey,
+                    language: "en",
+                    components: [Component(Component.country, "sg")]);
+                PlacesDetailsResponse response =
+                    await _places.getDetailsByPlaceId(p.placeId);
+                var location = response.result.geometry.location;
+                var latLng = LatLng(location.lat, location.lng);
+                finalDest = latLng;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MapsRoute(
+                          destination: finalDest,
+                          location: startLoc,
+                        )));
+              },
               decoration: new InputDecoration(
                 fillColor: Colors.amber[100],
                 filled: true,
@@ -96,6 +138,8 @@ class _HomePageState extends State<HomePage> {
                 left: 30.0, right: 30.0, top: 20.0, bottom: 140.0),
           ),
           Container(
+            alignment: Alignment.center,
+            child: Text(destStr, style: TextStyle(color: Colors.green)),
               width: 70,
               height: 70,
               child: FlatButton(
@@ -133,6 +177,20 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      floatingActionButton: Container(
+        height: 80.0,
+        width: 80.0,
+        child: FittedBox(
+          child: FloatingActionButton(
+            child: Icon(Icons.navigation),
+            backgroundColor: Colors.amber[300],
+            onPressed: () {
+
+            },
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -140,42 +198,5 @@ class _HomePageState extends State<HomePage> {
     homeScaffoldKey.currentState.showSnackBar(
       SnackBar(content: Text(response.errorMessage)),
     );
-  }
-
-  Future<void> _handlePressButton() async {
-    // show input autocomplete with selected mode
-    // then get the Prediction selected
-    Prediction p = await PlacesAutocomplete.show(
-      context: context,
-      apiKey: kGoogleApiKey,
-      onError: onError,
-      language: "en",
-      components: [Component(Component.country, "sg")],
-    );
-
-    displayPrediction(p, homeScaffoldKey.currentState);
-  }
-}
-
-Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
-  if (p != null) {
-    // get detail (lat/lng)
-    PlacesDetailsResponse detail = await _places.getDetailsByPlaceId(p.placeId);
-    final lat = detail.result.geometry.location.lat;
-    final lng = detail.result.geometry.location.lng;
-
-    scaffold.showSnackBar(
-      SnackBar(content: Text("${p.description} - $lat/$lng")),
-    );
-  }
-}
-
-
-class LoadUpImageAsset extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    AssetImage assetImage = AssetImage('assets/load_up.png');
-    Image image = Image(image: assetImage);
-    return Container(child: image);
   }
 }
