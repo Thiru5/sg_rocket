@@ -3,6 +3,8 @@ import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/topbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'bus_load.dart';
+
 int buttonPressed;
 class TransportMenu extends StatefulWidget {
   @override
@@ -26,6 +28,8 @@ grabURL() async{
 }
 
 class _TransportMenuState extends State<TransportMenu> {
+  Future<Album> futureAlbum = fetchAlbum('83139');
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,7 +37,37 @@ class _TransportMenuState extends State<TransportMenu> {
         home: Scaffold(
             body: Stack(
               children: <Widget>[
+                FutureBuilder<Album>(
+                  future: futureAlbum,
+                  builder: (context, snapshot) {
+                    print(snapshot);
+                    if (snapshot.hasData) {
+                      var load = new List();
+                      print(snapshot.data.services.length);
+                      for (int i = 0; i < snapshot.data.services.length; i++ ){
+                        var map = new Map();
+                        map['NextBus'] = snapshot.data.services[i]['NextBus']['Load'];
+                        map['NextBus2'] = snapshot.data.services[i]['NextBus']['Load'];
+                        map['NextBus3'] = snapshot.data.services[i]['NextBus']['Load'];
+                        load.add([snapshot.data.services[i]['ServiceNo'] ,map]);
+                      }
 
+//                print(load);
+//                Text(load[0][0] + load[0][1]['NextBus']);
+
+                      return Container();
+                      return new ListView(
+                        children: new List.generate(load.length, (index) => new Text(load[index][0] + load[index][1]['NextBus']),
+                        ),
+                      );
+
+                    } else if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    // By default, show a loading spinner.
+                    return CircularProgressIndicator();
+                  },
+                ),
                Column(
                 children: <Widget>[
                   TopBar(),

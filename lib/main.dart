@@ -9,6 +9,8 @@ import 'package:sg_rocket/topbar.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoder/geocoder.dart';
 
+import 'bus_load.dart';
+
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
 // to get places detail (lat/lng)
@@ -112,7 +114,6 @@ class _HomePageState extends State<HomePage> {
 
     String startStr = checkForStartNameNull();
     String destStr = checkForDestNameNull();
-
     return new Scaffold(
       body: ListView(
         children: <Widget>[

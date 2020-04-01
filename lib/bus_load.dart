@@ -6,9 +6,9 @@ import 'package:http/http.dart' as http;
 
 const datamallKey = 'OfEb2EVVR1COa5zuW7md3w==';
 
-Future<Album> fetchAlbum() async {
+Future<Album> fetchAlbum(String code) async {
 
-  String url = 'http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=83139';
+  String url = 'http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=' + code;
   Map<String, String> headers = {
     "AccountKey": datamallKey,
   };
