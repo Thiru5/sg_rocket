@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sg_rocket/map_nav.dart';
+import 'package:sg_rocket/models/database.dart';
 import 'package:sg_rocket/transport_mode.dart';
 import 'package:sg_rocket/topbar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'models/routeQuery.dart';
 
 int buttonPressed;
 
@@ -38,60 +42,62 @@ class _OptionMenuState extends State<OptionMenu> {
       destinationName = 'Proceed Back to Select';
     }
 
-
-    return MaterialApp(
-        title: 'Option Menu',
-        home: Scaffold(
-          body: Container(
-            child: Stack(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    TopBar(),
-                    Buttons(),
-                  ],
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: RawMaterialButton(
-                      onPressed: () {
-                        if (buttonPressed == 0) {
-                          
-                        } else if (buttonPressed == 1) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    MapNavMenu(buttonpressed: buttonPressed)),
-                          );
-                        } else if (buttonPressed == 2) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => TransportMenu()),
-                          );
-                        } else if (buttonPressed == 3) {}
-                      },
-                      child:
-                          const Text('Confirm', style: TextStyle(fontSize: 20)),
-                      fillColor: Colors.amber[300],
-                      shape: CircleBorder(
-                          side: BorderSide(
-                              width: 2,
-                              color: Colors.amber[300],
-                              style: BorderStyle.solid)),
-                      padding: EdgeInsets.all(25),
-                    ),
+    return StreamProvider<List<RouteQuery>>.value(
+          value: LocationQuery().routeQuery,
+          child: Scaffold(
+            body: Container(
+              child: Stack(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      TopBar(),
+                      Buttons(),
+                    ],
                   ),
-                ),
-              ],
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                      height: 120.0,
+                      width: 120.0,
+                      child: FittedBox(
+                        child: FloatingActionButton(
+                          child: Text("Confirm",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 9.0,
+                              )),
+                          backgroundColor: Colors.amber[300],
+                          onPressed: () {
+
+                            if (buttonPressed == 0) {
+
+                            } else if (buttonPressed == 1) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        MapNavMenu(buttonpressed: buttonPressed)),
+                              );
+                            } else if (buttonPressed == 2) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TransportMenu()),
+                              );
+                            } else if (buttonPressed == 3) {}
+                          },
+                        ),
+                      ),
+                    ),
+                  )
+
+                ],
+              ),
             ),
-          ),
-        ));
+          ));
+    }
   }
-}
 
 class Buttons extends StatefulWidget {
   @override
@@ -201,6 +207,7 @@ class _ButtonsState extends State<Buttons> {
           ),
         ),
       ],
-    ));
+    )
+  );
   }
 }

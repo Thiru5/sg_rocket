@@ -5,9 +5,10 @@ import 'package:sg_rocket/flutter_google_places.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sg_rocket/option_menu.dart';
-import 'package:sg_rocket/topbar.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoder/geocoder.dart';
+import 'package:sg_rocket/models/database.dart';
+
 
 import 'bus_load.dart';
 
@@ -36,6 +37,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   Prediction predict;
   LatLng destination;
   LatLng location;
@@ -88,6 +90,11 @@ class _HomePageState extends State<HomePage> {
       startName = "${startReply.addressLine}"; //startReply.name +' '+ startReply.subLocality +' '+ startReply.locality +' '+ startReply.administrativeArea +' '+ startReply.postalCode +' '+ startReply.country;
       destName = "${destReply.addressLine}";//destReply.name  +' '+ destReply.subLocality +' '+ destReply.locality+' '+ destReply.administrativeArea +' '+ destReply.postalCode +' '+ destReply.country;
     });
+
+    List startPoint = [latLng.latitude,latLng.longitude];
+    List endPoint = [desLng.latitude,desLng.longitude];
+
+    await LocationQuery().updateLocationQueryData(startName, destName,startPoint,endPoint);
 
   }
 
@@ -236,24 +243,12 @@ class _HomePageState extends State<HomePage> {
             )),
             backgroundColor: Colors.amber[300],
             onPressed: () {
+
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => OptionMenu(
-                  startLocation: latLng,
-                  destination: desLng,
-                  startLocationName: startStr,
-                  destinationName: destStr,
                 )),
 
-              );
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TopBar(
-                startLocation: latLng,
-                destination: desLng,
-                startLocationName: startStr,
-                destinationName: destStr,
-              )),
               );
             },
           ),
@@ -287,5 +282,6 @@ class _HomePageState extends State<HomePage> {
     homeScaffoldKey.currentState.showSnackBar(
       SnackBar(content: Text(response.errorMessage)),
     );
+
   }
 }
