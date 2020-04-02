@@ -15,14 +15,23 @@ class TransportMenu extends StatefulWidget {
   @override
   _TransportMenuState createState() => _TransportMenuState(buttonpressed: buttonpressed);
 }
-blueURL() async{
+blueURL() async {
   String url = 'https://play.google.com/store/apps/details?id=com.bluesg.androidapp&hl=fr';
-  if (await canLaunch(url)){
+  if (await canLaunch(url)) {
     await launch(url);
   } else {
     throw 'Could not launch $url';
   }
 }
+
+  gojekURL() async{
+    String url = 'https://play.google.com/store/apps/details?id=com.gojek.app&hl=en_SG';
+    if (await canLaunch(url)){
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 grabURL() async{
   String url = 'https://app.appsflyer.com/com.grabtaxi.passenger?pid=MY-Website-ADR-Install_Button&c=Website_Download';
   if (await canLaunch(url)){
@@ -30,6 +39,35 @@ grabURL() async{
   } else {
     throw 'Could not launch $url';
   }
+}
+
+Widget _buildAboutDialog(BuildContext context) {
+  return new AlertDialog(
+      title: const Text('Redirecting...'),
+      content: new Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+        ],
+      ),
+      actions: <Widget>[
+  new FlatButton(
+  onPressed: () {
+    Navigator.of(context).pop();
+    if (buttonPressed == 0) {
+      blueURL();
+    } else if (buttonPressed == 2) {
+      grabURL();
+    } else if (buttonPressed == 3) {}
+    else if (buttonPressed == 4) {
+      gojekURL();
+    }
+  },
+  textColor: Theme.of(context).primaryColor,
+  child: const Text('Okay, got it!'),
+  ),
+  ],
+  );
 }
 
 class _TransportMenuState extends State<TransportMenu> {
@@ -78,7 +116,10 @@ class _TransportMenuState extends State<TransportMenu> {
                         backgroundColor: Colors.amber[300],
                         onPressed: () {
                           if (buttonPressed == 0) {
-                            blueURL();
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) => _buildAboutDialog(context),
+                            );
                           } else if (buttonPressed == 1) {
                             Navigator.push(
                               context,
@@ -87,10 +128,17 @@ class _TransportMenuState extends State<TransportMenu> {
                                       MapNavMenu(buttonpressed: buttonPressed)),
                             );
                           } else if (buttonPressed == 2) {
-                            grabURL();
-
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) => _buildAboutDialog(context),
+                            );
                           } else if (buttonPressed == 3) {}
-                          else if (buttonPressed == 4) {}
+                          else if (buttonPressed == 4) {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) => _buildAboutDialog(context),
+                            );
+                          }
                         },
                       ),
                     ),
@@ -160,7 +208,7 @@ class _IconsState extends State<Icons> {
                 ),
                 RaisedButton(
                   padding: const EdgeInsets.all(10),
-                  child: Image.asset('assets/private_button.png'),
+                  child: Image.asset('assets/grab.png'),
                   color: buttonIndex[2] == 1  ? Colors.amber[300] : Colors.white,
                   onPressed: ()
                   {
@@ -194,7 +242,7 @@ class _IconsState extends State<Icons> {
                 ),
                 RaisedButton(
                   padding: const EdgeInsets.all(10),
-                  child: Image.asset('assets/walk_button.png'),
+                  child: Image.asset('assets/gojek.png'),
                   color: buttonIndex[4] == 1  ? Colors.amber[300] : Colors.white,
                   onPressed: ()
                   {
