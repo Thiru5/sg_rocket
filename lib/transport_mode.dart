@@ -38,7 +38,6 @@ class _TransportMenuState extends State<TransportMenu> {
         child: Scaffold(
             body: Stack(
               children: <Widget>[
-
                Column(
                 children: <Widget>[
                   TopBar(),
@@ -52,8 +51,7 @@ class _TransportMenuState extends State<TransportMenu> {
                       ),
                     ),
                   SizedBox(
-                    height: 450, // constrain height
-
+                    height: 600, // constrain height
                     child: Icons(),
 
                   ),

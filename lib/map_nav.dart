@@ -38,7 +38,6 @@ class _MapNavMenuState extends State<MapNavMenu> {
                     padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                     height: 120.0,
                     width: 120.0,
-                    child: FittedBox(
                       child: FloatingActionButton(
                         child: Text("Confirm",
                             style: TextStyle(
@@ -51,7 +50,7 @@ class _MapNavMenuState extends State<MapNavMenu> {
                       ),
                     ),
                   ),
-                )
+
               ],
             ),
           ),
