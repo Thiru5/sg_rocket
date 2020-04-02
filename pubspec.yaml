@@ -80,6 +80,7 @@ flutter:
    - assets/MrtLrtFare.json
    - assets/gojek.png
    - assets/grab.png
+   - assets/map_nav_car.json
    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
