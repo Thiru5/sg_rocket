@@ -53,7 +53,7 @@ class TopBar extends StatelessWidget {
                   Flexible(
                     child: Container(
                       child: Text(
-                        startLocationName,
+                        startAdd,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: Colors.green,
@@ -83,7 +83,7 @@ class TopBar extends StatelessWidget {
                   Flexible(
                     child: Container(
                       child: Text(
-                        destinationName,
+                        endAdd,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: TextStyle(
