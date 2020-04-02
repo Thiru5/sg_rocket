@@ -17,8 +17,8 @@ class LowerTopBar extends StatelessWidget {
               child: Text(
                 'FASTEST ROUTE POSSIBLE',
                 style: TextStyle(
-                  fontSize: 27.0,
-                  color: Colors.grey,
+                  fontSize: 20.0,
+                  color: Colors.grey[510],
                   fontWeight: FontWeight.bold,
                   fontFamily: "xx",
                 ),
@@ -30,8 +30,8 @@ class LowerTopBar extends StatelessWidget {
               child: Text(
                 'CHEAPEST ROUTE AVAILABLE',
                 style: TextStyle(
-                  fontSize: 27.0,
-                  color: Colors.grey,
+                  fontSize: 20.0,
+                  color: Colors.grey[510],
                   fontWeight: FontWeight.bold,
                   fontFamily: "xx",
                 ),
@@ -43,7 +43,7 @@ class LowerTopBar extends StatelessWidget {
               child: Text(
                 'MODE OF TRANSPORT',
                 style: TextStyle(
-                  fontSize: 27.0,
+                  fontSize: 20.0,
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
                   fontFamily: "xx",
@@ -57,7 +57,7 @@ class LowerTopBar extends StatelessWidget {
                 'I HATE PEOPLE',
                 style: TextStyle(
                   fontSize: 27.0,
-                  color: Colors.grey,
+                  color: Colors.grey[510],
                   fontWeight: FontWeight.bold,
                   fontFamily: "xx",
                 ),

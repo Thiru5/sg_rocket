@@ -13,13 +13,19 @@ class TopBar extends StatelessWidget {
     String startAdd;
     String endAdd;
 
-    final locationQuery = Provider.of<List<RouteQuery>>(context);
-    locationQuery.forEach((locationQuery) {
-      endAdd = locationQuery.endAddress;
-      print(locationQuery.endPoint);
-      startAdd = locationQuery.startAddress;
-      print(locationQuery.startPoint);
-    });
+    if(startAdd != null && endAdd != null)
+      {
+        print('done');
+      }
+    else{
+      final locationQuery = Provider.of<List<RouteQuery>>(context);
+      locationQuery.forEach((locationQuery) {
+        endAdd = locationQuery.endAddress;
+        print(locationQuery.endPoint);
+        startAdd = locationQuery.startAddress;
+        print(locationQuery.startPoint);
+      });
+    }
 
     return StreamProvider<List<RouteQuery>>.value(
       value: LocationQuery().routeQuery,
@@ -48,13 +54,12 @@ class TopBar extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 20),
-
-
                   Flexible(
                     child: Container(
                       child: Text(
                         startAdd,
                         overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
                         style: TextStyle(
                           color: Colors.green,
                           fontSize: 16.0,
