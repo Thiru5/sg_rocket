@@ -75,6 +75,7 @@ flutter:
    - assets/elec_button.png
    - assets/private_button.png
    - assets/pub_trans_button.png
+   - assets/BusStops.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

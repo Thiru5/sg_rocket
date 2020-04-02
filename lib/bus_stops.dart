@@ -1,21 +1,43 @@
+import 'dart:convert';
+import 'package:flutter/material.dart';
 
-class BusStop {
-  final String code;
-  final String description;
-  final double lat;
-  final double lng;
-  final String roadName;
+import 'bus_list.dart';
+import 'bus_stop.dart';
 
+class BusStops extends StatefulWidget {
+  @override
+  MyAppState createState() => new MyAppState();
+}
 
-  BusStop({this.code, this.description, this.lat, this.lng, this.roadName});
+class MyAppState extends State<BusStops> {
+  List data;
 
-  factory BusStop.fromJson(Map<String, dynamic> json) {
-    return new BusStop(
-      code: json['BusStopCode'] as String,
-      description: json['Description'] as String,
-      lat: json['Latitude'] as double,
-      lng: json['Longitude'] as double,
-      roadName: json['RoadName'] as String,
-    );
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        body: new Container(
+          child: new Center(
+            // Use future builder and DefaultAssetBundle to load the local JSON file
+            child: new FutureBuilder(
+                future: DefaultAssetBundle.of(context)
+                    .loadString('assets/BusStops.json'),
+                builder: (context, snapshot) {
+                  List<BusStop> busStops =
+                  parseJson(snapshot.data.toString());
+                  return busStops.isNotEmpty
+                      ? new BusList(busList: busStops,)
+                      : new Center(child: new CircularProgressIndicator());
+                }),
+          ),
+        ));
+  }
+
+  List<BusStop> parseJson(String response) {
+    if(response==null){
+      return [];
+    }
+    final parsed =
+    json.decode(response.toString()).cast<Map<String, dynamic>>();
+    return parsed.map<BusStop>((json) => new BusStop.fromJson(json)).toList();
   }
 }

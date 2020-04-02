@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'bus_stops.dart';
+import 'bus_stop.dart';
 import 'bus_load.dart';
 
 

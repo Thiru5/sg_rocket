@@ -5,6 +5,7 @@ import 'package:sg_rocket/models/database.dart';
 import 'package:sg_rocket/transport_mode.dart';
 import 'package:sg_rocket/topbar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'bus_stops.dart';
 
 import 'models/routeQuery.dart';
 
@@ -85,7 +86,13 @@ class _OptionMenuState extends State<OptionMenu> {
                                 MaterialPageRoute(
                                     builder: (context) => TransportMenu()),
                               );
-                            } else if (buttonPressed == 3) {}
+                            } else if (buttonPressed == 3) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BusStops()),
+                              );
+                            }
                           },
                         ),
                       ),
