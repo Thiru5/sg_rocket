@@ -7,17 +7,18 @@ import 'package:sg_rocket/route_tile_list.dart';
 import 'models/database.dart';
 import 'models/routeQuery.dart';
 
-class MapNavMenu extends StatefulWidget {
+class LonelyRoute extends StatefulWidget {
   final int buttonpressed;
-  MapNavMenu({this.buttonpressed});
+
+  const LonelyRoute({Key key, this.buttonpressed}) : super(key: key);
+
   @override
-  _MapNavMenuState createState() => _MapNavMenuState(buttonpressed: buttonpressed);
+  _LonelyRouteState createState() => _LonelyRouteState(buttonpressed: buttonpressed);
 }
 
-class _MapNavMenuState extends State<MapNavMenu> {
+class _LonelyRouteState extends State<LonelyRoute> {
   final int buttonpressed;
-  _MapNavMenuState({this.buttonpressed});
-  
+  _LonelyRouteState({this.buttonpressed});
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<RouteQuery>>.value(
@@ -31,12 +32,11 @@ class _MapNavMenuState extends State<MapNavMenu> {
                     TopBar(),
                     LowerTopBar(buttonpressed: buttonpressed),
                     Expanded(
-                      child: Container(
-                        width: 400,
-                        height:100,
-                        child: RouteTileList(),
-                      )
-                    )
+                        child: Container(
+                          width: 400,
+                          height: 100,
+                          child: RouteTileList(),
+                        ))
                   ],
                 ),
               ],

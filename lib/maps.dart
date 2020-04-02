@@ -167,7 +167,7 @@ class _MapsRouteState extends State<MapsRoute> {
             markers: _markers,
             compassEnabled: true,
             myLocationEnabled: true,
-            tiltGesturesEnabled: false,
+            tiltGesturesEnabled: true,
             onCameraMove: _onCameraMove,
           ),
           Align(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sg_rocket/fastest_route.dart';
+import 'package:sg_rocket/lonely_route.dart';
 import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/models/database.dart';
 import 'package:sg_rocket/transport_mode.dart';
@@ -11,73 +13,78 @@ import 'models/routeQuery.dart';
 int buttonPressed;
 
 class OptionMenu extends StatefulWidget {
-
   @override
   _OptionMenuState createState() => _OptionMenuState();
 }
 
 class _OptionMenuState extends State<OptionMenu> {
-
   @override
   Widget build(BuildContext context) {
-
-
     return StreamProvider<List<RouteQuery>>.value(
-          value: LocationQuery().routeQuery,
-          child: Scaffold(
-            body: Container(
-              child: Stack(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      TopBar(),
-                      Buttons(),
-                    ],
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                      height: 120.0,
-                      width: 120.0,
-                      child: FittedBox(
-                        child: FloatingActionButton(
-                          child: Text("Confirm",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 9.0,
-                              )),
-                          backgroundColor: Colors.amber[300],
-                          onPressed: () {
-
-                            if (buttonPressed == 0) {
-
-                            } else if (buttonPressed == 1) {
-                              Navigator.push(
+        value: LocationQuery().routeQuery,
+        child: Scaffold(
+          body: Container(
+            child: Stack(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    TopBar(),
+                    Buttons(),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    height: 120.0,
+                    width: 120.0,
+                    child: FittedBox(
+                      child: FloatingActionButton(
+                        child: Text("Confirm",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 9.0,
+                            )),
+                        backgroundColor: Colors.amber[300],
+                        onPressed: () {
+                          if (buttonPressed == 0) {
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        MapNavMenu(buttonpressed: buttonPressed)),
-                              );
-                            } else if (buttonPressed == 2) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TransportMenu()),
-                              );
-                            } else if (buttonPressed == 3) {}
-                          },
-                        ),
+                                  builder: (context) => FastestRoute(buttonpressed: buttonPressed,),
+                                ));
+                          } else if (buttonPressed == 1) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      MapNavMenu(buttonpressed: buttonPressed)),
+                            );
+                          } else if (buttonPressed == 2) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TransportMenu(buttonpressed: buttonPressed)),
+                            );
+                          } else if (buttonPressed == 3) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LonelyRoute(buttonpressed: buttonPressed)),
+                            );
+
+                          }
+                        },
                       ),
                     ),
-                  )
-
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-          ));
-    }
+          ),
+        ));
   }
+}
 
 class Buttons extends StatefulWidget {
   @override
@@ -187,7 +194,6 @@ class _ButtonsState extends State<Buttons> {
           ),
         ),
       ],
-    )
-  );
+    ));
   }
 }
