@@ -29,7 +29,11 @@ class _OptionMenuState extends State<OptionMenu> {
                 Column(
                   children: <Widget>[
                     TopBar(),
-                    Buttons(),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(20, 100, 20, 100),
+                      child:Buttons(),
+                    ),
+
                   ],
                 ),
                 Align(
@@ -102,7 +106,7 @@ class _ButtonsState extends State<Buttons> {
         Text(
           'Choose...',
           style: TextStyle(
-            fontSize: 50.0,
+            fontSize: 20,
             color: Colors.grey,
             fontWeight: FontWeight.bold,
             fontFamily: "xx",
@@ -112,7 +116,7 @@ class _ButtonsState extends State<Buttons> {
           minWidth: 250,
           height: 35,
           child: RaisedButton(
-            child: const Text('FASTEST', style: TextStyle(fontSize: 20)),
+            child: const Text('FASTEST', style: TextStyle(fontSize: 15)),
             color: buttonIndex[0] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 0;
@@ -133,7 +137,7 @@ class _ButtonsState extends State<Buttons> {
           minWidth: 250,
           height: 35,
           child: RaisedButton(
-            child: const Text('CHEAPEST', style: TextStyle(fontSize: 20)),
+            child: const Text('CHEAPEST', style: TextStyle(fontSize: 15)),
             color: buttonIndex[1] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 1;
@@ -152,10 +156,10 @@ class _ButtonsState extends State<Buttons> {
         ),
         ButtonTheme(
           minWidth: 250,
-          height: 35,
+          height: 45,
           child: RaisedButton(
             child:
-                const Text('MODE OF TRASNPORT', style: TextStyle(fontSize: 20)),
+                const Text('MODE OF TRANSPORT', style: TextStyle(fontSize: 15)),
             color: buttonIndex[2] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 2;
@@ -176,7 +180,7 @@ class _ButtonsState extends State<Buttons> {
           minWidth: 250,
           height: 35,
           child: RaisedButton(
-            child: const Text('I HATE PEOPLE', style: TextStyle(fontSize: 20)),
+            child: const Text('I HATE PEOPLE', style: TextStyle(fontSize: 15)),
             color: buttonIndex[3] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 3;

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/ios.dart';
 import 'package:provider/provider.dart';
 import 'package:sg_rocket/maps.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'models/routeQuery.dart';
 
@@ -16,8 +17,20 @@ class _RouteTileListState extends State<RouteTileList> {
   Widget build(BuildContext context) {
     String startAdd;
     String endAdd;
+    List endPoint;
+    List startPoint;
+    LatLng destination;
 
     final locationQuery = Provider.of<List<RouteQuery>>(context);
+    locationQuery.forEach((locationQuery) {
+      endAdd = locationQuery.endAddress;
+      endPoint = locationQuery.endPoint;
+      startAdd = locationQuery.startAddress;
+      startPoint = locationQuery.startPoint;
+      destination = LatLng(endPoint[0], endPoint[1]);
+    });
+
+
 
     return ListView.builder(
       itemCount: 20,
@@ -26,7 +39,11 @@ class _RouteTileListState extends State<RouteTileList> {
             child: new InkWell(
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MapsRoute()));
+                context, MaterialPageRoute(builder: (context) => MapsRoute(
+              destination: destination,
+              destName: endAdd,
+              startName: startAdd,
+            )));
           },
           child: ListTile(
             title: Row(
