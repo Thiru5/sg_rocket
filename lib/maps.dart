@@ -1,28 +1,42 @@
-  import 'dart:async';
+import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:location/location.dart' as loc;
+import 'package:provider/provider.dart';
 import 'package:sg_rocket/map_req.dart';
 
+import 'package:sg_rocket/models/routeQuery.dart';
+
+import 'models/routeQuery.dart';
+
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
+
 
 
 class MapsRoute extends StatefulWidget {
   LatLng location;
   LatLng destination;
-  MapsRoute({Key key, @required this.destination,this.location}) : super(key: key);
+  String destName;
+  String startName;
+  MapsRoute({Key key, @required this.destination,this.location, this.destName, this.startName}) : super(key: key);
   @override
-  _MapsRouteState createState() => _MapsRouteState(destination,location);
+  _MapsRouteState createState() => _MapsRouteState(destination,location,destName,startName);
 
 }
 
 class _MapsRouteState extends State<MapsRoute> {
   LatLng destination;
   LatLng location;
-  _MapsRouteState(this.destination,this.location);
+  String destName;
+  String startName;
+  _MapsRouteState(this.destination,this.location, this.destName,this.startName);
 
   Completer<GoogleMapController> _controller = Completer();
+
+
+
 
   bool loading = true;
   static const LatLng _center = const LatLng(1.338231, 103.984072);
@@ -71,8 +85,21 @@ class _MapsRouteState extends State<MapsRoute> {
         markerId: MarkerId(latLng.toString()),
         position: latLng,
         infoWindow: InfoWindow(
-          title: 'Really cool place',
-          snippet: '5 Star Rating',
+          title: startName,
+        ),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+      ));
+    });
+  }
+
+  void _onAddMarkerBookmark() {
+    setState(() {
+      _markers.add(Marker(
+        // This marker id can be anything that uniquely identifies each marker.
+        markerId: MarkerId(latLng.toString()),
+        position: latLng,
+        infoWindow: InfoWindow(
+          title: 'Bookmark Place',
         ),
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
       ));
@@ -100,7 +127,7 @@ class _MapsRouteState extends State<MapsRoute> {
     String route = await _googleMapsServices.getRouteCoordinates(
        latLng , destination);
     createRoute(route);
-    _addMarker(destination,"Destination");
+    _addMarker(destination, destName);
   }
 
   void createRoute(String encodedPoly) {
@@ -114,9 +141,9 @@ class _MapsRouteState extends State<MapsRoute> {
   }
   void _addMarker(LatLng location, String address) {
     _markers.add(Marker(
-        markerId: MarkerId("112"),
+        markerId: MarkerId('1'),
         position: location,
-        infoWindow: InfoWindow(title: address, snippet: "go here"),
+        infoWindow: InfoWindow(title: destName),
     icon: BitmapDescriptor.defaultMarkerWithHue(
         BitmapDescriptor.hueYellow),
     ),
@@ -153,11 +180,11 @@ class _MapsRouteState extends State<MapsRoute> {
     return lList;
   }
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return StreamProvider<List<RouteQuery>>.value(
+      child: Scaffold(
         body: Stack(
             children: <Widget>[
-          GoogleMap(
+              GoogleMap(
             onMapCreated: _onMapCreated,
             polylines: _polyLines,
             initialCameraPosition: CameraPosition(
@@ -167,7 +194,7 @@ class _MapsRouteState extends State<MapsRoute> {
             markers: _markers,
             compassEnabled: true,
             myLocationEnabled: true,
-            tiltGesturesEnabled: false,
+            tiltGesturesEnabled: true,
             onCameraMove: _onCameraMove,
           ),
           Align(
@@ -192,7 +219,7 @@ class _MapsRouteState extends State<MapsRoute> {
             child: Container(
               padding: EdgeInsets.only(top: 40, bottom: 20, right: 20),
               child: FloatingActionButton(
-                onPressed: _onAddMarkerButtonPressed,
+                onPressed: _onAddMarkerBookmark,
                 materialTapTargetSize: MaterialTapTargetSize.padded,
                 backgroundColor: Colors.amber[300],
                 child: const Icon(Icons.add_location, size: 36.0),

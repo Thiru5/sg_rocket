@@ -9,8 +9,11 @@ import 'models/routeQuery.dart';
 
 int buttonPressed;
 class TransportMenu extends StatefulWidget {
+  final int buttonpressed;
+  const TransportMenu({Key key, this.buttonpressed}) : super(key: key);
+
   @override
-  _TransportMenuState createState() => _TransportMenuState();
+  _TransportMenuState createState() => _TransportMenuState(buttonpressed: buttonpressed);
 }
 blueURL() async {
   String url = 'https://play.google.com/store/apps/details?id=com.bluesg.androidapp&hl=fr';
@@ -68,6 +71,8 @@ Widget _buildAboutDialog(BuildContext context) {
 }
 
 class _TransportMenuState extends State<TransportMenu> {
+  final int buttonpressed;
+  _TransportMenuState({this.buttonpressed});
   @override
   Widget build(BuildContext context) {
 
@@ -76,7 +81,6 @@ class _TransportMenuState extends State<TransportMenu> {
         child: Scaffold(
             body: Stack(
               children: <Widget>[
-
                Column(
                 children: <Widget>[
                   TopBar(),
@@ -90,8 +94,7 @@ class _TransportMenuState extends State<TransportMenu> {
                       ),
                     ),
                   SizedBox(
-                    height: 450, // constrain height
-
+                    height: 600, // constrain height
                     child: Icons(),
 
                   ),
