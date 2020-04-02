@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sg_rocket/topbar.dart';
 import 'package:sg_rocket/lower_top_bar.dart';
+
+import 'models/database.dart';
+import 'models/routeQuery.dart';
 
 class MapNavMenu extends StatefulWidget {
   final int buttonpressed;
@@ -15,9 +19,9 @@ class _MapNavMenuState extends State<MapNavMenu> {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Option Menu',
-        home: Scaffold(
+    return StreamProvider<List<RouteQuery>>.value(
+        value: LocationQuery().routeQuery,
+        child: Scaffold(
           body: Container(
             child: Stack(
               children: <Widget>[
@@ -28,24 +32,26 @@ class _MapNavMenuState extends State<MapNavMenu> {
                     LowerTopBar(buttonpressed: buttonpressed),
                   ],
                 ),
-                Container(
-                    padding: EdgeInsets.symmetric(vertical: 8 ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: RawMaterialButton(
-                          onPressed: () {},
-                          child: const Text('Confirm',
-                              style: TextStyle(fontSize: 20)),
-                          fillColor: Colors.amber[300],
-                          shape: CircleBorder(
-                              side: BorderSide(
-                                  width: 2,
-                                  color: Colors.amber[300],
-                                  style: BorderStyle.solid)),
-                          padding: EdgeInsets.all(25),
-                        ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    height: 120.0,
+                    width: 120.0,
+                    child: FittedBox(
+                      child: FloatingActionButton(
+                        child: Text("Confirm",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 9.0,
+                            )),
+                        backgroundColor: Colors.amber[300],
+                        onPressed: () {
+                        },
                       ),
                     ),
+                  ),
+                )
               ],
             ),
           ),
