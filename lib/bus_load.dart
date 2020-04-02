@@ -79,7 +79,7 @@ class _MyAppState extends State<BusLoad > {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Fetch Data Example'),
+          title: Text('Bus Load Details'),
         ),
         body: Center(
           child: FutureBuilder<Album>(
@@ -95,13 +95,17 @@ class _MyAppState extends State<BusLoad > {
                   map['NextBus3'] = snapshot.data.services[i]['NextBus3']['Load'];
                   load.add([snapshot.data.services[i]['ServiceNo'] ,map]);
                 }
-
-                Text(load[0][0] + load[0][1]['NextBus']);
-                return new ListView(
-                  children: new List.generate(load.length, (index) => new Text(load[index][0] + load[index][1]['NextBus']),
-                  ),
-                );
-
+                 if (snapshot.data.services.length == 0){
+                   return Center(child: Text('Now no bus brooo'));
+                 }
+                  else {
+                   return new ListView(
+                     children: new List.generate(
+                       load.length, (index) => new Text(
+                         load[index][0] + load[index][1]['NextBus']),
+                     ),
+                   );
+                 }
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }

@@ -7,6 +7,7 @@ import 'package:sg_rocket/models/database.dart';
 import 'package:sg_rocket/transport_mode.dart';
 import 'package:sg_rocket/topbar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'bus_stops.dart';
 
 import 'models/routeQuery.dart';
@@ -30,6 +31,15 @@ class _OptionMenuState extends State<OptionMenu> {
   String startLocationName;
   String destinationName;
   _OptionMenuState(this.destination,this.startLocation,this.startLocationName,this.destinationName);
+
+  hatePeople() async{
+    String url = 'https://www.worldometers.info/coronavirus/';
+    if (await canLaunch(url)){
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,13 +84,6 @@ class _OptionMenuState extends State<OptionMenu> {
                           onPressed: () {
 
                             if (buttonPressed == 0) {
-                              print('oof');
-                              
-                               Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => fareCalculate()),
-                              );
 
                             } else if (buttonPressed == 1) {
                               Navigator.push(
@@ -96,11 +99,7 @@ class _OptionMenuState extends State<OptionMenu> {
                                     builder: (context) => TransportMenu()),
                               );
                             } else if (buttonPressed == 3) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => BusStops()),
-                              );
+                              hatePeople();
                             }
                           },
                         ),
