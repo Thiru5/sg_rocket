@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/topbar.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'models/database.dart';
+import 'models/routeQuery.dart';
 
 int buttonPressed;
 class TransportMenu extends StatefulWidget {
@@ -28,9 +32,10 @@ grabURL() async{
 class _TransportMenuState extends State<TransportMenu> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Transport Menu',
-        home: Scaffold(
+
+    return StreamProvider<List<RouteQuery>>.value(
+      value: LocationQuery().routeQuery,
+        child: Scaffold(
             body: Stack(
               children: <Widget>[
 
@@ -54,39 +59,40 @@ class _TransportMenuState extends State<TransportMenu> {
                   ),
                 ],
               ),
-              Container(
-                  padding: EdgeInsets.only(bottom: 8),
-                  child:
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: RawMaterialButton(
-                      onPressed: (){
-                        if (buttonPressed == 0) {
-                          blueURL();
-                        } else if (buttonPressed == 1) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    MapNavMenu(buttonpressed: buttonPressed)),
-                          );
-                        } else if (buttonPressed == 2) {
-                          grabURL();
-                          
-                        } else if (buttonPressed == 3) {}
-                        else if (buttonPressed == 4) {}
-                      },
-                      child: const Text('Confirm', style: TextStyle(fontSize: 20)),
-                      fillColor: Colors.amber[300],
-                      shape: CircleBorder(
-                          side: BorderSide(
-                              width: 2,
-                              color: Colors.amber[300],
-                              style: BorderStyle.solid)),
-                      padding: EdgeInsets.all(25),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    height: 120.0,
+                    width: 120.0,
+                    child: FittedBox(
+                      child: FloatingActionButton(
+                        child: Text("Confirm",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 9.0,
+                            )),
+                        backgroundColor: Colors.amber[300],
+                        onPressed: () {
+                          if (buttonPressed == 0) {
+                            blueURL();
+                          } else if (buttonPressed == 1) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      MapNavMenu(buttonpressed: buttonPressed)),
+                            );
+                          } else if (buttonPressed == 2) {
+                            grabURL();
+
+                          } else if (buttonPressed == 3) {}
+                          else if (buttonPressed == 4) {}
+                        },
+                      ),
                     ),
                   ),
-                ),
+                )
               ],
             ),
         ),

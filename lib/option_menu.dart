@@ -54,41 +54,44 @@ class _OptionMenuState extends State<OptionMenu> {
                       Buttons(),
                     ],
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: RawMaterialButton(
-                        onPressed: () {
-                          if (buttonPressed == 0) {
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                      height: 120.0,
+                      width: 120.0,
+                      child: FittedBox(
+                        child: FloatingActionButton(
+                          child: Text("Confirm",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 9.0,
+                              )),
+                          backgroundColor: Colors.amber[300],
+                          onPressed: () {
 
-                          } else if (buttonPressed == 1) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      MapNavMenu(buttonpressed: buttonPressed)),
-                            );
-                          } else if (buttonPressed == 2) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => TransportMenu()),
-                            );
-                          } else if (buttonPressed == 3) {}
-                        },
-                        child:
-                        const Text('Confirm', style: TextStyle(fontSize: 20)),
-                        fillColor: Colors.amber[300],
-                        shape: CircleBorder(
-                            side: BorderSide(
-                                width: 2,
-                                color: Colors.amber[300],
-                                style: BorderStyle.solid)),
-                        padding: EdgeInsets.all(25),
+                            if (buttonPressed == 0) {
+
+                            } else if (buttonPressed == 1) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        MapNavMenu(buttonpressed: buttonPressed)),
+                              );
+                            } else if (buttonPressed == 2) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TransportMenu()),
+                              );
+                            } else if (buttonPressed == 3) {}
+                          },
+                        ),
                       ),
                     ),
-                  ),
+                  )
+
                 ],
               ),
             ),

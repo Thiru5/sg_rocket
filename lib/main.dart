@@ -246,10 +246,6 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => OptionMenu(
-                  startLocation: latLng,
-                  destination: desLng,
-                  startLocationName: startStr,
-                  destinationName: destStr,
                 )),
 
               );
