@@ -7,11 +7,6 @@ import 'package:sg_rocket/models/routeQuery.dart';
 import 'main.dart';
 
 class TopBar extends StatelessWidget {
-//  LatLng startLocation;
-//  LatLng destination;
-//  String startLocationName;
-//  String destinationName;
-//  TopBar({Key key, @required this.destination,this.startLocation,this.startLocationName,this.destinationName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +20,6 @@ class TopBar extends StatelessWidget {
       startAdd = locationQuery.startAddress;
       print(locationQuery.startPoint);
     });
-//    if(startLocationName == null)
-//    {
-//      startLocationName = 'Proceed Back to Select';
-//    }
-//
-//    if(destinationName == null)
-//    {
-//      destinationName = 'Proceed Back to Select';
-//    }
 
     return StreamProvider<List<RouteQuery>>.value(
       value: LocationQuery().routeQuery,
@@ -53,7 +39,7 @@ class TopBar extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    'From',
+                    '  From',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 16.0,
@@ -62,13 +48,20 @@ class TopBar extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 20),
-                  Text(
-                    startAdd,
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1.0,
+
+
+                  Flexible(
+                    child: Container(
+                      child: Text(
+                        startLocationName,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.0,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -86,13 +79,20 @@ class TopBar extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 20),
-                  Text(
-                    endAdd,
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1.0,
+
+                  Flexible(
+                    child: Container(
+                      child: Text(
+                        destinationName,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.0,
+                        ),
+                      ),
                     ),
                   ),
                 ],
