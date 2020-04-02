@@ -7,17 +7,18 @@ import 'package:sg_rocket/route_tile_list.dart';
 import 'models/database.dart';
 import 'models/routeQuery.dart';
 
-class MapNavMenu extends StatefulWidget {
+class FastestRoute extends StatefulWidget {
   final int buttonpressed;
-  MapNavMenu({this.buttonpressed});
+
+  const FastestRoute({Key key, this.buttonpressed}) : super(key: key);
   @override
-  _MapNavMenuState createState() => _MapNavMenuState(buttonpressed: buttonpressed);
+  _FastestRouteState createState() => _FastestRouteState(buttonpressed: buttonpressed);
 }
 
-class _MapNavMenuState extends State<MapNavMenu> {
+class _FastestRouteState extends State<FastestRoute> {
   final int buttonpressed;
-  _MapNavMenuState({this.buttonpressed});
-  
+  _FastestRouteState({this.buttonpressed});
+
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<RouteQuery>>.value(
@@ -31,14 +32,14 @@ class _MapNavMenuState extends State<MapNavMenu> {
                     TopBar(),
                     LowerTopBar(buttonpressed: buttonpressed),
                     Expanded(
-                      child: Container(
-                        width: 400,
-                        height:100,
-                        child: RouteTileList(),
-                      )
-                    )
+                        child: Container(
+                      width: 400,
+                      height: 100,
+                      child: RouteTileList(),
+                    ))
                   ],
                 ),
+
               ],
             ),
           ),

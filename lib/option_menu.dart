@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sg_rocket/display_route_ui.dart';
-import 'package:sg_rocket/fare_calculation.dart';
+
+import 'package:sg_rocket/fastest_route.dart';
+import 'package:sg_rocket/lonely_route.dart';
+
 import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/models/database.dart';
 import 'package:sg_rocket/transport_mode.dart';
@@ -15,104 +18,82 @@ import 'models/routeQuery.dart';
 int buttonPressed;
 
 class OptionMenu extends StatefulWidget {
-  LatLng startLocation;
-  LatLng destination;
-  String startLocationName;
-  String destinationName;
-  OptionMenu({Key key, @required this.destination,this.startLocation,this.startLocationName,this.destinationName}) : super(key: key);
   @override
-  @override
-  _OptionMenuState createState() => _OptionMenuState(startLocation,destination,startLocationName,destinationName);
+  _OptionMenuState createState() => _OptionMenuState();
 }
 
 class _OptionMenuState extends State<OptionMenu> {
-  LatLng destination;
-  LatLng startLocation;
-  String startLocationName;
-  String destinationName;
-  _OptionMenuState(this.destination,this.startLocation,this.startLocationName,this.destinationName);
-
-  hatePeople() async{
-    String url = 'https://www.worldometers.info/coronavirus/';
-    if (await canLaunch(url)){
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-
-
-    if(startLocationName == null)
-      {
-        startLocationName = 'Proceed Back to Select';
-      }
-
-    if(destinationName == null)
-    {
-      destinationName = 'Proceed Back to Select';
-    }
-
     return StreamProvider<List<RouteQuery>>.value(
-          value: LocationQuery().routeQuery,
-          child: Scaffold(
-            body: Container(
-              child: Stack(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      TopBar(),
-                      Buttons(),
-                    ],
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                      height: 120.0,
-                      width: 120.0,
-                      child: FittedBox(
-                        child: FloatingActionButton(
-                          child: Text("Confirm",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 9.0,
-                              )),
-                          backgroundColor: Colors.amber[300],
-                          onPressed: () {
+        value: LocationQuery().routeQuery,
+        child: Scaffold(
+          body: Container(
+            child: Stack(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    TopBar(),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(20, 100, 20, 100),
+                      child:Buttons(),
+                    ),
 
-                            if (buttonPressed == 0) {
-
-                            } else if (buttonPressed == 1) {
-                              Navigator.push(
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    height: 120.0,
+                    width: 120.0,
+                    child: FittedBox(
+                      child: FloatingActionButton(
+                        child: Text("Confirm",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 9.0,
+                            )),
+                        backgroundColor: Colors.amber[300],
+                        onPressed: () {
+                          if (buttonPressed == 0) {
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        MapNavMenu(buttonpressed: buttonPressed)),
-                              );
-                            } else if (buttonPressed == 2) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TransportMenu()),
-                              );
-                            } else if (buttonPressed == 3) {
-                              hatePeople();
-                            }
-                          },
-                        ),
+                                  builder: (context) => FastestRoute(buttonpressed: buttonPressed,),
+                                ));
+                          } else if (buttonPressed == 1) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      MapNavMenu(buttonpressed: buttonPressed)),
+                            );
+                          } else if (buttonPressed == 2) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TransportMenu(buttonpressed: buttonPressed)),
+                            );
+                          } else if (buttonPressed == 3) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LonelyRoute(buttonpressed: buttonPressed)),
+                            );
+
+                          }
+                        },
                       ),
                     ),
-                  )
-
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-          ));
-    }
+          ),
+        ));
   }
+}
 
 class Buttons extends StatefulWidget {
   @override
@@ -130,7 +111,7 @@ class _ButtonsState extends State<Buttons> {
         Text(
           'Choose...',
           style: TextStyle(
-            fontSize: 50.0,
+            fontSize: 20,
             color: Colors.grey,
             fontWeight: FontWeight.bold,
             fontFamily: "xx",
@@ -140,7 +121,7 @@ class _ButtonsState extends State<Buttons> {
           minWidth: 250,
           height: 35,
           child: RaisedButton(
-            child: const Text('FASTEST', style: TextStyle(fontSize: 20)),
+            child: const Text('FASTEST', style: TextStyle(fontSize: 15)),
             color: buttonIndex[0] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 0;
@@ -161,7 +142,7 @@ class _ButtonsState extends State<Buttons> {
           minWidth: 250,
           height: 35,
           child: RaisedButton(
-            child: const Text('CHEAPEST', style: TextStyle(fontSize: 20)),
+            child: const Text('CHEAPEST', style: TextStyle(fontSize: 15)),
             color: buttonIndex[1] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 1;
@@ -180,10 +161,10 @@ class _ButtonsState extends State<Buttons> {
         ),
         ButtonTheme(
           minWidth: 250,
-          height: 35,
+          height: 45,
           child: RaisedButton(
             child:
-                const Text('MODE OF TRASNPORT', style: TextStyle(fontSize: 20)),
+                const Text('MODE OF TRANSPORT', style: TextStyle(fontSize: 15)),
             color: buttonIndex[2] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 2;
@@ -204,7 +185,7 @@ class _ButtonsState extends State<Buttons> {
           minWidth: 250,
           height: 35,
           child: RaisedButton(
-            child: const Text('I HATE PEOPLE', style: TextStyle(fontSize: 20)),
+            child: const Text('I HATE PEOPLE', style: TextStyle(fontSize: 15)),
             color: buttonIndex[3] == 1 ? Colors.amber[300] : Colors.white,
             onPressed: () {
               buttonPressed = 3;
@@ -222,7 +203,6 @@ class _ButtonsState extends State<Buttons> {
           ),
         ),
       ],
-    )
-  );
+    ));
   }
 }
