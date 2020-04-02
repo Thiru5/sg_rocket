@@ -33,14 +33,12 @@ Future<Album> fetchAlbum(String code) async {
 }
 
 class Album {
-  final int userId;
-  final int id;
-  final String title;
+
   String oda;
   final List services;
   final String bus;
 
-  Album({this.userId, this.id, this.title, oda, this.services, this.bus});
+  Album({ oda, this.services, this.bus});
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
@@ -93,8 +91,8 @@ class _MyAppState extends State<BusLoad > {
                 for (int i = 0; i < snapshot.data.services.length; i++ ){
                   var map = new Map();
                   map['NextBus'] = snapshot.data.services[i]['NextBus']['Load'];
-                  map['NextBus2'] = snapshot.data.services[i]['NextBus']['Load'];
-                  map['NextBus3'] = snapshot.data.services[i]['NextBus']['Load'];
+                  map['NextBus2'] = snapshot.data.services[i]['NextBus2']['Load'];
+                  map['NextBus3'] = snapshot.data.services[i]['NextBus3']['Load'];
                   load.add([snapshot.data.services[i]['ServiceNo'] ,map]);
                 }
 

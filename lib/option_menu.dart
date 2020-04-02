@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sg_rocket/display_route_ui.dart';
+import 'package:sg_rocket/fare_calculation.dart';
 import 'package:sg_rocket/map_nav.dart';
 import 'package:sg_rocket/models/database.dart';
 import 'package:sg_rocket/transport_mode.dart';
@@ -72,6 +74,13 @@ class _OptionMenuState extends State<OptionMenu> {
                           onPressed: () {
 
                             if (buttonPressed == 0) {
+                              print('oof');
+                              
+                               Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => fareCalculate()),
+                              );
 
                             } else if (buttonPressed == 1) {
                               Navigator.push(
