@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sg_rocket/topbar.dart';
 import 'package:sg_rocket/lower_top_bar.dart';
+import 'package:sg_rocket/route_tile_list.dart';
 
 import 'models/database.dart';
 import 'models/routeQuery.dart';
@@ -25,11 +26,17 @@ class _MapNavMenuState extends State<MapNavMenu> {
           body: Container(
             child: Stack(
               children: <Widget>[
-                Image.asset("assets/load_up.png"),
                 Column(
                   children: <Widget>[
                     TopBar(),
                     LowerTopBar(buttonpressed: buttonpressed),
+                    Expanded(
+                      child: Container(
+                        width: 400,
+                        height:100,
+                        child: RouteTileList(),
+                      )
+                    )
                   ],
                 ),
                 Align(
@@ -50,7 +57,6 @@ class _MapNavMenuState extends State<MapNavMenu> {
                       ),
                     ),
                   ),
-
               ],
             ),
           ),

@@ -11,36 +11,16 @@ import 'models/routeQuery.dart';
 int buttonPressed;
 
 class OptionMenu extends StatefulWidget {
-  LatLng startLocation;
-  LatLng destination;
-  String startLocationName;
-  String destinationName;
-  OptionMenu({Key key, @required this.destination,this.startLocation,this.startLocationName,this.destinationName}) : super(key: key);
+
   @override
-  @override
-  _OptionMenuState createState() => _OptionMenuState(startLocation,destination,startLocationName,destinationName);
+  _OptionMenuState createState() => _OptionMenuState();
 }
 
 class _OptionMenuState extends State<OptionMenu> {
-  LatLng destination;
-  LatLng startLocation;
-  String startLocationName;
-  String destinationName;
-  _OptionMenuState(this.destination,this.startLocation,this.startLocationName,this.destinationName);
 
   @override
   Widget build(BuildContext context) {
 
-
-    if(startLocationName == null)
-      {
-        startLocationName = 'Proceed Back to Select';
-      }
-
-    if(destinationName == null)
-    {
-      destinationName = 'Proceed Back to Select';
-    }
 
     return StreamProvider<List<RouteQuery>>.value(
           value: LocationQuery().routeQuery,
