@@ -1,892 +1,998 @@
 {
-  "geocoded_waypoints" : [
-     {
-        "geocoder_status" : "OK",
-        "place_id" : "ChIJPXsZZ6AP2jERw84VH4bA19Y",
-        "types" : [ "premise" ]
-     },
-     {
-        "geocoder_status" : "OK",
-        "place_id" : "ChIJdZ-lwQkP2jERowLZLoGFeNI",
-        "types" : [ "establishment", "point_of_interest", "transit_station" ]
-     }
-  ],
-  "routes" : [
-     {
-        "bounds" : {
-           "northeast" : {
-              "lat" : 1.3523255,
-              "lng" : 103.6855643
-           },
-           "southwest" : {
-              "lat" : 1.3478847,
-              "lng" : 103.6796353
-           }
-        },
-        "copyrights" : "Map data ©2020 Google",
-        "legs" : [
-           {
-              "arrival_time" : {
-                 "text" : "7:24pm",
-                 "time_zone" : "Asia/Singapore",
-                 "value" : 1585740271
-              },
-              "departure_time" : {
-                 "text" : "7:10pm",
-                 "time_zone" : "Asia/Singapore",
-                 "value" : 1585739454
-              },
-              "distance" : {
-                 "text" : "1.6 km",
-                 "value" : 1644
-              },
-              "duration" : {
-                 "text" : "14 mins",
-                 "value" : 817
-              },
-              "end_address" : "32 Nanyang Cres, Hall 12, Singapore 637658",
-              "end_location" : {
-                 "lat" : 1.3523255,
-                 "lng" : 103.6807998
-              },
-              "start_address" : "11 Faculty Ave, Hall 2 - Block 11, Singapore 639977",
-              "start_location" : {
-                 "lat" : 1.3478847,
-                 "lng" : 103.6840097
-              },
-              "steps" : [
-                 {
-                    "distance" : {
-                       "text" : "0.3 km",
-                       "value" : 292
-                    },
-                    "duration" : {
-                       "text" : "3 mins",
-                       "value" : 184
-                    },
-                    "end_location" : {
-                       "lat" : 1.3490208,
-                       "lng" : 103.6853902
-                    },
-                    "html_instructions" : "Walk to Hall 2",
-                    "polyline" : {
-                       "points" : "ggfGaxywRE?A?AA?A?MAAA?CAAA?GAAA?C?A??CAG?ACA?CAK?CAAKAI?A?A?A?AA?AAC?MAAAAE?I?C?A?AA?A?C?ECQACIECCCCACEIAIEc@?M?UB_AC?Y?CAC?A@A??@A@CJCJCBA@A@C?C?AAC?IIGH"
-                    },
-                    "start_location" : {
-                       "lat" : 1.3478847,
-                       "lng" : 103.6840097
-                    },
-                    "steps" : [
-                       {
-                          "distance" : {
-                             "text" : "0.2 km",
-                             "value" : 220
-                          },
-                          "duration" : {
-                             "text" : "2 mins",
-                             "value" : 139
-                          },
-                          "end_location" : {
-                             "lat" : 1.3485563,
-                             "lng" : 103.6855582
-                          },
-                          "html_instructions" : "Head \u003cb\u003enortheast\u003c/b\u003e",
-                          "polyline" : {
-                             "points" : "ggfGaxywRE?A?AA?A?MAAA?CAAA?GAAA?C?A??CAG?ACA?CAK?CAAKAI?A?A?A?AA?AAC?MAAAAE?I?C?A?AA?A?C?ECQACIECCCCACEIAIEc@?M?UB_A"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3478847,
-                             "lng" : 103.6840097
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "65 m",
-                             "value" : 65
-                          },
-                          "duration" : {
-                             "text" : "1 min",
-                             "value" : 40
-                          },
-                          "end_location" : {
-                             "lat" : 1.3489784,
-                             "lng" : 103.6854357
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e toward \u003cb\u003eLien Ying Chow Dr\u003c/b\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "okfGwazwRC?Y?CAC?A@A??@A@CJCJCBA@A@C?C?AAC?II"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3485563,
-                             "lng" : 103.6855582
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "7 m",
-                             "value" : 7
-                          },
-                          "duration" : {
-                             "text" : "1 min",
-                             "value" : 5
-                          },
-                          "end_location" : {
-                             "lat" : 1.3490208,
-                             "lng" : 103.6853902
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eLien Ying Chow Dr\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "cnfG_azwRGH"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3489784,
-                             "lng" : 103.6854357
-                          },
-                          "travel_mode" : "WALKING"
-                       }
-                    ],
-                    "travel_mode" : "WALKING"
-                 },
-                 {
-                    "distance" : {
-                       "text" : "0.7 km",
-                       "value" : 686
-                    },
-                    "duration" : {
-                       "text" : "3 mins",
-                       "value" : 158
-                    },
-                    "end_location" : {
-                       "lat" : 1.347931,
-                       "lng" : 103.680504
-                    },
-                    "html_instructions" : "Bus towards Boon Lay",
-                    "polyline" : {
-                       "points" : "knfGu`zwREE?@IHONSPKFKFSB@B@B@B?B?@ADADIDG@C?C?GCSVSXGJKTERCPAL?L@P@NBJBLDF?@R`@P\\DHbAvBdAxB^j@@?@?@?@?@?@?@@@??@@?@@?@@?@B@D?BABADPj@FNP\\P^HRTd@JR`@z@JPJE"
-                    },
-                    "start_location" : {
-                       "lat" : 1.349022,
-                       "lng" : 103.685394
-                    },
-                    "transit_details" : {
-                       "arrival_stop" : {
-                          "location" : {
-                             "lat" : 1.347931,
-                             "lng" : 103.680504
-                          },
-                          "name" : "Lee Wee Nam Lib"
-                       },
-                       "arrival_time" : {
-                          "text" : "7:16pm",
-                          "time_zone" : "Asia/Singapore",
-                          "value" : 1585739797
-                       },
-                       "departure_stop" : {
-                          "location" : {
-                             "lat" : 1.349022,
-                             "lng" : 103.685394
-                          },
-                          "name" : "Hall 2"
-                       },
-                       "departure_time" : {
-                          "text" : "7:13pm",
-                          "time_zone" : "Asia/Singapore",
-                          "value" : 1585739639
-                       },
-                       "headsign" : "Boon Lay",
-                       "headway" : 300,
-                       "line" : {
-                          "agencies" : [
-                             {
-                                "name" : "SBS Transit",
-                                "phone" : "011 65 1800 225 5663",
-                                "url" : "https://www.sbstransit.com.sg/"
-                             }
-                          ],
-                          "color" : "#55dd33",
-                          "name" : "179",
-                          "text_color" : "#000000",
-                          "vehicle" : {
-                             "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
-                             "name" : "Bus",
-                             "type" : "BUS"
-                          }
-                       },
-                       "num_stops" : 2
-                    },
-                    "travel_mode" : "TRANSIT"
-                 },
-                 {
-                    "distance" : {
-                       "text" : "0.7 km",
-                       "value" : 666
-                    },
-                    "duration" : {
-                       "text" : "8 mins",
-                       "value" : 472
-                    },
-                    "end_location" : {
-                       "lat" : 1.3523255,
-                       "lng" : 103.6807998
-                    },
-                    "html_instructions" : "Walk to 32 Nanyang Cres, Hall 12, Singapore 637658",
-                    "polyline" : {
-                       "points" : "wgfGabywRIQa@{@GKGKSa@ISCEKD[JODQBK@C@K@I?G?K?O?]EKCKCECECECIHs@h@YRu@h@e@`@KLCBKNOVCDGHs@|AKFAAuBiB][e@_@_@]g@a@"
-                    },
-                    "start_location" : {
-                       "lat" : 1.3479605,
-                       "lng" : 103.6804874
-                    },
-                    "steps" : [
-                       {
-                          "distance" : {
-                             "text" : "0.1 km",
-                             "value" : 100
-                          },
-                          "duration" : {
-                             "text" : "1 min",
-                             "value" : 71
-                          },
-                          "end_location" : {
-                             "lat" : 1.3484931,
-                             "lng" : 103.6812671
-                          },
-                          "html_instructions" : "Head \u003cb\u003enortheast\u003c/b\u003e on \u003cb\u003eNanyang Dr\u003c/b\u003e",
-                          "polyline" : {
-                             "points" : "wgfGabywRIQa@{@GKGKSa@ISCEKD"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3479605,
-                             "lng" : 103.6804874
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.1 km",
-                             "value" : 134
-                          },
-                          "duration" : {
-                             "text" : "2 mins",
-                             "value" : 108
-                          },
-                          "end_location" : {
-                             "lat" : 1.3495847,
-                             "lng" : 103.6812079
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e toward \u003cb\u003eNanyang Walk\u003c/b\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "akfG}fywR[JODQBK@C@K@I?G?K?O?]EKCKCECECECIH"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3484931,
-                             "lng" : 103.6812671
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.2 km",
-                             "value" : 240
-                          },
-                          "duration" : {
-                             "text" : "3 mins",
-                             "value" : 160
-                          },
-                          "end_location" : {
-                             "lat" : 1.3510417,
-                             "lng" : 103.6796533
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eNanyang Walk\u003c/b\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "{qfGqfywRs@h@YRu@h@e@`@KLCBKNOVCDGHs@|AKFAA"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3495847,
-                             "lng" : 103.6812079
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.2 km",
-                             "value" : 192
-                          },
-                          "duration" : {
-                             "text" : "2 mins",
-                             "value" : 133
-                          },
-                          "end_location" : {
-                             "lat" : 1.3523255,
-                             "lng" : 103.6807998
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNanyang Cres\u003c/b\u003e",
-                          "maneuver" : "turn-right",
-                          "polyline" : {
-                             "points" : "_{fGy|xwRuBiB][e@_@_@]g@a@"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3510417,
-                             "lng" : 103.6796533
-                          },
-                          "travel_mode" : "WALKING"
-                       }
-                    ],
-                    "travel_mode" : "WALKING"
-                 }
-              ],
-              "traffic_speed_entry" : [],
-              "via_waypoint" : []
-           }
-        ],
-        "overview_polyline" : {
-           "points" : "ggfGaxywRICCOCAAIGACMCEAOMCK?ECCSQAGCE_@SQGSEq@BuA]?K?IZKFEAMIGHECy@r@_@JBF?NKJK@KCg@p@S`@Id@AZB`@Lb@nB`EdAxB^j@@?B?B?D@DDBHAFADXz@bAvBl@nAJPJEE@IQi@gAi@gAg@Pa@He@DS?m@Ec@OECIHmA|@{AjAOPg@v@s@|AKFwBkBkC{B"
-        },
-        "summary" : "",
-        "warnings" : [
-           "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
-        ],
-        "waypoint_order" : []
-     },
-     {
-        "bounds" : {
-           "northeast" : {
-              "lat" : 1.3523255,
-              "lng" : 103.6855643
-           },
-           "southwest" : {
-              "lat" : 1.3478847,
-              "lng" : 103.6796353
-           }
-        },
-        "copyrights" : "Map data ©2020 Google",
-        "legs" : [
-           {
-              "arrival_time" : {
-                 "text" : "7:25pm",
-                 "time_zone" : "Asia/Singapore",
-                 "value" : 1585740306
-              },
-              "departure_time" : {
-                 "text" : "7:11pm",
-                 "time_zone" : "Asia/Singapore",
-                 "value" : 1585739467
-              },
-              "distance" : {
-                 "text" : "1.6 km",
-                 "value" : 1644
-              },
-              "duration" : {
-                 "text" : "14 mins",
-                 "value" : 839
-              },
-              "end_address" : "32 Nanyang Cres, Hall 12, Singapore 637658",
-              "end_location" : {
-                 "lat" : 1.3523255,
-                 "lng" : 103.6807998
-              },
-              "start_address" : "11 Faculty Ave, Hall 2 - Block 11, Singapore 639977",
-              "start_location" : {
-                 "lat" : 1.3478847,
-                 "lng" : 103.6840097
-              },
-              "steps" : [
-                 {
-                    "distance" : {
-                       "text" : "0.3 km",
-                       "value" : 292
-                    },
-                    "duration" : {
-                       "text" : "3 mins",
-                       "value" : 184
-                    },
-                    "end_location" : {
-                       "lat" : 1.3490208,
-                       "lng" : 103.6853902
-                    },
-                    "html_instructions" : "Walk to Hall 2",
-                    "polyline" : {
-                       "points" : "ggfGaxywRE?A?AA?A?MAAA?CAAA?GAAA?C?A??CAG?ACA?CAK?CAAKAI?A?A?A?AA?AAC?MAAAAE?I?C?A?AA?A?C?ECQACIECCCCACEIAIEc@?M?UB_AC?Y?CAC?A@A??@A@CJCJCBA@A@C?C?AAC?IIGH"
-                    },
-                    "start_location" : {
-                       "lat" : 1.3478847,
-                       "lng" : 103.6840097
-                    },
-                    "steps" : [
-                       {
-                          "distance" : {
-                             "text" : "0.2 km",
-                             "value" : 220
-                          },
-                          "duration" : {
-                             "text" : "2 mins",
-                             "value" : 139
-                          },
-                          "end_location" : {
-                             "lat" : 1.3485563,
-                             "lng" : 103.6855582
-                          },
-                          "html_instructions" : "Head \u003cb\u003enortheast\u003c/b\u003e",
-                          "polyline" : {
-                             "points" : "ggfGaxywRE?A?AA?A?MAAA?CAAA?GAAA?C?A??CAG?ACA?CAK?CAAKAI?A?A?A?AA?AAC?MAAAAE?I?C?A?AA?A?C?ECQACIECCCCACEIAIEc@?M?UB_A"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3478847,
-                             "lng" : 103.6840097
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "65 m",
-                             "value" : 65
-                          },
-                          "duration" : {
-                             "text" : "1 min",
-                             "value" : 40
-                          },
-                          "end_location" : {
-                             "lat" : 1.3489784,
-                             "lng" : 103.6854357
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e toward \u003cb\u003eLien Ying Chow Dr\u003c/b\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "okfGwazwRC?Y?CAC?A@A??@A@CJCJCBA@A@C?C?AAC?II"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3485563,
-                             "lng" : 103.6855582
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "7 m",
-                             "value" : 7
-                          },
-                          "duration" : {
-                             "text" : "1 min",
-                             "value" : 5
-                          },
-                          "end_location" : {
-                             "lat" : 1.3490208,
-                             "lng" : 103.6853902
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eLien Ying Chow Dr\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "cnfG_azwRGH"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3489784,
-                             "lng" : 103.6854357
-                          },
-                          "travel_mode" : "WALKING"
-                       }
-                    ],
-                    "travel_mode" : "WALKING"
-                 },
-                 {
-                    "distance" : {
-                       "text" : "0.7 km",
-                       "value" : 686
-                    },
-                    "duration" : {
-                       "text" : "3 mins",
-                       "value" : 180
-                    },
-                    "end_location" : {
-                       "lat" : 1.347931,
-                       "lng" : 103.680504
-                    },
-                    "html_instructions" : "Bus towards Boon Lay",
-                    "polyline" : {
-                       "points" : "knfGu`zwREE?@IHONSPKFKFSB@B@B@B?B?@ADADIDG@C?C?GCSVSXGJKTERCPAL?L@P@NBJBLDF?@R`@P\\DHbAvBdAxB^j@@?@?@?@?@?@?@@@??@@?@@?@@?@B@D?BABADPj@FNP\\P^HRTd@JR`@z@JPJE"
-                    },
-                    "start_location" : {
-                       "lat" : 1.349022,
-                       "lng" : 103.685394
-                    },
-                    "transit_details" : {
-                       "arrival_stop" : {
-                          "location" : {
-                             "lat" : 1.347931,
-                             "lng" : 103.680504
-                          },
-                          "name" : "Lee Wee Nam Lib"
-                       },
-                       "arrival_time" : {
-                          "text" : "7:17pm",
-                          "time_zone" : "Asia/Singapore",
-                          "value" : 1585739832
-                       },
-                       "departure_stop" : {
-                          "location" : {
-                             "lat" : 1.349022,
-                             "lng" : 103.685394
-                          },
-                          "name" : "Hall 2"
-                       },
-                       "departure_time" : {
-                          "text" : "7:14pm",
-                          "time_zone" : "Asia/Singapore",
-                          "value" : 1585739652
-                       },
-                       "headsign" : "Boon Lay",
-                       "headway" : 300,
-                       "line" : {
-                          "agencies" : [
-                             {
-                                "name" : "SBS Transit",
-                                "phone" : "011 65 1800 225 5663",
-                                "url" : "https://www.sbstransit.com.sg/"
-                             }
-                          ],
-                          "color" : "#55dd33",
-                          "name" : "179",
-                          "text_color" : "#000000",
-                          "vehicle" : {
-                             "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
-                             "name" : "Bus",
-                             "type" : "BUS"
-                          }
-                       },
-                       "num_stops" : 2
-                    },
-                    "travel_mode" : "TRANSIT"
-                 },
-                 {
-                    "distance" : {
-                       "text" : "0.7 km",
-                       "value" : 666
-                    },
-                    "duration" : {
-                       "text" : "8 mins",
-                       "value" : 472
-                    },
-                    "end_location" : {
-                       "lat" : 1.3523255,
-                       "lng" : 103.6807998
-                    },
-                    "html_instructions" : "Walk to 32 Nanyang Cres, Hall 12, Singapore 637658",
-                    "polyline" : {
-                       "points" : "wgfGabywRIQa@{@GKGKSa@ISCEKD[JODQBK@C@K@I?G?K?O?]EKCKCECECECIHs@h@YRu@h@e@`@KLCBKNOVCDGHs@|AKFAAuBiB][e@_@_@]g@a@"
-                    },
-                    "start_location" : {
-                       "lat" : 1.3479605,
-                       "lng" : 103.6804874
-                    },
-                    "steps" : [
-                       {
-                          "distance" : {
-                             "text" : "0.1 km",
-                             "value" : 100
-                          },
-                          "duration" : {
-                             "text" : "1 min",
-                             "value" : 71
-                          },
-                          "end_location" : {
-                             "lat" : 1.3484931,
-                             "lng" : 103.6812671
-                          },
-                          "html_instructions" : "Head \u003cb\u003enortheast\u003c/b\u003e on \u003cb\u003eNanyang Dr\u003c/b\u003e",
-                          "polyline" : {
-                             "points" : "wgfGabywRIQa@{@GKGKSa@ISCEKD"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3479605,
-                             "lng" : 103.6804874
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.1 km",
-                             "value" : 134
-                          },
-                          "duration" : {
-                             "text" : "2 mins",
-                             "value" : 108
-                          },
-                          "end_location" : {
-                             "lat" : 1.3495847,
-                             "lng" : 103.6812079
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e toward \u003cb\u003eNanyang Walk\u003c/b\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "akfG}fywR[JODQBK@C@K@I?G?K?O?]EKCKCECECECIH"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3484931,
-                             "lng" : 103.6812671
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.2 km",
-                             "value" : 240
-                          },
-                          "duration" : {
-                             "text" : "3 mins",
-                             "value" : 160
-                          },
-                          "end_location" : {
-                             "lat" : 1.3510417,
-                             "lng" : 103.6796533
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eNanyang Walk\u003c/b\u003e",
-                          "maneuver" : "turn-left",
-                          "polyline" : {
-                             "points" : "{qfGqfywRs@h@YRu@h@e@`@KLCBKNOVCDGHs@|AKFAA"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3495847,
-                             "lng" : 103.6812079
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.2 km",
-                             "value" : 192
-                          },
-                          "duration" : {
-                             "text" : "2 mins",
-                             "value" : 133
-                          },
-                          "end_location" : {
-                             "lat" : 1.3523255,
-                             "lng" : 103.6807998
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNanyang Cres\u003c/b\u003e",
-                          "maneuver" : "turn-right",
-                          "polyline" : {
-                             "points" : "_{fGy|xwRuBiB][e@_@_@]g@a@"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3510417,
-                             "lng" : 103.6796533
-                          },
-                          "travel_mode" : "WALKING"
-                       }
-                    ],
-                    "travel_mode" : "WALKING"
-                 }
-              ],
-              "traffic_speed_entry" : [],
-              "via_waypoint" : []
-           }
-        ],
-        "overview_polyline" : {
-           "points" : "ggfGaxywRICCOCAAIGACMCEAOMCK?ECCSQAGCE_@SQGSEq@BuA]?K?IZKFEAMIGHECy@r@_@JBF?NKJK@KCg@p@S`@Id@AZB`@Lb@nB`EdAxB^j@@?B?B?D@DDBHAFADXz@bAvBl@nAJPJEE@IQi@gAi@gAg@Pa@He@DS?m@Ec@OECIHmA|@{AjAOPg@v@s@|AKFwBkBkC{B"
-        },
-        "summary" : "",
-        "warnings" : [
-           "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
-        ],
-        "waypoint_order" : []
-     },
-     {
-        "bounds" : {
-           "northeast" : {
-              "lat" : 1.3523255,
-              "lng" : 103.6849401
-           },
-           "southwest" : {
-              "lat" : 1.3477771,
-              "lng" : 103.6796353
-           }
-        },
-        "copyrights" : "Map data ©2020 Google",
-        "legs" : [
-           {
-              "distance" : {
-                 "text" : "1.2 km",
-                 "value" : 1237
-              },
-              "duration" : {
-                 "text" : "15 mins",
-                 "value" : 881
-              },
-              "end_address" : "32 Nanyang Cres, Hall 12, Singapore 637658",
-              "end_location" : {
-                 "lat" : 1.3523255,
-                 "lng" : 103.6807998
-              },
-              "start_address" : "11 Faculty Ave, Hall 2 - Block 11, Singapore 639977",
-              "start_location" : {
-                 "lat" : 1.3478847,
-                 "lng" : 103.6840097
-              },
-              "steps" : [
-                 {
-                    "distance" : {
-                       "text" : "1.2 km",
-                       "value" : 1237
-                    },
-                    "duration" : {
-                       "text" : "15 mins",
-                       "value" : 881
-                    },
-                    "end_location" : {
-                       "lat" : 1.3523255,
-                       "lng" : 103.6807998
-                    },
-                    "html_instructions" : "Walk to 32 Nanyang Cres, Hall 12, Singapore 637658",
-                    "polyline" : {
-                       "points" : "ggfGaxywRD?D?@@?F@@?@@@?N?N@JgAHS?KAC?OGOIOIg@i@c@m@S]k@w@U]OUMJKBKAMIORSXGJKVGRCRAJ?N@RBLBLBLDJR`@P\\DHbAtBbAxBPr@?@?@A@?@?@?@?@JFUTGDKLCBMNIJCBSP[VIHs@h@YRu@h@e@`@KLCBKNOVCDGHs@|AKFAAuBiB][e@_@_@]g@a@"
-                    },
-                    "start_location" : {
-                       "lat" : 1.3478847,
-                       "lng" : 103.6840097
-                    },
-                    "steps" : [
-                       {
-                          "distance" : {
-                             "text" : "45 m",
-                             "value" : 45
-                          },
-                          "duration" : {
-                             "text" : "1 min",
-                             "value" : 41
-                          },
-                          "end_location" : {
-                             "lat" : 1.3477771,
-                             "lng" : 103.6837104
-                          },
-                          "html_instructions" : "Head \u003cb\u003esouthwest\u003c/b\u003e toward \u003cb\u003eNanyang Ave\u003c/b\u003e",
-                          "polyline" : {
-                             "points" : "ggfGaxywRD?D?@@?F@@?@@@?N?N@J"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3478847,
-                             "lng" : 103.6840097
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.3 km",
-                             "value" : 259
-                          },
-                          "duration" : {
-                             "text" : "3 mins",
-                             "value" : 166
-                          },
-                          "end_location" : {
-                             "lat" : 1.3495155,
-                             "lng" : 103.6848779
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNanyang Ave\u003c/b\u003e",
-                          "maneuver" : "turn-right",
-                          "polyline" : {
-                             "points" : "sffGevywRgAHS?KAC?OGOIOIg@i@c@m@S]k@w@U]OUMJ"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3477771,
-                             "lng" : 103.6837104
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.4 km",
-                             "value" : 391
-                          },
-                          "duration" : {
-                             "text" : "5 mins",
-                             "value" : 291
-                          },
-                          "end_location" : {
-                             "lat" : 1.348967,
-                             "lng" : 103.6819719
-                          },
-                          "html_instructions" : "At the roundabout, take the \u003cb\u003e1st\u003c/b\u003e exit onto \u003cb\u003eNanyang Dr\u003c/b\u003e",
-                          "maneuver" : "roundabout-left",
-                          "polyline" : {
-                             "points" : "oqfGo}ywRKBKAMIORSXGJKVGRCRAJ?N@RBLBLBLDJR`@P\\DHbAtBbAxBPr@"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3495155,
-                             "lng" : 103.6848779
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.4 km",
-                             "value" : 350
-                          },
-                          "duration" : {
-                             "text" : "4 mins",
-                             "value" : 250
-                          },
-                          "end_location" : {
-                             "lat" : 1.3510417,
-                             "lng" : 103.6796533
-                          },
-                          "html_instructions" : "At the roundabout, take the \u003cb\u003e1st\u003c/b\u003e exit onto \u003cb\u003eNanyang Walk\u003c/b\u003e",
-                          "maneuver" : "roundabout-left",
-                          "polyline" : {
-                             "points" : "anfGikywR?@?@A@?@?@?@?@JFUTGDKLCBMNIJCBSP[VIHs@h@YRu@h@e@`@KLCBKNOVCDGHs@|AKFAA"
-                          },
-                          "start_location" : {
-                             "lat" : 1.348967,
-                             "lng" : 103.6819719
-                          },
-                          "travel_mode" : "WALKING"
-                       },
-                       {
-                          "distance" : {
-                             "text" : "0.2 km",
-                             "value" : 192
-                          },
-                          "duration" : {
-                             "text" : "2 mins",
-                             "value" : 133
-                          },
-                          "end_location" : {
-                             "lat" : 1.3523255,
-                             "lng" : 103.6807998
-                          },
-                          "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNanyang Cres\u003c/b\u003e",
-                          "maneuver" : "turn-right",
-                          "polyline" : {
-                             "points" : "_{fGy|xwRuBiB][e@_@_@]g@a@"
-                          },
-                          "start_location" : {
-                             "lat" : 1.3510417,
-                             "lng" : 103.6796533
-                          },
-                          "travel_mode" : "WALKING"
-                       }
-                    ],
-                    "travel_mode" : "WALKING"
-                 }
-              ],
-              "traffic_speed_entry" : [],
-              "via_waypoint" : []
-           }
-        ],
-        "overview_polyline" : {
-           "points" : "ggfGaxywRL@@JBl@{AHOA_@Qw@s@yBaDOUMJW@MIOR[d@Sj@E^@b@FZn@xAhA~BbAxBPr@?BA@?BJJm@l@o@p@sB~A{AjAOPg@v@s@|AKFwBkBkC{B"
-        },
-        "summary" : "Nanyang Dr and Nanyang Walk",
-        "warnings" : [
-           "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
-        ],
-        "waypoint_order" : []
-     }
-  ],
-  "status" : "OK"
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJX34Q3AoP2jERXti1fD43-XU",
+         "types" : [ "street_address" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ483Qk9YX2jERA0VOQV7d1tY",
+         "types" : [ "airport", "establishment", "point_of_interest" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 1.3644202,
+               "lng" : 103.9915308
+            },
+            "southwest" : {
+               "lat" : 1.2765056,
+               "lng" : 103.6783657
+            }
+         },
+         "copyrights" : "Map data ©2020 Google",
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "9:02am",
+                  "time_zone" : "Asia/Singapore",
+                  "value" : 1585875735
+               },
+               "departure_time" : {
+                  "text" : "7:15am",
+                  "time_zone" : "Asia/Singapore",
+                  "value" : 1585869339
+               },
+               "distance" : {
+                  "text" : "51.0 km",
+                  "value" : 51010
+               },
+               "duration" : {
+                  "text" : "1 hour 47 mins",
+                  "value" : 6396
+               },
+               "end_address" : "Airport Blvd, Singapore Changi Airport (SIN), Singapore",
+               "end_location" : {
+                  "lat" : 1.3644202,
+                  "lng" : 103.9915308
+               },
+               "start_address" : "76 Nanyang Dr, Singapore 637331",
+               "start_location" : {
+                  "lat" : 1.347328,
+                  "lng" : 103.681273
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 174
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 124
+                     },
+                     "end_location" : {
+                        "lat" : 1.3479605,
+                        "lng" : 103.6804874
+                     },
+                     "html_instructions" : "Walk to Lee Wee Nam Lib",
+                     "polyline" : {
+                        "points" : "ycfG}fywRs@Pa@L{A`@FJ`@z@HP"
+                     },
+                     "start_location" : {
+                        "lat" : 1.347328,
+                        "lng" : 103.681273
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.1 km",
+                              "value" : 111
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 78
+                           },
+                           "end_location" : {
+                              "lat" : 1.3482239,
+                              "lng" : 103.680942
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e toward \u003cb\u003eNanyang Dr\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "ycfG}fywRs@Pa@L{A`@"
+                           },
+                           "start_location" : {
+                              "lat" : 1.347328,
+                              "lng" : 103.681273
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "63 m",
+                              "value" : 63
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 46
+                           },
+                           "end_location" : {
+                              "lat" : 1.3479605,
+                              "lng" : 103.6804874
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eNanyang Dr\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "kifG{dywRFJ`@z@HP"
+                           },
+                           "start_location" : {
+                              "lat" : 1.3482239,
+                              "lng" : 103.680942
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "4.2 km",
+                        "value" : 4155
+                     },
+                     "duration" : {
+                        "text" : "14 mins",
+                        "value" : 821
+                     },
+                     "end_location" : {
+                        "lat" : 1.337773,
+                        "lng" : 103.697289
+                     },
+                     "html_instructions" : "Bus towards Boon Lay",
+                     "polyline" : {
+                        "points" : "qgfGcbywRKD`@|@j@fALVHPRZLZFNBHBLBL@LDh@HlAZ?@?`@?@?H?F?DAF?BAJAVEJ?HAL?B?RAR?rB?b@@F?RARAVCJCb@K`A]LEnAa@TGNCLATAnCOf@Et@Ch@C@?B?NAN@fA@d@@bADP?RC@?LETKX[bAiANQFIBCRc@DS?CDc@?[AoA?A@??AMaCWmBq@qBa@u@c@q@o@}@KOQSQKWKWG]EY?mBVOBa@D]DQ@OAUCOIOOOSsBiCGGGOGSAW@e@De@NaBFs@@Y@[A_@C[Gc@N?EGOQEOEMGOKSACIOGKIKKQOQEGSWSWWWAAQQ]e@a@g@w@_AaBgBYYIIMGCCOGICMCQCO?{AB?@?@?@?@A??@?@A??@A??@A?A@A??@A?A?A?A?A?A?A??AA?A??AA??AA??AAA?AA??A?A?A?A@CBEBCCe@AQ@G?A@EBGDEBCDC@APGl@Kv@Q|@WrAe@~@_@ZMNGh@WRIPKRKTOdAu@NMh@a@vBaBNKJINMZUv@i@v@i@ZSJKb@_@lBaB|@m@~AeAPM\\WhAo@PIb@YxAo@p@U`@MTIZKjD}@GgA@{C?_@M?"
+                     },
+                     "start_location" : {
+                        "lat" : 1.347931,
+                        "lng" : 103.680504
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 1.337773,
+                              "lng" : 103.697289
+                           },
+                           "name" : "Pioneer Stn Exit B"
+                        },
+                        "arrival_time" : {
+                           "text" : "7:31am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585870285
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 1.347931,
+                              "lng" : 103.680504
+                           },
+                           "name" : "Lee Wee Nam Lib"
+                        },
+                        "departure_time" : {
+                           "text" : "7:17am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585869464
+                        },
+                        "headsign" : "Boon Lay",
+                        "headway" : 360,
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "SBS Transit",
+                                 "phone" : "011 65 1800 225 5663",
+                                 "url" : "https://www.sbstransit.com.sg/"
+                              }
+                           ],
+                           "color" : "#55dd33",
+                           "name" : "179",
+                           "text_color" : "#000000",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 9
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "74 m",
+                        "value" : 74
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 65
+                     },
+                     "end_location" : {
+                        "lat" : 1.3376018,
+                        "lng" : 103.6974089
+                     },
+                     "html_instructions" : "Walk to Pioneer",
+                     "polyline" : {
+                        "points" : "{gdGak|wR?^U@BAl@w@"
+                     },
+                     "start_location" : {
+                        "lat" : 1.3377369,
+                        "lng" : 103.6972887
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "18 m",
+                              "value" : 18
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 12
+                           },
+                           "end_location" : {
+                              "lat" : 1.3377383,
+                              "lng" : 103.6971282
+                           },
+                           "html_instructions" : "Head \u003cb\u003ewest\u003c/b\u003e on \u003cb\u003eJurong West Street 63\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "{gdGak|wR?^"
+                           },
+                           "start_location" : {
+                              "lat" : 1.3377369,
+                              "lng" : 103.6972887
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "16 m",
+                              "value" : 16
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 12
+                           },
+                           "end_location" : {
+                              "lat" : 1.3378476,
+                              "lng" : 103.6971248
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "{gdGaj|wRU@"
+                           },
+                           "start_location" : {
+                              "lat" : 1.3377383,
+                              "lng" : 103.6971282
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "40 m",
+                              "value" : 40
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 41
+                           },
+                           "end_location" : {
+                              "lat" : 1.3376018,
+                              "lng" : 103.6974089
+                           },
+                           "html_instructions" : "Take entrance \u003cspan class=\"location\"\u003eB\u003c/span\u003e",
+                           "polyline" : {
+                              "points" : "mhdGaj|wRl@w@"
+                           },
+                           "start_location" : {
+                              "lat" : 1.3378316,
+                              "lng" : 103.6971295
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "22.0 km",
+                        "value" : 22038
+                     },
+                     "duration" : {
+                        "text" : "33 mins",
+                        "value" : 1980
+                     },
+                     "end_location" : {
+                        "lat" : 1.293076,
+                        "lng" : 103.8520677
+                     },
+                     "html_instructions" : "Subway towards Pasir Ris",
+                     "polyline" : {
+                        "points" : "_gdGyk|wR@?@C@{A?EE_BCgAA[?EEoA?Y?w@AY?_@Ey@?y@?]@mA?W?U?E?I?uA?C?_@@gAAc@DW@MBU?GEa@Ee@AEE[I[K[AE]iAGYQm@K_@Mg@Sw@WcAW}@?CQo@s@aCUy@Oe@Yy@AGWi@[m@MUWg@g@yAa@aAAEc@gAYq@CIUo@Uq@[mAWcAsAkFwCsKe@eBYcAGYMe@?AAGOg@GQESAAOm@Ka@Sw@GOUy@AGU{@WaA[iA]oAUy@Go@[mBMu@Q{@[cCGc@Ea@MeAOeAIu@AQIg@AIM_AG_@My@AQA[Ce@Ku@?k@FkAJsARwALy@Ny@J_AHk@NiAFo@@KBa@Be@?m@@YA_@?iA?c@Ac@@A?q@B_A@QBQ@GDc@Ho@Fc@BK@C?Cf@wBLa@~@sBR]DIJOvAwBZc@DGRY@C|@sANQn@cA~@uAj@y@R[PYZc@@AT[RYT[PWBEr@eA~@uAdA}ArBuC|BaDfB_Cp@{@NSr@_ANSt@}@VYDGd@k@JIXY@AFINKZUVS\\SBA^SFCl@YRK~@a@DAvBcAdBu@|BeA@?NI^QnAk@NGt@[FEFCFC`@ULI\\Sr@k@VWFGDEZc@d@o@@Cr@mAz@eBVg@`@{@JWHQHSTg@HOBId@gABEVo@DONa@N_@\\aAJYDKl@yABITq@DQFQNq@F]F[Hm@@K@MFsA?k@@a@Ac@Am@?K?w@?O@w@@UBc@JaADa@@EBM@K@Cp@kCBKb@_BNu@ZaBLy@T{ABQBOJy@D]Fe@NaAFe@TqBLy@@CHo@DWHa@Rq@L_@DIHUHQDKRa@LUPWNSDEX[JMHI@?TSPMNK?ATMt@a@LG^O^OTIVIFC|@Yd@QbA[^MXMn@Uv@YDAl@SZMZKh@SNGTKB?TI@Ab@QVMJERM^Sl@]VQVOBAtA{@DCt@a@l@]LIz@c@LI^U^UXO`@Wd@YRMXQx@i@nAs@d@YFC^Qf@WRI\\Or@W\\MPGNENEp@W^MDCZK^Ml@SJC`Bg@^MJETIZKLGLGb@UJGTMFEJGNKROROJMLKNQFGLMNSFKR]NUBGJOFMDKHSHUHUBKHUFU@CHg@DYBKBW@I@WBU@g@?I@c@Cc@Ag@Ew@GiA?IEk@AO?KAMASCa@AI?GKiBG}@Cg@Gc@?CEQ?ACSAGAOE}@?AKgBG{@QqCGoACYCu@Ai@?e@?U?[@_@BYB]DW?ELo@Ns@J_@FMFQZ}@`@_AVg@^s@P_@BC|AwChAyBx@_BFMLUJSHOXi@@AHKJOz@cBP]v@}AR]P]d@}@HOBGLW~@gBd@{@P_@DIDKFQJ[Ha@@AFk@@YB_@?I?MBo@?ABw@@KD{@Ba@?ABc@@y@@c@?EJeB@W@EB[BQB]@GDc@@GDYHg@?ID]Dk@Dm@@G?GB[Bc@FaA?CBc@HgABs@@M@c@HsB@Q@QBc@B]@IDc@DWFi@@EH[FUBMFON[JUJURc@BEV_@@?dAqAf@m@f@o@~AkBvBeC`DyDxCaDVWfAmAp@s@BCRWVYV[LOLQb@u@HKHKv@aAn@u@f@o@DEn@u@Z_@HKJMV[fAoAn@u@V[tH}IVYV[n@u@JKl@o@POHGVS@A@ARMDCXSZQLG^O^QrAk@h@Yz@e@\\Q?A|@e@\\Q\\S|@e@@?TMXSx@q@^a@FGdAmAX[V[VYV[n@u@@A\\c@BEJOJKFMHQZq@L]?ALa@Je@F]@AFc@?CTsBDk@Dc@VmCTmCNkBf@wFDc@Da@Bc@Dc@Fc@BMDSBQL_@FQVq@L[L[Pc@t@mBVs@Tk@v@sBJY@GH[Ha@Da@BY@Q?E@YB_@@k@Bw@@m@?Y@UBuA@a@@iABuA@UDqADg@BS@KDa@DQFQRe@R]\\k@FKn@aA`EaGR[P[LYHSNa@@Cj@_BFWH[Ju@J_AFi@RoC@U?S?wAYwW@u@Do@Lw@Jg@Ti@P_@V[f@c@h@c@zEkD~@s@X[^g@Ve@Zs@fLiV\\q@HQHQf@gAJUPSZOZGnAAjCOZCXEXE`@O\\M`@W|AcATSTSNSNU\\i@Zo@Xw@V}@Nk@Hk@\\sEJmCDsAMsCASEg@Ii@EKCKOSQQa@e@[Wq@_@uDoBsAw@yGkD{@c@cEwBmDoBg@U_@KYEi@EcE]sD[e@EUEWE_@KiAa@_McEcJiE{@WIAYE[?K@{@NiATMDOFoDrBaE`BODh@lB"
+                     },
+                     "start_location" : {
+                        "lat" : 1.3376018,
+                        "lng" : 103.6974089
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 1.293076,
+                              "lng" : 103.8520677
+                           },
+                           "name" : "City Hall"
+                        },
+                        "arrival_time" : {
+                           "text" : "8:12am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585872751
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 1.3376018,
+                              "lng" : 103.6974089
+                           },
+                           "name" : "Pioneer"
+                        },
+                        "departure_time" : {
+                           "text" : "7:39am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585870771
+                        },
+                        "headsign" : "Pasir Ris",
+                        "headway" : 420,
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "SMRT",
+                                 "phone" : "011 65 1800 336 8900",
+                                 "url" : "http://www.smrt.com.sg/"
+                              }
+                           ],
+                           "color" : "#049645",
+                           "name" : "East West Line",
+                           "text_color" : "#ffffff",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/subway2.png",
+                              "name" : "Subway",
+                              "type" : "SUBWAY"
+                           }
+                        },
+                        "num_stops" : 15,
+                        "trip_short_name" : "1"
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 km",
+                        "value" : 405
+                     },
+                     "duration" : {
+                        "text" : "5 mins",
+                        "value" : 317
+                     },
+                     "end_location" : {
+                        "lat" : 1.2944943,
+                        "lng" : 103.8539902
+                     },
+                     "html_instructions" : "Walk to Raffles Hotel",
+                     "polyline" : {
+                        "points" : "wp{FmrzxRCTEBEDGLaAg@GHMIMIk@[e@[]W]Ss@c@sAy@MIFKp@cA^g@`@g@BGFG"
+                     },
+                     "start_location" : {
+                        "lat" : 1.293076,
+                        "lng" : 103.8520677
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "12 m",
+                              "value" : 12
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 13
+                           },
+                           "end_location" : {
+                              "lat" : 1.2930999,
+                              "lng" : 103.8519602
+                           },
+                           "html_instructions" : "Take exit \u003cspan class=\"location\"\u003eB\u003c/span\u003e",
+                           "polyline" : {
+                              "points" : "wp{FmrzxRCT"
+                           },
+                           "start_location" : {
+                              "lat" : 1.293076,
+                              "lng" : 103.8520677
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "18 m",
+                              "value" : 18
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 13
+                           },
+                           "end_location" : {
+                              "lat" : 1.2932018,
+                              "lng" : 103.8518394
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e toward \u003cb\u003eNorth Bridge Rd\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "aq{FsqzxREDGL"
+                           },
+                           "start_location" : {
+                              "lat" : 1.2931342,
+                              "lng" : 103.8519421
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.3 km",
+                              "value" : 256
+                           },
+                           "duration" : {
+                              "text" : "3 mins",
+                              "value" : 194
+                           },
+                           "end_location" : {
+                              "lat" : 1.2951292,
+                              "lng" : 103.8531728
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNorth Bridge Rd\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "oq{F_qzxRaAg@GHMIMIk@[e@[]W]Ss@c@sAy@MIFK"
+                           },
+                           "start_location" : {
+                              "lat" : 1.2932018,
+                              "lng" : 103.8518394
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.1 km",
+                              "value" : 119
+                           },
+                           "duration" : {
+                              "text" : "2 mins",
+                              "value" : 97
+                           },
+                           "end_location" : {
+                              "lat" : 1.2944943,
+                              "lng" : 103.8539902
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eBras Basah Rd\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "q}{FiyzxRp@cA^g@`@g@BGFG"
+                           },
+                           "start_location" : {
+                              "lat" : 1.2951292,
+                              "lng" : 103.8531728
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "23.8 km",
+                        "value" : 23763
+                     },
+                     "duration" : {
+                        "text" : "43 mins",
+                        "value" : 2598
+                     },
+                     "end_location" : {
+                        "lat" : 1.3612573,
+                        "lng" : 103.9895425
+                     },
+                     "html_instructions" : "Bus towards PTB2 Basement",
+                     "polyline" : {
+                        "points" : "wy{Fs~zxRLHLULQRYv@eAJOXg@hAqB^o@HSNYJSNY^{@Te@Tg@BGBEBE?ATa@LUISAGEGOSq@[eBy@y@a@KEaAg@A?w@]m@WKJIDEBMBK@I?MAKCIEKGGGEIACACAE?CAC?CAM?C?E@G?CBEDIFG?AFEFGBA@A@?@A@?@ABA@AB?BA@?BAB?BAB?B?B@B?B@B?NQHIh@kABGDGrAmCJKJIJGLGPEJCXCXCb@?LAT?TA?N^AbDMH?^A^C?QFaBDaABm@@y@Gi@Ma@[[k@OaABs@Jw@Hs@R{A`@{@TWD]B]@iBIg@CmBKI?YAG?]?]DIB]PSJSNWRMLOTABMx@ANBPJRRPXH^AXEz@Kb@Ib@Kf@Md@Sj@_@f@e@Ze@?AVg@JQNu@Fm@@m@Eq@MeABASkAKoAWgCQ_E}BaVYoCUcCDWE@QmO_@k^QiIMuJMqKIsGB_CVyLHwFFiE@q@@sCE_CG_AKeAMkAMcAOu@Kk@c@mByAcF}A_EYy@Qc@QY]Y_@M]?gAN{B^oBP{Ft@B?I?{@L_BXSDu@RQDEQMq@i@eDOy@Ia@EQACKa@Wu@i@cBM_@Ma@GSYw@EMLCh@Kd@Mz@WFAdAYnAi@BDjBy@TSb@_@HSEW@_@JWLK_@k@sBeD}AiCwCwEGIc@s@KSw@kAEGc@s@}@oAKOGKaCuECEKS?AACUe@M[Sa@IQ}BiGGSIYEQ_@}A?A@BCKC]ACYgBUaBO}@U{AGcDIk@GY[sAOmAG[G]?CCQAOAAGa@EY?s@Ba@?]?[?CE]KcAKQIQIKKKCEW]Wc@Mi@CK?AEk@Cq@MsAm@aHC]Iy@Gg@M}@ACGc@QcAE]Ku@Io@m@sECs@I_D?UAGAUAICUGWU{@Og@YkAW}@CQRCv@IzAOJ?R@^EjAMNA`AOh@ALKHGDGBGBE?E@A?C@G@E?E@G?IASc@_AO]Qe@IQ[q@ACMYi@uAIOMk@Me@G[ESCUC_@@_@?UCeAe@iCaAyFYyAS_A_@kBIc@m@eDYuA_@uBuAmH[eBKi@K[E]i@wCUmAOw@cEoTGUMo@Ii@Y_BAMEc@G}@EiBQcW?qAAc@CwAE{@Ew@Ca@Ea@G_@Ik@G_@Kk@Mi@s@aCi@cBg@}As@wB]gACGa@qAq@yBe@{Aw@kC}@uCo@uBe@yAc@wA]gAe@}A_@iA]oAg@_BW{@aA_Dc@wAgDeLcB}Fi@wAQi@O[Ug@]k@i@w@g@q@aBaBcB{A}@s@q@e@qEoCeBiA{@k@_@UMIKEuCcBw@c@{A}@_@SUQSMoEoCECKCQSuAeAIEECWOyDeC{A}@YQ_@WsA{@kBcAKE_@KOGSK_Aq@sBuAeDuB{@g@cAm@wAw@gC_Bs@_@_B_AgCyA{@e@ECKGMK[QOMECOIk@_@qAs@uAs@eDsA_Dw@m@Qk@Q[IqAe@uEuAgEsAOEECy@WMEQEi@QYI[K}CaAoAa@}Ag@{Ae@qBo@OEuAg@a@Oc@QWIWK_@MGTA@?@A@A?A?A?AAGCJ]KCy@Ww@Uk@O_A[q@SwAe@k@Om@QOAOAQAQEUAM?m@@_@BWBM?KASAQE}@Sg@O]OmAi@_@EGC]IUGYIWEc@OsAc@}DoAuCaA]YUKy@WUGmGsBk@SE@}E}ASGWCi@IK?UIoBo@KA]@eBFc@GKKIQCOBSDMFINKVG`@EZD~FnBnHdCVH~CfAb@Nh@PxBr@dW|HvBn@HALI?OKM}Ac@g@OcV_IoJ_D[KqAc@oM{Di@Mc@CY@s@T{Ap@YXgAd@m@@e@GkDmA`AsC"
+                     },
+                     "start_location" : {
+                        "lat" : 1.294521,
+                        "lng" : 103.854019
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 1.3612573,
+                              "lng" : 103.9895425
+                           },
+                           "name" : "Changi Airport PTB1"
+                        },
+                        "arrival_time" : {
+                           "text" : "9:01am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585875704
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 1.294521,
+                              "lng" : 103.854019
+                           },
+                           "name" : "Raffles Hotel"
+                        },
+                        "departure_time" : {
+                           "text" : "8:18am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585873106
+                        },
+                        "headsign" : "PTB2 Basement",
+                        "headway" : 480,
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "Go-Ahead Singapore",
+                                 "phone" : "011 65 6812 6458",
+                                 "url" : "https://www.go-aheadsingapore.com/en-sg/"
+                              }
+                           ],
+                           "color" : "#55dd33",
+                           "name" : "36",
+                           "text_color" : "#000000",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 17
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 km",
+                        "value" : 401
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 31
+                     },
+                     "end_location" : {
+                        "lat" : 1.3644202,
+                        "lng" : 103.9915308
+                     },
+                     "html_instructions" : "Walk to Airport Blvd, Singapore Changi Airport (SIN), Singapore",
+                     "polyline" : {
+                        "points" : "eyhG_suyRmTaF"
+                     },
+                     "start_location" : {
+                        "lat" : 1.3609883,
+                        "lng" : 103.9903955
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.4 km",
+                              "value" : 401
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 31
+                           },
+                           "end_location" : {
+                              "lat" : 1.3644202,
+                              "lng" : 103.9915308
+                           },
+                           "polyline" : {
+                              "points" : "eyhG_suyRmTaF"
+                           },
+                           "start_location" : {
+                              "lat" : 1.3609883,
+                              "lng" : 103.9903955
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "ycfG}fywRuA^{A`@FJj@lAEBdBnDl@pANrAHlAZ?b@?XAn@IfFAfAG~Bs@bCo@bG[`GDt@IbCcC^q@JwA?sAe@oFsAgDqBsC_Be@yD`@uA@cDwDYcA^aFAqBGc@N?UY_@aAsAoByGyHu@o@y@SkBHGHKBQMDOJyAtGmBdF_CfWkRjC_BpEmBp@UjD}@GgA@{DG??^U@p@y@DeBSeKCsHFuGGeB]yA_C{I_DuKiE_KiA}C_HqWoBmHuAgFkAoEwAgHqB}Nu@kGGsE|@_Hv@gJ?_Gf@oFv@aDdBkDlGkJrPkVxL}OfCeCbFiCbNiGjDeB|CiD~E}JtBiFdCaHh@yCJyC@uGVmCx@iDrAcGj@wDvAuKjA{ErBcDdBuAvF{BbN}EtNaIhGwDjHmD|MoEdCuAvBuBrAeCz@iDRqD[_H}@kMw@aONmEp@qC|AwDlHmNtJ}QbBcETgFv@oNfAaOZuGr@{D~CcFbUqWnLyNjOoQvD{DrM{GrBgAzBoBvFwGvAsCfAoHzBmWViBp@uBtEwLb@sDRyI^qJt@gBvG{JbCcGh@{DTqGWmYRgBjAmClJgHlB}CxM_Yr@}Al@c@rG]rBi@jDcCxAcCjAmEh@aJGgFWqBgAwA_`@wSkCm@sLeAaQwF_LaFc@GmDf@]LqJtEODh@lBIXMRiA]mBkAcEiCEUpAkBf@}@ZK`@k@fDoF`DuGJUb@w@K[mDqBiCoAeBu@UPi@Ho@SQYCq@t@w@XENBfAgBhBiDv@_@bBKb@ATLlFQ^ULcDDgBUkAgAk@uBNcGtA}D@yDQmAH}A`Am@`B@`@^d@x@FtAQtCw@nBmBb@y@VcBMgDiAcNwCqZO{CiAay@a@{c@j@m\\CsGSeCw@qF}BqIwByFc@}@}@g@qI`A}HbA{Dx@kB}J}A{Ea@kAFQrCs@dGwBx@s@Bk@Lw@LK_@k@qEoH_DaFmB{CgGqKsEqLgAcGe@_D]_G}@gFe@}CBoC]wBc@o@aAwB{AuQsBaO_@_IwAmFNUrCYjCQhC_@Zq@B]gAwCeCyGUeB@u@i@oEoC_OqBuK_FuWcF_Xi@oEYc^SmF_@mCwB{HoHyUyH}VmNyd@mBgDkHcHuRuL_MmH_MiIoJoFc`@uUcFqC_LoDiRaGgZuJ_@MGTABG@IE?a@}EyAcF{AcAKwDBiHwBkBg@qGsBsD{AsJ_DcHwBcBW{Bq@cCHo@SMa@`@w@x@MzGtBjOfF``@rLVKK]ye@sOgRyF}@AoCfAaB~@sAEkDmA`AsCt@kDmTaF"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      },
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 1.3644202,
+               "lng" : 103.9915308
+            },
+            "southwest" : {
+               "lat" : 1.2658061,
+               "lng" : 103.6783696
+            }
+         },
+         "copyrights" : "Map data ©2020 Google",
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "10:40am",
+                  "time_zone" : "Asia/Singapore",
+                  "value" : 1585881638
+               },
+               "departure_time" : {
+                  "text" : "7:45am",
+                  "time_zone" : "Asia/Singapore",
+                  "value" : 1585871102
+               },
+               "distance" : {
+                  "text" : "57.2 km",
+                  "value" : 57226
+               },
+               "duration" : {
+                  "text" : "2 hours 56 mins",
+                  "value" : 10536
+               },
+               "end_address" : "Airport Blvd, Singapore Changi Airport (SIN), Singapore",
+               "end_location" : {
+                  "lat" : 1.3644202,
+                  "lng" : 103.9915308
+               },
+               "start_address" : "76 Nanyang Dr, Singapore 637331",
+               "start_location" : {
+                  "lat" : 1.347328,
+                  "lng" : 103.681273
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 174
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 124
+                     },
+                     "end_location" : {
+                        "lat" : 1.3479605,
+                        "lng" : 103.6804874
+                     },
+                     "html_instructions" : "Walk to Lee Wee Nam Lib",
+                     "polyline" : {
+                        "points" : "ycfG}fywRs@Pa@L{A`@FJ`@z@HP"
+                     },
+                     "start_location" : {
+                        "lat" : 1.347328,
+                        "lng" : 103.681273
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.1 km",
+                              "value" : 111
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 78
+                           },
+                           "end_location" : {
+                              "lat" : 1.3482239,
+                              "lng" : 103.680942
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e toward \u003cb\u003eNanyang Dr\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "ycfG}fywRs@Pa@L{A`@"
+                           },
+                           "start_location" : {
+                              "lat" : 1.347328,
+                              "lng" : 103.681273
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "63 m",
+                              "value" : 63
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 46
+                           },
+                           "end_location" : {
+                              "lat" : 1.3479605,
+                              "lng" : 103.6804874
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eNanyang Dr\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "kifG{dywRFJ`@z@HP"
+                           },
+                           "start_location" : {
+                              "lat" : 1.3482239,
+                              "lng" : 103.680942
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "6.0 km",
+                        "value" : 6005
+                     },
+                     "duration" : {
+                        "text" : "21 mins",
+                        "value" : 1260
+                     },
+                     "end_location" : {
+                        "lat" : 1.339323,
+                        "lng" : 103.70546
+                     },
+                     "html_instructions" : "Bus towards Boon Lay",
+                     "polyline" : {
+                        "points" : "qgfGcbywRKD`@|@j@fALVHPRZLZFNBHBLBL@LDh@HlAZ?@?`@?@?H?F?DAF?BAJAVEJ?HAL?B?RAR?rB?b@@F?RARAVCJCb@K`A]LEnAa@TGNCLATAnCOf@Et@Ch@C@?B?NAN@fA@d@@bADP?RC@?LETKX[bAiANQFIBCRc@DS?CDc@?[AoA?AAw@Co@CYCQCOCSG]?CUu@Si@Yq@q@oAq@eAs@w@w@aAu@\\GB_@H]F]HG@KBw@DG?E?E@C?G?E@E?EAG?GCI?WBA?EDEDEH?J?F@L@NHd@@Fb@lB?B?B?DMPGHGFk@p@SPA@s@r@]_@AEAC?EDGBCVWDAD?JD\\XRQj@q@FGFILQ?E?C?Cc@mBAGIe@AOAM?G?KDIDEDE@?VCH?FBF?D@D?DAF?B?DAD?F?v@EJCFA\\I\\G^IFCt@]AAU]{AyBGIU[{BuCy@gAW]e@i@IGGGW]OSEGOQEOEMGOKSACIOGKIKKQOQEGSWSWWWAAQQ]e@a@g@w@_AaBgBYYIIMGCCOGICMCQCO?{AB?@?@?@?@A??@?@A??@A??@A?A@A??@A?A?A?A?A?A?A??AA?A??AA??AA??AAA?AA??A?A?A?A@CBEBCCe@AQ@G?A@EBGDEBCDC@APGl@Kv@Q|@WrAe@~@_@ZMNGh@WRIPKRKTOdAu@x@o@vBaBNKJINMZUv@i@v@i@ZSJKb@_@lBaB|CsBPM\\WhAo@PIb@YxAo@p@U`@MTIfEiAGgA@{C?_D@[?u@?qA?U?K@gA@uG@eCAICsDA[AUEa@Mq@Mi@q@wCQe@Q{@IUVI]kBq@{BgCv@"
+                     },
+                     "start_location" : {
+                        "lat" : 1.347931,
+                        "lng" : 103.680504
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 1.339323,
+                              "lng" : 103.70546
+                           },
+                           "name" : "Boon Lay Int"
+                        },
+                        "arrival_time" : {
+                           "text" : "8:12am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585872727
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 1.347931,
+                              "lng" : 103.680504
+                           },
+                           "name" : "Lee Wee Nam Lib"
+                        },
+                        "departure_time" : {
+                           "text" : "7:51am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585871467
+                        },
+                        "headsign" : "Boon Lay",
+                        "headway" : 240,
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "SBS Transit",
+                                 "phone" : "011 65 1800 225 5663",
+                                 "url" : "https://www.sbstransit.com.sg/"
+                              }
+                           ],
+                           "color" : "#55dd33",
+                           "name" : "179A",
+                           "text_color" : "#000000",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 6
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "34.2 km",
+                        "value" : 34201
+                     },
+                     "duration" : {
+                        "text" : "1 hour 31 mins",
+                        "value" : 5460
+                     },
+                     "end_location" : {
+                        "lat" : 1.3187807,
+                        "lng" : 103.9023173
+                     },
+                     "html_instructions" : "Bus towards Bedok",
+                     "polyline" : {
+                        "points" : "wqdGc~}wRFJl@|BCTcAVKCu@uCMe@OSoAZIBEOCQA@W}@GUaAmDIULCpAc@|@Yf@Qd@[AANKYc@_@s@a@sAEWC?EQm@_CK]g@iBoB}Gk@wB@?qD}MGSW}@CKOe@e@aBWaAKY^Bb@BdABp@FJ?~@BnBC^A^E\\Gv@Mx@WhA]NEp@YXMx@W^Mb@Q`@Ox@[l@Y|@i@HS@O@U}@}Ay@wA]m@GMe@aAKWEQCOCK?KAO?I?I?I@G@OBODOFOHQJODGj@g@|@a@b@Wf@Wx@e@~@e@z@g@fBaAdA_@^Kb@Or@Yh@On@SDChAa@v@UbBc@zA[d@MbAOHCAIAI@H@Hd@Gb@Cn@AR?n@?P@hAJn@Jf@Hv@Pd@LzA\\HBH@D?xAJjBDdABhBDT?|A@F?hBBL??N?n@BvCAvAAPETKXSd@GH_@r@EDaAnB~CzAFBLDHBPDNBT@T@H@R?d@AbAMp@KlBW\\GVWFGHKFIJMDQ@C@C?E?I?G?QAICQcAeHKu@YeBMs@c@gCCOAO@S?EEYOsAU}Ai@wDM}@]aCMaAQgAG_@_@oCGg@Iw@K_ACY?E?C?C?E@C?CBCg@sDw@oF[sBSaB_@qCWiB[kBG[Km@[uBQiAOyAEgA?mADwAFk@@MBUHq@VqALe@FUFSHSHSFQDGDKHQHSJQLU?CFGHQVa@FIR_@JQJQJQJOJQLSXe@HMHONUDEd@}@LQn@eANULQ~@}AF_@b@_AVk@HSVaA@EJs@Fs@BsA?e@?CCgATuAHg@hAAB?Z?D?`AAlA@b@@v@@n@Dd@JJBVFpAVPFbAh@vAv@LFn@\\XNHF@?PHTLFBD?D?H?J@H?FAF?FCFAFCJGHEFGDEBABABAv@yFHs@BM@M|@}HBMd@gDN_A@CDWLg@Ry@Le@?EBGDIFQJUDGFM@?HKNSl@o@`@_@JKVWDCtCkCZY`Aw@lBgBLSlAgAt@o@r@o@z@u@fAaAz@s@r@m@PM`@WvAeAtCmBn@i@Lc@FWDY@Ig@cAO]EMCKCICICKAGAI?EAGAI?W@QHm@FQDIDKLSJMDI|AmBDKb@e@fBsBBCj@o@r@{@FEp@{@j@q@d@k@b@i@x@_Ah@q@t@}@vAaB^a@x@_AHKZ]POZUBCDCBADCRKPIbC_AnAe@ZMl@SVKx@[hAa@b@Qb@OBCFAr@Y\\Kn@WhBk@HCVIjA_@HC`A[~Bq@rAc@JCf@SZIPILC`A[DCPENEJAPELCRGNCLARANADAH?HAL?V@p@@jBLN@P@TBL@b@Bb@BX@hDRX@\\BX?X?X?fBKh@EdAMb@IH?FCFADABA@ABCJCFEHGXYVWDERQBEZ[b@i@PSPSDGJOP[HIDONg@DUBG@IBM@EPcAHc@Nw@NaA@?X}AHg@RmAF]DS\\iBLw@F[DUBIDWFSFYDQDMRk@Zy@Z}@fA}C\\cANi@Ji@@CXkAXmA^yAZqANk@DODO@EFQDKDOHOFKFM@AFKDIHMRONMLIHG|@c@PK~A_At@_@t@c@NIBANMLMV[r@s@LOZ]DEj@k@HGVUBAHGLK`@Uh@SPIPIFCHAF?D?B?B@DBDBBBNTFHFB?@FBD@B?B?D?D?D?HCJEDCFCl@c@t@k@JEp@e@`@[XWVWLOHONU@A@CZi@f@w@|@aBJQPY^o@Tc@Xi@fAoBb@u@Xa@\\YXQd@QDAj@On@Sj@OXId@IREPENEJEFCJEXIRCD?B?@?H?JBLDF[@EF[`@wAJa@Ha@BIFW@CNo@FYXiAl@aCx@iDJ_@R}@ZiADQXkAJc@Pm@Jc@Ja@Ja@Ha@VeA\\qAh@{BTaAHa@b@eBPs@BKTcAJa@R_ADQDQRu@f@oBJ[Nq@Ns@dAiEJy@FSBMb@gBfAiDRk@\\_ATk@HS@E@C@Cb@mAVkABMFg@@O@S?I@_@BU?g@@kABcBDu@@QFg@BOD]DYHc@@GDMr@iCFQHU`@wABKRs@BIXaAJYDQHWT_AJi@?GNeABU@QDi@LiAJqAHgABM?O@[BiA@c@DkA?]@Y@YDc@DU^wAN_@DMFOHSJO^m@h@y@LWR]FIp@oA\\o@LWf@{@LY`@u@DIHYX_AJm@Jc@Jc@DMDM^_A@Gd@gAr@wADGLUNUr@gAXc@Xc@FI`AyAHQT[j@_Ad@w@FKHMTe@DONa@BKH]NuABc@@W@SAQ?[Ca@?CA]AQA[EuBA_@?G?EAW?c@CoACqA?MK?A?CAA?AAAA?AAg@?A@??A@?@?DAH??a@GcBAUE]G[GUGQGMGOIMCEEGEEACKKUYGGMO_@_@OQa@c@OQw@y@eAeAWYSSOOSU[]?ASQEEy@{@YYSWQSo@s@ACACAA?A?CAC?C[_@aBeBmAqACEe@e@_@c@GIaBeBOMo@o@g@c@y@aAo@w@KMIKGIAAKOGQEKCKESAIAM?k@@kAByANyD?K?oC?EAe@?[?c@?gA?c@AmAA]CqCIiF?{@Ac@?KCa@Am@A[GeHL??EAcA?U?U?EC}AAoAAuC?S?QAU?WAc@?gA?_@?c@Bw@@e@@UBS@SVsDFaABc@B[?E@k@Ck@Ek@EUI_@I]IUKSISSa@s@}AMWk@uAK[GOIa@I_@EYCSGk@Cq@Ay@@]Ho@JaA\\mAL]L]NY|@aB\\s@Xm@pBkD@AtBsDzAoCf@eAZw@\\iAFUFWHk@Dc@?M@[@a@?k@As@C_@EYG_@GWQq@Qs@Yy@_@s@gBsCGKKQS]qA}Ba@w@cAmBoB}CS]oDyFeBkCgBkCcCuDcCuDaD_FmBwCQUiCcE{@kAyAyBU[i@y@U]}BmDU]U[sAsBiAeBa@i@i@{@{@uAe@o@MSy@mAMO_@a@o@o@i@e@GC]SECo@[u@W_@Ks@Mc@Iq@Eg@Ck@?q@@s@FgALu@Pw@Vw@\\MHwA~@u@j@[Vu@l@YToBrAc@V@LANCJCFGJWTEDURUPWLc@TMFIDUJa@JGBMDWFWDWBI@i@DeBPcALc@D{@Ng@P]NWL_@R[R[PmAPgAJ{@AWCYGq@SYMKIIMGKEIKUEKISSi@KUMa@_@_AGQWaAIKEKKSM[GWCECMCKCSAM?KAM@S@SHs@Dc@D_@De@JgABe@BQ?O?Q?U?WAKAI?oBAoAAc@?}@?i@B{@By@BiA@i@?YA_@AUA_@Cc@Ac@GkBCyAGuAGy@C]CYCSCKCGCEEGEGGEIGMGy@?gA?g@?s@CkAME?I?o@Gw@@s@@c@@S?q@CE?e@A{AGUAo@C_@FI@GBGBIBIFMHUNKVKPCD[VQJ]LEBE@G?O@K@O?k@BW?i@BI?Q@M?_@@S?g@BQBI@]DE@m@J]L[Ja@P]VKH[TIFIFOLg@d@IHC@EFKL{AbB_AfA}@lAMVMW{@eCk@uA[y@a@eAa@eAK[c@gAYw@CGOc@ISA?AEOc@Oa@M_@Mu@OaBGm@MkAE]M{@CQKw@Iq@Ea@YmBOmAEc@Ec@CKCUo@mFAME@E?CAACACACAMAEAI?EAECSAGAIAC?EAI?GAC@C@A?A@A@AFAOqAQqASaBMiAa@aDa@LYF_ALk@@I?[@mB?S?W?W?gA@y@?S?c@?i@?C?yAB}@?UDa@@{@?aA?S?w@@a@?W@_@B_AJ]By@Je@DA?YDSBmALkAJAOCc@Eo@IiAAa@AGWgCEe@a@mEKwAGg@Ga@SeBKu@QsAKo@E[Ge@K{@[oCS_CYuBY}BCWAEQ@"
+                     },
+                     "start_location" : {
+                        "lat" : 1.339323,
+                        "lng" : 103.70546
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 1.3187807,
+                              "lng" : 103.9023173
+                           },
+                           "name" : "Eunos Stn/ Int"
+                        },
+                        "arrival_time" : {
+                           "text" : "9:52am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585878727
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 1.339323,
+                              "lng" : 103.70546
+                           },
+                           "name" : "Boon Lay Int"
+                        },
+                        "departure_time" : {
+                           "text" : "8:21am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585873267
+                        },
+                        "headsign" : "Bedok",
+                        "headway" : 540,
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "SBS Transit",
+                                 "phone" : "011 65 1800 225 5663",
+                                 "url" : "https://www.sbstransit.com.sg/"
+                              }
+                           ],
+                           "color" : "#55dd33",
+                           "name" : "30",
+                           "text_color" : "#000000",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 67
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "16.4 km",
+                        "value" : 16445
+                     },
+                     "duration" : {
+                        "text" : "39 mins",
+                        "value" : 2340
+                     },
+                     "end_location" : {
+                        "lat" : 1.3612573,
+                        "lng" : 103.9895425
+                     },
+                     "html_instructions" : "Bus towards Ang Mo Kio",
+                     "polyline" : {
+                        "points" : "kq`GoldyRPAK{@Ga@]sCGm@Gc@Ga@W}AM_AE]K}AUyDIkAGq@CUCUGe@Io@CQWiBOkACUUgBYcCOkACSU}AAKAEIw@EUAKM}@Gs@Gk@Ik@ESCME[Gk@Ig@E_@MgACOYoCMsBCQM_CCc@Ao@?yA@i@BmABcABaC?KAa@A[EQKs@CIOs@GOQu@Ma@[iAgBqHIa@Ka@ESEMEOYgACMc@cBGe@[aBKo@Mw@SwBCKEg@CUOgBMgAE[KaAOkAAUKoAo@aE[aCQaBEi@Eg@Gw@CmAAM?[Cq@@oAAKC_BEsACcAIcAE_AY_EOuBCa@ASAOC[C]c@qEOqB_@{FGcAMoBGeAEo@CMGs@MkAIk@E[Ga@Kk@]yAKc@GYCKQy@Oo@YkAEQ[_AI[EISs@Sy@AAY{@Wq@Yy@Y{@Qo@U{@EOQi@g@qBI[Q}@c@qBa@aBK_@U}@_@_BEO[w@Ye@KQw@eAQWOS_@g@y@aA]g@qAaBm@u@g@o@a@k@m@w@e@o@e@s@CCw@eAQYc@s@s@cAS[k@{@gA{AUWQMKG_@Sa@]g@{@IQIWCIOc@Q]q@y@e@e@w@o@KIAASMGEaAg@_@Ue@YGEQM]UUQy@k@i@_@gCgBOGyBwA_Ae@CAc@UQI_@Qk@UCAo@Wu@Su@UYGu@OqB[a@G}@Su@M}AY_AUmAU{@S[IcB_@IAm@M}@Sw@Qw@Qg@KiASk@KWGeDq@oAY@CyBa@aB_@UEEAoCg@cCe@wBe@kB[]AOBMHKLINAR?PFRNRPLPFRDXBZ?RALINMVe@|@oB^u@LU`@q@LWXWHKh@w@n@q@p@q@jC}BzIgFn@]nF{C`B_AlF{CjBeAfBiAdBcBbAqApAiBr@yA~@}CDBL_@pCiIZ_AHS@Q@MRy@lByGjBiGJu@@y@K_AUy@_@u@k@k@k@a@cB}@mBm@oJyCa@KmBi@A?}CaAoAa@}Ag@{Ae@qBo@OEuAg@a@Oc@QWIWK_@MGTA@?@A@A?A?A?AAGCJ]KCy@Ww@Uk@O_A[q@SwAe@k@Om@QOAOAQAQEUAM?m@@_@BWBM?KASAQE}@Sg@O]OmAi@_@EGC]IUGYIWEc@OsAc@}DoAuCaA]YUKy@WUGmGsBk@Se@O}B{@MCaAUa@Gi@Ek@Qm@QSISIGAGAK?E@G?a@F]B_@AYAMCICIGGIEMAC?I?G@G@GDIDGFEHEVITCLAD?F@J@f@P`@Lx@Xn@V|@^d@Pp@VpBp@xBl@d@DL@NB\\Hf@Pb@L\\JLDZNp@RhCz@rBp@b@Nf@TRFF@ZHdAVhEjApAd@HDLLTTVPTFVFl@NtA\\FABEBK@ECMw@UYMIGOE}@a@c@SgBi@I?KAMAUEqAc@iGmBQGaBi@yAg@[KcAYa@MCAYKA?qDkAy@W_Cu@]MICa@OmBu@g@QiDgAKCI?UCs@Li@PYHs@POD_@HQDO?G?a@I_@My@Wa@Mq@SOIKOAE?G?EDS?AHU@@"
+                     },
+                     "start_location" : {
+                        "lat" : 1.3187807,
+                        "lng" : 103.9023173
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 1.3612573,
+                              "lng" : 103.9895425
+                           },
+                           "name" : "Changi Airport PTB1"
+                        },
+                        "arrival_time" : {
+                           "text" : "10:40am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585881607
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 1.3187807,
+                              "lng" : 103.9023173
+                           },
+                           "name" : "Eunos Stn/ Int"
+                        },
+                        "departure_time" : {
+                           "text" : "10:01am",
+                           "time_zone" : "Asia/Singapore",
+                           "value" : 1585879267
+                        },
+                        "headsign" : "Ang Mo Kio",
+                        "headway" : 540,
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "SBS Transit",
+                                 "phone" : "011 65 1800 225 5663",
+                                 "url" : "https://www.sbstransit.com.sg/"
+                              }
+                           ],
+                           "color" : "#55dd33",
+                           "name" : "24",
+                           "text_color" : "#000000",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 23
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 km",
+                        "value" : 401
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 31
+                     },
+                     "end_location" : {
+                        "lat" : 1.3644202,
+                        "lng" : 103.9915308
+                     },
+                     "html_instructions" : "Walk to Airport Blvd, Singapore Changi Airport (SIN), Singapore",
+                     "polyline" : {
+                        "points" : "eyhG_suyRmTaF"
+                     },
+                     "start_location" : {
+                        "lat" : 1.3609883,
+                        "lng" : 103.9903955
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.4 km",
+                              "value" : 401
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 31
+                           },
+                           "end_location" : {
+                              "lat" : 1.3644202,
+                              "lng" : 103.9915308
+                           },
+                           "polyline" : {
+                              "points" : "eyhG_suyRmTaF"
+                           },
+                           "start_location" : {
+                              "lat" : 1.3609883,
+                              "lng" : 103.9903955
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "ycfG}fywRiDlAd@pArC`GNrAd@lAb@?XAn@IfFAfE{@fKkA`GDt@IbCcCj@iCWiGq@aCqD_Gw@aAu@\\g@LoAVcBH_AB@fBd@|B]h@uBxBa@o@f@e@bALhAuAc@{BIiB~@Kp@AdFiA{MqQkEkGaGgGuCCEHWBAaBjMyEdT_PxMsHv@WfEiAGgA@{H@qA@{DAyQ{BiLL_@oAgF_CbAh@rCoARcA{D_BFOKe@cBkAcE~Ag@hCiAkAwDmGgUaHeWRUhBFlFFzIsB~IuDJc@{@sBeCuE[uBj@sBtHmEzLcFzL}ClCM|K`BdL`@|ED@nHwCzGlGvBfCMtEcAn@kAoBaO_Gsb@kEe^kCaSN_Fr@_E`AiCtAeCtGwKxBoEz@gCh@cKHg@hAA^?xD@xCV~DpAbFlCbAB~@g@pCySlBqKv@{AtXeWbDgClFsD|@mALq@e@mA]aAOwA~@sCtV_ZvDyDlIcDtSiH|NiExJTlJ^zGq@`F_FhAuC|AsIzDqQzHmXx@_B`H_ElIoHnCcAv@p@f@FdEmC~BgCnFmJbDaFpBu@|EoAvAWb@W~@wDfDeNdC{J|GmY`E_QbEqMnA{FR_J|AsHtBeHfAiGr@qKHgDl@kDjCaFpEkIxAuFrEcJnFqIzAqF?aEMmGSoDICAo@B{D{@}BoByBoLcMwLcNoF_Gi@gBRsQGiL[gVDiHEuJl@uLO_GkDiI}@yFTiEhAcDbN{VzAiHk@eHmHoNkVi`@{Ui^iLcQqHeKuAaAyDmAiDScFh@uE~BaDfCsChCg@t@{ChBsDn@iGt@}BbAmEbA_Da@yAqB}BmGs@iC\\_FRgTq@yUS]yAUgJW{HKkCb@cCtBgDLwCJuExAaCnBmD`EkAdBiA}CkC{GmAcDyAyEgEg^g@iBAg@yAwNgDd@gD@wG@yKLyGf@gEb@UmD_BgQsBmPkAkKSCD}@u@gGs@}EmAwOuDeZy@iGqAaQHaNiBuHmD}N_C_OiEab@[eN_AuN{BwZcBsKiGgTgDcNkD_LcRwVsGyIsB_Co@cB{FwEwFwDkLaHmKmCkYaG}QyDaQuCe@z@h@fAzAPhA_AhFaJ`BcBfNeJnRuKrEoChDuDjE}IjIqXvB_IIyBu@oBwAmAcRqGmGkBgPoFo@Ug@FEDME?a@qBm@uFeByBe@{D?cHmBcLiDyR_HgKqC}B?qAKYc@`@_A`AO|Ab@lEbBbI|BnEpArLzDjJnCpA|@bDr@De@_IqC}KcDi\\wKuEoAkDz@qATcCo@oB{@Bg@`AaEmTaF"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
 }
