@@ -142,22 +142,22 @@ class _RouteTileListState extends State<RouteTileList> {
                   child: Image.asset('assets/elec_button.png'),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(60.0, 0.0, 30.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(50.0, 0.0, 30.0, 0.0),
                   child: Text(
                     '\$' + allRoutes1[index].totalCost.toString(),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
+                      fontSize: 15.0,
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(30.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                   child: Text(
                     '${allRoutes1[index].dist}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
+                      fontSize: 15.0,
                     ),
                   ),
                 ),

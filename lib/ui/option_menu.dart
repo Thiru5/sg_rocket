@@ -104,15 +104,15 @@ class _ButtonsState extends State<Buttons> {
         Text(
           'Choose...',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 30,
             color: Colors.grey,
             fontWeight: FontWeight.bold,
             fontFamily: "xx",
           ),
         ),
         ButtonTheme(
-          minWidth: 250,
-          height: 35,
+          minWidth: 400,
+          height: 40,
           child: RaisedButton(
             child: const Text('FASTEST', style: TextStyle(fontSize: 15)),
             color: buttonIndex[0] == 1 ? Colors.amber[300] : Colors.white,
@@ -132,8 +132,8 @@ class _ButtonsState extends State<Buttons> {
           ),
         ),
         ButtonTheme(
-          minWidth: 250,
-          height: 35,
+          minWidth: 400,
+          height: 40,
           child: RaisedButton(
             child: const Text('CHEAPEST', style: TextStyle(fontSize: 15)),
             color: buttonIndex[1] == 1 ? Colors.amber[300] : Colors.white,
@@ -153,8 +153,8 @@ class _ButtonsState extends State<Buttons> {
           ),
         ),
         ButtonTheme(
-          minWidth: 250,
-          height: 45,
+          minWidth: 400,
+          height: 40,
           child: RaisedButton(
             child:
                 const Text('MODE OF TRANSPORT', style: TextStyle(fontSize: 15)),
@@ -175,8 +175,8 @@ class _ButtonsState extends State<Buttons> {
           ),
         ),
         ButtonTheme(
-          minWidth: 250,
-          height: 35,
+          minWidth: 400,
+          height: 40,
           child: RaisedButton(
             child: const Text('I HATE PEOPLE', style: TextStyle(fontSize: 15)),
             color: buttonIndex[3] == 1 ? Colors.amber[300] : Colors.white,
