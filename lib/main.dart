@@ -1,18 +1,14 @@
-import 'dart:async';
+
 import 'package:google_maps_webservice/places.dart';
 import 'package:location/location.dart' as loc;
-import 'package:sg_rocket/directionsapi.dart';
-import 'package:sg_rocket/flutter_google_places.dart';
+import 'package:sg_rocket/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:sg_rocket/option_menu.dart';
+import 'package:sg_rocket/ui/option_menu.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:sg_rocket/models/database.dart';
-
-
-import 'bus_load.dart';
 
 const kGoogleApiKey = "AIzaSyC9sCa6TUJ0PGhkCd3RwOr_R3B850Qpe9I";
 
@@ -25,25 +21,25 @@ final searchScaffoldKey = GlobalKey<ScaffoldState>();
 void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: new HomePage(),
+    home: new SGRocketApp(),
   ));
 }
 
-class HomePage extends StatefulWidget {
+class SGRocketApp extends StatefulWidget {
   LatLng location;
   LatLng destination;
-  HomePage({Key key, @required this.destination, this.location})
+  SGRocketApp({Key key, @required this.destination, this.location})
       : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState(destination,location);
+  _SGRocketAppState createState() => _SGRocketAppState(destination,location);
 }
 
-class _HomePageState extends State<HomePage> {
+class _SGRocketAppState extends State<SGRocketApp> {
 
   Prediction predict;
   LatLng destination;
   LatLng location;
-  _HomePageState(this.destination,this.location);
+  _SGRocketAppState(this.destination,this.location);
 
   bool loading = true;
   loc.LocationData nowLocation;
@@ -56,11 +52,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    getLocation();
+    getCurrentLocation();
     super.initState();
   }
 
-  getLocation() async {
+  getCurrentLocation() async {
     Position position = await Geolocator()
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
     print(position);
@@ -89,8 +85,8 @@ class _HomePageState extends State<HomePage> {
     var destReply = endName.first;
 
     setState(() {
-      startName = "${startReply.addressLine}"; //startReply.name +' '+ startReply.subLocality +' '+ startReply.locality +' '+ startReply.administrativeArea +' '+ startReply.postalCode +' '+ startReply.country;
-      destName = "${destReply.addressLine}";//destReply.name  +' '+ destReply.subLocality +' '+ destReply.locality+' '+ destReply.administrativeArea +' '+ destReply.postalCode +' '+ destReply.country;
+      startName = "${startReply.addressLine}";
+      destName = "${destReply.addressLine}";
     });
 
     List startPoint = [latLng.latitude,latLng.longitude];
@@ -171,11 +167,11 @@ class _HomePageState extends State<HomePage> {
                     components: [Component(Component.country, "sg")]);
                 PlacesDetailsResponse response =
                     await _places.getDetailsByPlaceId(p.placeId);
-                var location = response.result.geometry.location;
+                var startLocation = response.result.geometry.location;
                 Navigator.push(context,
                 MaterialPageRoute(
-                  builder:(context) => HomePage(
-                    location: LatLng(location.lat, location.lng),
+                  builder:(context) => SGRocketApp(
+                    location: LatLng(startLocation.lat, startLocation.lng),
                     destination: desLng,
                   )
                 ));
@@ -200,12 +196,12 @@ class _HomePageState extends State<HomePage> {
                     components: [Component(Component.country, "sg")]);
                 PlacesDetailsResponse response =
                     await _places.getDetailsByPlaceId(p.placeId);
-                var location = response.result.geometry.location;
+                var destination = response.result.geometry.location;
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => HomePage(
-                              destination: LatLng(location.lat, location.lng),
+                        builder: (context) => SGRocketApp(
+                              destination: LatLng(destination.lat, destination.lng),
                               location: latLng,
                             )));
               },
@@ -257,26 +253,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-//      floatingActionButton: Container(
-//        height: 80.0,
-//        width: 80.0,
-//        child: FittedBox(
-//          child: FloatingActionButton(
-//            child: Icon(Icons.navigation),
-//            backgroundColor: Colors.amber[300],
-//            onPressed: () {
-//              Navigator.push(
-//                  context,
-//                  MaterialPageRoute(
-//                      builder: (context) => MapsRoute(
-//                            destination: finalDest,
-//                            location: latLng,
-//                          )));
-//            },
-//          ),
-//        ),
-//      ),
-//      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 

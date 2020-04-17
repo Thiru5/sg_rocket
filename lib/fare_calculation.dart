@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:sg_rocket/mrt_list.dart';
+import 'package:sg_rocket/models/mrt_list.dart';
 
 
 class FareCalculator extends StatefulWidget {

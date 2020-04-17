@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sg_rocket/topbar.dart';
-import 'package:sg_rocket/lower_top_bar.dart';
-import 'package:sg_rocket/route_tile_list.dart';
+import 'package:sg_rocket/ui/topbar.dart';
+import 'package:sg_rocket/ui/lower_top_bar.dart';
+import 'package:sg_rocket/ui/route_tile_list.dart';
 
-import 'models/database.dart';
-import 'models/routeQuery.dart';
+import '../models/database.dart';
+import '../models/routeQuery.dart';
 
 class MapNavMenu extends StatefulWidget {
   final int buttonpressed;

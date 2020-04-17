@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'package:sg_rocket/fastest_route.dart';
-import 'package:sg_rocket/lonely_route.dart';
-
-import 'package:sg_rocket/map_nav.dart';
+import 'package:sg_rocket/ui/sortByTime.dart';
+import 'package:sg_rocket/ui/sortByCrowd.dart';
+import 'package:sg_rocket/ui/map_nav.dart';
 import 'package:sg_rocket/models/database.dart';
-import 'package:sg_rocket/transport_mode.dart';
-import 'package:sg_rocket/topbar.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'bus_stops.dart';
-
-import 'models/routeQuery.dart';
+import 'package:sg_rocket/ui/sortByTransport.dart';
+import 'package:sg_rocket/ui/topbar.dart';
+import '../models/routeQuery.dart';
 
 int buttonPressed;
 
@@ -59,7 +53,7 @@ class _OptionMenuState extends State<OptionMenu> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => FastestRoute(buttonpressed: buttonPressed,),
+                                  builder: (context) => SortByTime(buttonpressed: buttonPressed,),
                                 ));
                           } else if (buttonPressed == 1) {
                             Navigator.push(
@@ -72,13 +66,13 @@ class _OptionMenuState extends State<OptionMenu> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => TransportMenu(buttonpressed: buttonPressed)),
+                                  builder: (context) => SortByTransport(buttonpressed: buttonPressed)),
                             );
                           } else if (buttonPressed == 3) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LonelyRoute(buttonpressed: buttonPressed)),
+                                  builder: (context) => SortByCrowd(buttonpressed: buttonPressed)),
                             );
 
                           }

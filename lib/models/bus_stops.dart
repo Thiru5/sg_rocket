@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
-import 'bus_list.dart';
+import '../models/bus_list.dart';
 import 'bus_stop.dart';
 
 class BusStops extends StatefulWidget {

@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sg_rocket/models/routeQuery.dart';
 
-import 'main.dart';
+import '../main.dart';
 
 class TopBar extends StatelessWidget {
 
@@ -33,7 +33,7 @@ class TopBar extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => HomePage()),
+            MaterialPageRoute(builder: (context) => SGRocketApp()),
           );
         },
         child: Container(

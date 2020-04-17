@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sg_rocket/topbar.dart';
-import 'package:sg_rocket/lower_top_bar.dart';
-import 'package:sg_rocket/route_tile_list.dart';
+import 'package:sg_rocket/ui/topbar.dart';
+import 'package:sg_rocket/ui/lower_top_bar.dart';
+import 'package:sg_rocket/ui/route_tile_list.dart';
 
-import 'models/database.dart';
-import 'models/routeQuery.dart';
+import '../models/database.dart';
+import '../models/routeQuery.dart';
 
-class FastestRoute extends StatefulWidget {
+class SortByCrowd extends StatefulWidget {
   final int buttonpressed;
 
-  const FastestRoute({Key key, this.buttonpressed}) : super(key: key);
+  const SortByCrowd({Key key, this.buttonpressed}) : super(key: key);
+
   @override
-  _FastestRouteState createState() => _FastestRouteState(buttonpressed: buttonpressed);
+  _SortByCrowdState createState() => _SortByCrowdState(buttonpressed: buttonpressed);
 }
 
-class _FastestRouteState extends State<FastestRoute> {
+class _SortByCrowdState extends State<SortByCrowd> {
   final int buttonpressed;
-  _FastestRouteState({this.buttonpressed});
-
+  _SortByCrowdState({this.buttonpressed});
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<RouteQuery>>.value(
@@ -33,13 +33,12 @@ class _FastestRouteState extends State<FastestRoute> {
                     LowerTopBar(buttonpressed: buttonpressed),
                     Expanded(
                         child: Container(
-                      width: 400,
-                      height: 100,
-                      child: RouteTileList(),
-                    ))
+                          width: 400,
+                          height: 100,
+                          child: RouteTileList(),
+                        ))
                   ],
                 ),
-
               ],
             ),
           ),

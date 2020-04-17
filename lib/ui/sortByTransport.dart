@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sg_rocket/map_nav.dart';
-import 'package:sg_rocket/topbar.dart';
+import 'package:sg_rocket/ui/map_nav.dart';
+import 'package:sg_rocket/ui/topbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'models/database.dart';
-import 'models/routeQuery.dart';
+import '../models/database.dart';
+import '../models/routeQuery.dart';
 
 int buttonPressed;
-class TransportMenu extends StatefulWidget {
+class SortByTransport extends StatefulWidget {
   final int buttonpressed;
-  const TransportMenu({Key key, this.buttonpressed}) : super(key: key);
+  const SortByTransport({Key key, this.buttonpressed}) : super(key: key);
 
   @override
-  _TransportMenuState createState() => _TransportMenuState(buttonpressed: buttonpressed);
+  _SortByTransportState createState() => _SortByTransportState(buttonpressed: buttonpressed);
 }
 blueURL() async {
   String url = 'https://play.google.com/store/apps/details?id=com.bluesg.androidapp&hl=fr';
@@ -70,9 +70,9 @@ Widget _buildAboutDialog(BuildContext context) {
   );
 }
 
-class _TransportMenuState extends State<TransportMenu> {
+class _SortByTransportState extends State<SortByTransport> {
   final int buttonpressed;
-  _TransportMenuState({this.buttonpressed});
+  _SortByTransportState({this.buttonpressed});
   @override
   Widget build(BuildContext context) {
 

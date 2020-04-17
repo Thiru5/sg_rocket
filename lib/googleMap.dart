@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:location/location.dart' as loc;
 import 'package:provider/provider.dart';
-import 'package:sg_rocket/map_req.dart';
+import 'package:sg_rocket/getRoute.dart';
 
 import 'package:sg_rocket/models/routeQuery.dart';
 
@@ -35,9 +35,6 @@ class _MapsRouteState extends State<MapsRoute> {
 
   Completer<GoogleMapController> _controller = Completer();
 
-
-
-
   bool loading = true;
   static const LatLng _center = const LatLng(1.338231, 103.984072);
   LatLng _lastMapPosition = _center;
@@ -49,13 +46,13 @@ class _MapsRouteState extends State<MapsRoute> {
 
   @override
   void initState(){
-    getLocation();
-    sendRequest();
+    getCurrentLocation();
+    requestUpdate();
     loading = true;
     super.initState();
   }
 
-  getLocation() async {
+  getCurrentLocation() async {
     var location = new loc.Location();
     location.onLocationChanged().listen((currentLocation){
       print(currentLocation.latitude);
@@ -74,7 +71,7 @@ class _MapsRouteState extends State<MapsRoute> {
 
 
 
-  void _onMapCreated(GoogleMapController controller) {
+  void _displayGoogleMap(GoogleMapController controller) {
     _controller.complete(controller);
   }
 
@@ -122,8 +119,8 @@ class _MapsRouteState extends State<MapsRoute> {
   }
 
 
-  void sendRequest() async {
-    getLocation();
+  void requestUpdate() async {
+    getCurrentLocation();
     String route = await _googleMapsServices.getRouteCoordinates(
        latLng , destination);
     createRoute(route);
@@ -185,7 +182,7 @@ class _MapsRouteState extends State<MapsRoute> {
         body: Stack(
             children: <Widget>[
               GoogleMap(
-            onMapCreated: _onMapCreated,
+            onMapCreated: _displayGoogleMap,
             polylines: _polyLines,
             initialCameraPosition: CameraPosition(
               target: _center,
@@ -232,7 +229,7 @@ class _MapsRouteState extends State<MapsRoute> {
               padding: EdgeInsets.only(top: 40, bottom: 20, right: 20),
               child: RaisedButton(
                onPressed: () {
-                 sendRequest();
+                 requestUpdate();
                },
                 child: Text(
                   'Request',
@@ -251,8 +248,8 @@ class _MapsRouteState extends State<MapsRoute> {
   @override
   void dispose() {
     super.dispose();
-    getLocation();
-    sendRequest();
+    getCurrentLocation();
+    requestUpdate();
     _onAddMarkerButtonPressed();
   }
 

@@ -3,10 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
-import 'package:sg_rocket/maps.dart';
+import 'package:sg_rocket/googleMap.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'models/routeQuery.dart';
+import '../calculate.dart';
+import '../models/routeQuery.dart';
 
 class Route {
   final List<dynamic> route;
@@ -37,31 +38,7 @@ class Routes {
   Routes(this.routes, this.totalCost, this.dist);
 }
 
-class Calculation {
-  double calculate(double distance) {
-    double fare = 92.0 + distance + 3.2 * 10.0;
-    if (fare < 92) {
-      fare = 0.92;
-    } else if (fare >= 217) {
-      fare = 2.17;
-    }
-    {}
-    return fare;
-  }
 
-  double calcualteGojek(double distance) {
-    double fare = 4.10 + distance / 1000 * 0.675;
-    return fare;
-  }
-
-  double calculateGrab(double distance, double duration) {
-    double fare = 2.5 + (distance / 1000 * 0.5) + (duration / 60 * 0.16);
-    if (fare < 6.00) {
-      fare = 6.00;
-    }
-    return fare;
-  }
-}
 
 class RouteTileList extends StatefulWidget {
   @override
@@ -73,14 +50,14 @@ class _RouteTileListState extends State<RouteTileList> {
     return await rootBundle.loadString('assets/map_nav.json');
   }
   void initState(){
-    extractJson();
+    getTransportValues();
     print(allRoutes1.length);
     super.initState();
   }
 
   List<Routes> allRoutes1 = new List<Routes>();
 
-  Future extractJson() async {
+  Future getTransportValues() async {
     String jsonCrossword = await _loadJson();
     Route displayRoute = _parseJsonForRoute(jsonCrossword);
     List<Routes> allRoutes = new List<Routes>();
@@ -112,7 +89,6 @@ class _RouteTileListState extends State<RouteTileList> {
       }
 
       setState(() {
-        allRoutes.add(new Routes(routeDetails, cost,aa));
         allRoutes1.add(new Routes(routeDetails, cost,aa));
         print('test');
       });

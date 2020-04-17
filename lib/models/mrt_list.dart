@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'fare_calculation.dart';
+import '../fare_calculation.dart';
 
 class MrtList extends StatelessWidget {
   final List<Mrt> mrtList;
