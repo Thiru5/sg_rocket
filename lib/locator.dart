@@ -7,7 +7,7 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:http/http.dart';
 import 'package:rxdart/rxdart.dart';
 
-class PlacesAutocompleteWidget extends StatefulWidget {
+class Locator extends StatefulWidget {
   final String apiKey;
   final String startText;
   final String hint;
@@ -38,7 +38,7 @@ class PlacesAutocompleteWidget extends StatefulWidget {
   /// or custom configuration
   final BaseClient httpClient;
 
-  PlacesAutocompleteWidget(
+  Locator(
       {@required this.apiKey,
       this.hint = "Search",
       this.overlayBorderRadius,
@@ -61,20 +61,20 @@ class PlacesAutocompleteWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<PlacesAutocompleteWidget> createState() {
-    return _PlacesAutocompleteScaffoldState();
+  State<Locator> createState() {
+    return _LocatorAutoCompleteScaffoldState();
   }
 
-  static PlacesAutocompleteState of(BuildContext context) =>
-      context.ancestorStateOfType(const TypeMatcher<PlacesAutocompleteState>());
+  static LocatorAutocompleteState of(BuildContext context) =>
+      context.ancestorStateOfType(const TypeMatcher<LocatorAutocompleteState>());
 }
 
-class _PlacesAutocompleteScaffoldState extends PlacesAutocompleteState {
+class _LocatorAutoCompleteScaffoldState extends LocatorAutocompleteState {
   @override
   Widget build(BuildContext context) {
-    final appBar = AppBar(title: AppBarPlacesAutoCompleteTextField(),
+    final appBar = AppBar(title: LocatorAutoCompleteTextField(),
     backgroundColor: Colors.amber[300],);
-    final body = PlacesAutocompleteResult(
+    final body = LocatorAutoCompleteResult(
       onTap: Navigator.of(context).pop,
       logo: widget.logo,
     );
@@ -91,20 +91,20 @@ class _Loader extends StatelessWidget {
   }
 }
 
-class PlacesAutocompleteResult extends StatefulWidget {
+class LocatorAutoCompleteResult extends StatefulWidget {
   final ValueChanged<Prediction> onTap;
   final Widget logo;
 
-  PlacesAutocompleteResult({this.onTap, this.logo});
+  LocatorAutoCompleteResult({this.onTap, this.logo});
 
   @override
   _PlacesAutocompleteResult createState() => _PlacesAutocompleteResult();
 }
 
-class _PlacesAutocompleteResult extends State<PlacesAutocompleteResult> {
+class _PlacesAutocompleteResult extends State<LocatorAutoCompleteResult> {
   @override
   Widget build(BuildContext context) {
-    final state = PlacesAutocompleteWidget.of(context);
+    final state = Locator.of(context);
     assert(state != null);
 
     if (state._queryTextController.text.isEmpty ||
@@ -123,17 +123,17 @@ class _PlacesAutocompleteResult extends State<PlacesAutocompleteResult> {
   }
 }
 
-class AppBarPlacesAutoCompleteTextField extends StatefulWidget {
+class LocatorAutoCompleteTextField extends StatefulWidget {
   @override
-  _AppBarPlacesAutoCompleteTextFieldState createState() =>
-      _AppBarPlacesAutoCompleteTextFieldState();
+  _LocatorAutoCompleteTextFieldState createState() =>
+      _LocatorAutoCompleteTextFieldState();
 }
 
-class _AppBarPlacesAutoCompleteTextFieldState
-    extends State<AppBarPlacesAutoCompleteTextField> {
+class _LocatorAutoCompleteTextFieldState
+    extends State<LocatorAutoCompleteTextField> {
   @override
   Widget build(BuildContext context) {
-    final state = PlacesAutocompleteWidget.of(context);
+    final state = Locator.of(context);
     assert(state != null);
     return Container(
         alignment: Alignment.topLeft,
@@ -194,7 +194,7 @@ class PredictionTile extends StatelessWidget {
   }
 }
 
-abstract class PlacesAutocompleteState extends State<PlacesAutocompleteWidget> {
+abstract class LocatorAutocompleteState extends State<Locator> {
   TextEditingController _queryTextController;
   PlacesAutocompleteResponse _response;
   GoogleMapsPlaces _places;
@@ -289,7 +289,7 @@ abstract class PlacesAutocompleteState extends State<PlacesAutocompleteWidget> {
   }
 }
 
-class PlacesAutocomplete {
+class LocatorComplete {
   static Future<Prediction> show(
       {@required BuildContext context,
       @required String apiKey,
@@ -309,7 +309,7 @@ class PlacesAutocomplete {
       String proxyBaseUrl,
       Client httpClient,
       String startText = ""}) {
-    final builder = (BuildContext ctx) => PlacesAutocompleteWidget(
+    final builder = (BuildContext ctx) => Locator(
           apiKey: apiKey,
           overlayBorderRadius: overlayBorderRadius,
           language: language,

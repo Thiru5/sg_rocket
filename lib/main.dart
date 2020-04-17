@@ -160,7 +160,7 @@ class _SGRocketAppState extends State<SGRocketApp> {
             padding: EdgeInsets.symmetric(horizontal: 160.0),
             child: FlatButton(
               onPressed: () async {
-                Prediction p = await PlacesAutocomplete.show(
+                Prediction p = await LocatorComplete.show(
                     context: context,
                     apiKey: kGoogleApiKey,
                     language: "en",
@@ -189,7 +189,7 @@ class _SGRocketAppState extends State<SGRocketApp> {
             alignment: Alignment.center,
             child: TextFormField(
               onTap: () async {
-                Prediction p = await PlacesAutocomplete.show(
+                Prediction p = await LocatorComplete.show(
                     context: context,
                     apiKey: kGoogleApiKey,
                     language: "en",
